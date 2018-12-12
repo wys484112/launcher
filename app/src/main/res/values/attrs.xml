@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TextClock">
+        <attr name="format12Hour" format="string" />
+        <attr name="format24Hour" format="string" />
+        <attr name="formatTV" format="string" />
+        <attr name="timeZone" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="RowApp">
+        <attr name="rowisAnimateApp" format="boolean" />
+        <attr name="rowbackgroundResource" format="reference" />
+        <attr name="rowimageviewBackgroundResource" format="reference" />
+        <attr name="rowtitle" format="reference" />
+        <attr name="rowcomponentPKG" format="string" />
+        <attr name="rowcomponentCLS" format="string" />
+
+    </declare-styleable>
+
+</resources>

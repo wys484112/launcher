@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical">
+
+    <com.example.launcher.timeclock.TextClock
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        app:formatTV="hh:mm a" />
+
+    <com.example.launcher.timeclock.TextClock
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:formatTV="EEEE, yyyy年MM月dd日" />
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"></LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <include
+                android:id="@+id/app_cfc"
+                layout="@layout/row_app"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" />
+
+            <include
+                layout="@layout/row_app"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" />
+
+            <include
+                layout="@layout/row_app"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" />
+
+            <include
+                layout="@layout/row_app"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" />
+
+            <include
+                layout="@layout/row_app"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottoms"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:layout_marginBottom="44dp"
+        android:orientation="horizontal">
+
+        <include
+            android:id="@+id/apps"
+            layout="@layout/row_appnew"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <include
+            android:id="@+id/browser"
+            layout="@layout/row_appnew"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <include
+            android:id="@+id/meidaplayer"
+            layout="@layout/row_appnew"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+
+        <include
+            android:id="@+id/filemanager"
+            layout="@layout/row_appnew"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <include
+            android:id="@+id/settings"
+            layout="@layout/row_appnew"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+
+        <!--<com.example.launcher.ui.RowApp-->
+            <!--android:id="@+id/apps"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--app:rowbackgroundResource="@drawable/appbg"-->
+            <!--app:rowcomponentCLS="com.example.launcher.AllAppList"-->
+            <!--app:rowcomponentPKG="com.example.launcher"-->
+            <!--app:rowimageviewBackgroundResource="@drawable/animation_apps_bg"-->
+            <!--app:rowisAnimateApp="true"-->
+            <!--app:rowtitle="@string/apps_title" />-->
+
+        <!--<com.example.launcher.ui.RowApp-->
+            <!--android:id="@+id/browser"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--app:rowbackgroundResource="@drawable/appbg"-->
+            <!--app:rowcomponentCLS="com.fanshi.tvbrowser.MainActivity"-->
+            <!--app:rowcomponentPKG="com.fanshi.tvbrowser"-->
+            <!--app:rowimageviewBackgroundResource="@drawable/animation_browser_bg"-->
+            <!--app:rowisAnimateApp="true"-->
+            <!--app:rowtitle="@string/browser_title" />-->
+
+        <!--<com.example.launcher.ui.RowApp-->
+            <!--android:id="@+id/meidaplayer"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--app:rowbackgroundResource="@drawable/appbg"-->
+            <!--app:rowcomponentCLS="com.estrongs.android.pop.app.openscreenad.NewSplashActivity"-->
+            <!--app:rowcomponentPKG="com.estrongs.android.pop"-->
+            <!--app:rowimageviewBackgroundResource="@drawable/animation_mediaplayer_bg"-->
+            <!--app:rowisAnimateApp="true"-->
+            <!--app:rowtitle="@string/mediaplayer_title" />-->
+
+        <!--<com.example.launcher.ui.RowApp-->
+            <!--android:id="@+id/filemanager"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--app:rowbackgroundResource="@drawable/appbg"-->
+            <!--app:rowcomponentCLS="com.estrongs.android.pop.app.openscreenad.NewSplashActivity"-->
+            <!--app:rowcomponentPKG="com.estrongs.android.pop"-->
+            <!--app:rowimageviewBackgroundResource="@drawable/animation_filemanager_bg"-->
+            <!--app:rowisAnimateApp="true"-->
+            <!--app:rowtitle="@string/filemanager_title" />-->
+
+        <!--<com.example.launcher.ui.RowApp-->
+            <!--android:id="@+id/settings"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--app:rowbackgroundResource="@drawable/appbg"-->
+            <!--app:rowcomponentCLS="fhdf"-->
+            <!--app:rowcomponentPKG="dgsdg"-->
+            <!--app:rowimageviewBackgroundResource="@drawable/animation_settings_bg"-->
+            <!--app:rowisAnimateApp="true"-->
+            <!--app:rowtitle="@string/settings_title" />-->
+
+    </LinearLayout>
+
+</LinearLayout>

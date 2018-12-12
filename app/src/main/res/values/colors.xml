@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="launcher_text">#ffffffff</color>
+    <color name="text_bg_color">#b019252f</color>
+    <color name="search_text">#ff7698ac</color>
+    <color name="app_count_text">#ff8cdce3</color>
+</resources>
