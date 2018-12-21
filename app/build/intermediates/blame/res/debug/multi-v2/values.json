@@ -1,10 +1,46 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\iot\\launcher\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "E:\\iot\\launcher\\app\\src\\main\\res\\values\\dimens.xml",
+                    "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "5,2,4,3",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "208,57,159,108",
+                        "endColumns": "50,49,47,49",
+                        "endOffsets": "254,102,202,153"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,106,156,204",
+                        "endColumns": "50,49,47,49",
+                        "endOffsets": "101,151,199,249"
+                    }
+                },
+                {
+                    "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "6,17",
+                        "startColumns": "4,4",
+                        "startOffsets": "192,599",
+                        "endLines": "14,19",
+                        "endColumns": "12,12",
+                        "endOffsets": "558,756"
+                    },
+                    "to": {
+                        "startLines": "24,33",
+                        "startColumns": "4,4",
+                        "startOffsets": "1632,1995",
+                        "endLines": "32,35",
+                        "endColumns": "12,12",
+                        "endOffsets": "1990,2150"
+                    }
+                },
+                {
+                    "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\values\\dimens.xml",
                     "from": {
                         "startLines": "3,4,5,6",
                         "startColumns": "4,4,4,4",
@@ -21,24 +57,7 @@
                     }
                 },
                 {
-                    "source": "E:\\iot\\launcher\\app\\src\\main\\res\\values\\colors.xml",
-                    "from": {
-                        "startLines": "5,2,4,3",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "203,55,155,105",
-                        "endColumns": "50,49,47,49",
-                        "endOffsets": "249,100,198,150"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,106,156,204",
-                        "endColumns": "50,49,47,49",
-                        "endOffsets": "101,151,199,249"
-                    }
-                },
-                {
-                    "source": "E:\\iot\\launcher\\app\\src\\main\\res\\values\\strings.xml",
+                    "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "5,7,3,9,11,14,20,13,4,15,12,6",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
@@ -52,25 +71,6 @@
                         "startOffsets": "1037,1090,1157,1203,1239,1281,1327,1372,1423,1476,1526,1572",
                         "endColumns": "52,66,45,35,41,45,44,50,52,49,45,59",
                         "endOffsets": "1085,1152,1198,1234,1276,1322,1367,1418,1471,1521,1567,1627"
-                    }
-                },
-                {
-                    "source": "E:\\iot\\launcher\\app\\src\\main\\res\\values\\styles.xml",
-                    "from": {
-                        "startLines": "6,17",
-                        "startColumns": "4,4",
-                        "startOffsets": "191,596",
-                        "endLines": "14,19",
-                        "endColumns": "12,12",
-                        "endOffsets": "555,753"
-                    },
-                    "to": {
-                        "startLines": "24,33",
-                        "startColumns": "4,4",
-                        "startOffsets": "1632,1995",
-                        "endLines": "32,35",
-                        "endColumns": "12,12",
-                        "endOffsets": "1990,2150"
                     }
                 }
             ]

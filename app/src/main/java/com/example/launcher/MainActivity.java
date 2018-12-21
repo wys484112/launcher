@@ -12,16 +12,18 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
 	private  TextView mApps_title,mSettings_title,mFilemanager_title,mBrowser_title,mMediaplayer_title;
 
-    private View mApps,mApps_imageview;
-    private View mSettings,mSettings_imageview;
-    private View mFilemanager,mFilemanager_imageview;
-    private View mBrowser,mBrowser_imageview;
-    private View mMediaplayer,mMediaplayer_imageview;
+	private ImageView mApps_imageview,mSettings_imageview,mFilemanager_imageview,mBrowser_imageview,mMediaplayer_imageview;
+    private View mApps;
+    private View mSettings;
+    private View mFilemanager;
+    private View mBrowser;
+    private View mMediaplayer;
 
     private AnimationDrawable mAppsAnimation;
 
@@ -51,8 +53,8 @@ public class MainActivity extends Activity {
 
 		mApps = findViewById(R.id.apps);
 		mApps.setBackground(null);
-        mApps_imageview= mApps.findViewById(R.id.image);
-        mApps_imageview.setBackgroundResource(R.drawable.icon_app);
+        mApps_imageview= (ImageView)mApps.findViewById(R.id.image);
+        mApps_imageview.setImageResource(R.drawable.icon_app);
         mApps_title= (TextView)mApps.findViewById(R.id.title);
         mApps_title.setText(R.string.apps_title);
         mApps_imageview.setClickable(true);
@@ -71,15 +73,15 @@ public class MainActivity extends Activity {
         mApps_imageview.setOnFocusChangeListener(new View.OnFocusChangeListener(){
 			@Override
 			public void onFocusChange(View var1, boolean var2) {
-                mApps_imageview.setBackgroundResource(R.drawable.animation_apps_bg);
-				mAppsAnimation = (AnimationDrawable) mApps_imageview.getBackground();
+                mApps_imageview.setImageResource(R.drawable.animation_apps_bg);
+				mAppsAnimation = (AnimationDrawable) mApps_imageview.getDrawable();
 				if(var2){
 					mAppsAnimation.start();
 				}else{
 					mAppsAnimation.stop();
 					mAppsAnimation.selectDrawable(0);
                     mAppsAnimation=null;
-                    mApps_imageview.setBackgroundResource(R.drawable.icon_app);
+                    mApps_imageview.setImageResource(R.drawable.icon_app);
 
 				}
 			}
@@ -95,8 +97,8 @@ public class MainActivity extends Activity {
 //two
         mSettings = findViewById(R.id.settings);
         mSettings.setBackground(null);
-        mSettings_imageview= mSettings.findViewById(R.id.image);
-        mSettings_imageview.setBackgroundResource(R.drawable.icon_setting);
+        mSettings_imageview= (ImageView)mSettings.findViewById(R.id.image);
+        mSettings_imageview.setImageResource(R.drawable.icon_setting);
         mSettings_title= (TextView)mSettings.findViewById(R.id.title);
         mSettings_title.setText(R.string.settings_title);
         mSettings_imageview.setClickable(true);
@@ -115,15 +117,15 @@ public class MainActivity extends Activity {
         mSettings_imageview.setOnFocusChangeListener(new View.OnFocusChangeListener(){
             @Override
             public void onFocusChange(View var1, boolean var2) {
-                mSettings_imageview.setBackgroundResource(R.drawable.animation_settings_bg);
-                mAppsAnimation = (AnimationDrawable) mSettings_imageview.getBackground();
+                mSettings_imageview.setImageResource(R.drawable.animation_settings_bg);
+                mAppsAnimation = (AnimationDrawable) mSettings_imageview.getDrawable();
                 if(var2){
                     mAppsAnimation.start();
                 }else{
                     mAppsAnimation.stop();
                     mAppsAnimation.selectDrawable(0);
                     mAppsAnimation=null;
-                    mSettings_imageview.setBackgroundResource(R.drawable.icon_setting);
+                    mSettings_imageview.setImageResource(R.drawable.icon_setting);
                 }
             }
         });
@@ -149,8 +151,8 @@ public class MainActivity extends Activity {
 //three
         mFilemanager = findViewById(R.id.filemanager);
         mFilemanager.setBackground(null);
-        mFilemanager_imageview= mFilemanager.findViewById(R.id.image);
-        mFilemanager_imageview.setBackgroundResource(R.drawable.icon_file);
+        mFilemanager_imageview= (ImageView)mFilemanager.findViewById(R.id.image);
+        mFilemanager_imageview.setImageResource(R.drawable.icon_file);
         mFilemanager_title= (TextView)mFilemanager.findViewById(R.id.title);
         mFilemanager_title.setText(R.string.filemanager_title);
         mFilemanager_imageview.setClickable(true);
@@ -169,15 +171,15 @@ public class MainActivity extends Activity {
         mFilemanager_imageview.setOnFocusChangeListener(new View.OnFocusChangeListener(){
             @Override
             public void onFocusChange(View var1, boolean var2) {
-                mFilemanager_imageview.setBackgroundResource(R.drawable.animation_filemanager_bg);
-                mAppsAnimation = (AnimationDrawable) mFilemanager_imageview.getBackground();
+                mFilemanager_imageview.setImageResource(R.drawable.animation_filemanager_bg);
+                mAppsAnimation = (AnimationDrawable) mFilemanager_imageview.getDrawable();
                 if(var2){
                     mAppsAnimation.start();
                 }else{
                     mAppsAnimation.stop();
                     mAppsAnimation.selectDrawable(0);
                     mAppsAnimation=null;
-                    mFilemanager_imageview.setBackgroundResource(R.drawable.icon_file);
+                    mFilemanager_imageview.setImageResource(R.drawable.icon_file);
                 }
             }
         });
@@ -200,8 +202,8 @@ public class MainActivity extends Activity {
 //four
         mBrowser = findViewById(R.id.browser);
         mBrowser.setBackground(null);
-        mBrowser_imageview= mBrowser.findViewById(R.id.image);
-        mBrowser_imageview.setBackgroundResource(R.drawable.icon_browser);
+        mBrowser_imageview= (ImageView)mBrowser.findViewById(R.id.image);
+        mBrowser_imageview.setImageResource(R.drawable.icon_browser);
         mBrowser_title= (TextView)mBrowser.findViewById(R.id.title);
         mBrowser_title.setText(R.string.browser_title);
         mBrowser_imageview.setClickable(true);
@@ -220,15 +222,15 @@ public class MainActivity extends Activity {
         mBrowser_imageview.setOnFocusChangeListener(new View.OnFocusChangeListener(){
             @Override
             public void onFocusChange(View var1, boolean var2) {
-                mBrowser_imageview.setBackgroundResource(R.drawable.animation_browser_bg);
-                mAppsAnimation = (AnimationDrawable) mBrowser_imageview.getBackground();
+                mBrowser_imageview.setImageResource(R.drawable.animation_browser_bg);
+                mAppsAnimation = (AnimationDrawable) mBrowser_imageview.getDrawable();
                 if(var2){
                     mAppsAnimation.start();
                 }else{
                     mAppsAnimation.stop();
                     mAppsAnimation.selectDrawable(0);
                     mAppsAnimation=null;
-                    mBrowser_imageview.setBackgroundResource(R.drawable.icon_browser);
+                    mBrowser_imageview.setImageResource(R.drawable.icon_browser);
                 }
             }
         });
@@ -255,8 +257,8 @@ public class MainActivity extends Activity {
 //five
         mMediaplayer = findViewById(R.id.meidaplayer);
         mMediaplayer.setBackground(null);
-        mMediaplayer_imageview= mMediaplayer.findViewById(R.id.image);
-        mMediaplayer_imageview.setBackgroundResource(R.drawable.icon_media);
+        mMediaplayer_imageview= (ImageView)mMediaplayer.findViewById(R.id.image);
+        mMediaplayer_imageview.setImageResource(R.drawable.icon_media);
         mMediaplayer_title= (TextView)mMediaplayer.findViewById(R.id.title);
         mMediaplayer_title.setText(R.string.mediaplayer_title);
         mMediaplayer_imageview.setClickable(true);
@@ -275,15 +277,15 @@ public class MainActivity extends Activity {
         mMediaplayer_imageview.setOnFocusChangeListener(new View.OnFocusChangeListener(){
             @Override
             public void onFocusChange(View var1, boolean var2) {
-                mMediaplayer_imageview.setBackgroundResource(R.drawable.animation_mediaplayer_bg);
-                mAppsAnimation = (AnimationDrawable) mMediaplayer_imageview.getBackground();
+                mMediaplayer_imageview.setImageResource(R.drawable.animation_mediaplayer_bg);
+                mAppsAnimation = (AnimationDrawable) mMediaplayer_imageview.getDrawable();
                 if(var2){
                     mAppsAnimation.start();
                 }else{
                     mAppsAnimation.stop();
                     mAppsAnimation.selectDrawable(0);
                     mAppsAnimation=null;
-                    mMediaplayer_imageview.setBackgroundResource(R.drawable.icon_media);
+                    mMediaplayer_imageview.setImageResource(R.drawable.icon_media);
                 }
             }
         });
@@ -318,7 +320,7 @@ public class MainActivity extends Activity {
 
 
         mApp_cfc = findViewById(R.id.app_cfc);
-        mApp_cfc.findViewById(R.id.image).setBackgroundResource(R.drawable.cfc);
+        ((ImageView)mApp_cfc.findViewById(R.id.image)).setImageResource(R.drawable.cfc);
         ((TextView)(mApp_cfc.findViewById(R.id.title))).setText(R.string.cfc_title);
         mApp_cfc.setOnClickListener(new View.OnClickListener() {
             @Override
