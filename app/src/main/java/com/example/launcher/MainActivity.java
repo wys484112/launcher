@@ -52,7 +52,6 @@ public class MainActivity extends Activity {
         Log.d("wwww", info);
 
 		mApps = findViewById(R.id.apps);
-		mApps.setBackground(null);
         mApps_imageview= (ImageView)mApps.findViewById(R.id.image);
         mApps_imageview.setImageResource(R.drawable.icon_app);
         mApps_title= (TextView)mApps.findViewById(R.id.title);
@@ -96,7 +95,6 @@ public class MainActivity extends Activity {
 
 //two
         mSettings = findViewById(R.id.settings);
-        mSettings.setBackground(null);
         mSettings_imageview= (ImageView)mSettings.findViewById(R.id.image);
         mSettings_imageview.setImageResource(R.drawable.icon_setting);
         mSettings_title= (TextView)mSettings.findViewById(R.id.title);
@@ -150,7 +148,6 @@ public class MainActivity extends Activity {
 
 //three
         mFilemanager = findViewById(R.id.filemanager);
-        mFilemanager.setBackground(null);
         mFilemanager_imageview= (ImageView)mFilemanager.findViewById(R.id.image);
         mFilemanager_imageview.setImageResource(R.drawable.icon_file);
         mFilemanager_title= (TextView)mFilemanager.findViewById(R.id.title);
@@ -201,7 +198,6 @@ public class MainActivity extends Activity {
 
 //four
         mBrowser = findViewById(R.id.browser);
-        mBrowser.setBackground(null);
         mBrowser_imageview= (ImageView)mBrowser.findViewById(R.id.image);
         mBrowser_imageview.setImageResource(R.drawable.icon_browser);
         mBrowser_title= (TextView)mBrowser.findViewById(R.id.title);
@@ -256,7 +252,6 @@ public class MainActivity extends Activity {
 
 //five
         mMediaplayer = findViewById(R.id.meidaplayer);
-        mMediaplayer.setBackground(null);
         mMediaplayer_imageview= (ImageView)mMediaplayer.findViewById(R.id.image);
         mMediaplayer_imageview.setImageResource(R.drawable.icon_media);
         mMediaplayer_title= (TextView)mMediaplayer.findViewById(R.id.title);

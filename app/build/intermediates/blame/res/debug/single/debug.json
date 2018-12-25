@@ -8,12 +8,12 @@
         "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\drawable-hdpi\\media8.png"
     },
     {
-        "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_file7.png.flat",
-        "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\drawable-hdpi\\file7.png"
-    },
-    {
         "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_settings10.png.flat",
         "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\drawable-hdpi\\settings10.png"
+    },
+    {
+        "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_file7.png.flat",
+        "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\drawable-hdpi\\file7.png"
     },
     {
         "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
@@ -32,12 +32,12 @@
         "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\drawable-hdpi\\file11.png"
     },
     {
-        "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_media1.png.flat",
-        "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\drawable-hdpi\\media1.png"
-    },
-    {
         "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_apps9.png.flat",
         "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\drawable-hdpi\\apps9.png"
+    },
+    {
+        "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_media1.png.flat",
+        "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\drawable-hdpi\\media1.png"
     },
     {
         "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_apps2.png.flat",

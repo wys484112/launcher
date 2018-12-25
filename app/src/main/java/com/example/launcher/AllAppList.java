@@ -65,6 +65,8 @@ public class AllAppList extends Activity implements LoaderManager.LoaderCallback
         });
         if (savedInstanceState == null) {
             getLoaderManager().restartLoader(0, null, this);
+        }else{
+            getLoaderManager().restartLoader(0, null, this);
         }
     }
 
