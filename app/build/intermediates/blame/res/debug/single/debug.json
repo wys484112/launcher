@@ -8,6 +8,10 @@
         "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\drawable-hdpi\\media8.png"
     },
     {
+        "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_app_bg_focus.9.png.flat",
+        "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\drawable-hdpi\\app_bg_focus.9.png"
+    },
+    {
         "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_settings10.png.flat",
         "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\drawable-hdpi\\settings10.png"
     },
@@ -232,10 +236,6 @@
         "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\drawable-hdpi\\bg.png"
     },
     {
-        "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable_app_bg_out.png.flat",
-        "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\drawable\\app_bg_out.png"
-    },
-    {
         "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_file12.png.flat",
         "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\drawable-hdpi\\file12.png"
     },
@@ -304,10 +304,6 @@
         "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\drawable-hdpi\\settings8.png"
     },
     {
-        "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable_app_bg_focus.png.flat",
-        "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\drawable\\app_bg_focus.png"
-    },
-    {
         "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_icon_app.png.flat",
         "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\drawable-hdpi\\icon_app.png"
     },
@@ -322,6 +318,10 @@
     {
         "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher.png.flat",
         "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_app_bg_out.png.flat",
+        "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\drawable-hdpi\\app_bg_out.png"
     },
     {
         "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable_animation_apps_bg.xml.flat",

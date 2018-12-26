@@ -24,6 +24,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.example.launcher.MainActivity"
@@ -39,6 +40,14 @@
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+            <!-- <category android:name="android.intent.category.DEFAULT"/> -->
+            <!-- <category android:name="android.intent.category.MONKEY"/> -->
+            <!-- <category android:name="android.intent.category.HOME"/> -->
+            <!-- </intent-filter> -->
+
         </activity>
         <activity
             android:name="com.example.launcher.AllAppList"

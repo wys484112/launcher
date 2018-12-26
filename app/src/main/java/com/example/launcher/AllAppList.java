@@ -109,44 +109,4 @@ public class AllAppList extends Activity implements LoaderManager.LoaderCallback
         return infos;
     }
 
-    public class AppAdapter extends ArrayAdapter<AppInfo> {
-
-        private LayoutInflater mLayoutInflater;
-        private Resources mResources;
-
-        public AppAdapter(Context context, List<AppInfo> objects) {
-            super(context, 0, objects);
-            mLayoutInflater = LayoutInflater.from(context);
-            mResources = context.getResources();
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View v = convertView;
-            ViewHolder holder;
-            if (v == null) {
-                v = mLayoutInflater.inflate(R.layout.grid_app, parent, false);
-                holder = new ViewHolder();
-
-                holder.image = (ImageView) v.findViewById(R.id.image);
-                holder.title = (TextView) v.findViewById(R.id.title);
-
-                v.setTag(holder);
-            } else {
-                holder = (ViewHolder) v.getTag();
-            }
-
-            final AppInfo info = getItem(position);
-
-            holder.image.setImageDrawable(new BitmapDrawable(mResources, info.iconBitmap));
-            holder.title.setText(info.title);
-
-            return v;
-        }
-
-        class ViewHolder {
-            ImageView image;
-            TextView title;
-        }
-    }
 }

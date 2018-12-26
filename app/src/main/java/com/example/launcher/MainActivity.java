@@ -322,6 +322,7 @@ public class MainActivity extends Activity {
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 try {
+                    Log.e("www","nddw");
                     ComponentName componentName = new ComponentName("com.cfc.nddw", "com.cfc.nddw.MainActivity2");
                     intent.setComponent(componentName);
                     startActivity(intent);
