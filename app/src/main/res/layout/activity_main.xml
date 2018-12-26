@@ -46,9 +46,6 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <include
-                android:id="@+id/app_cfc"
-                layout="@layout/row_app" />
 
             <!--<include layout="@layout/row_app" />-->
 
@@ -88,46 +85,39 @@
 
     <LinearLayout
         android:id="@+id/bottoms"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="190dp"
         android:layout_marginBottom="44dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <include
+            android:id="@+id/app_cfc"
+            layout="@layout/row_app" />
+
+        <include
             android:id="@+id/apps"
-            layout="@layout/row_appnew"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+            layout="@layout/row_app" />
 
-        <include
-            android:id="@+id/browser"
-            layout="@layout/row_appnew"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+        <!--<include-->
+        <!--android:id="@+id/browser"-->
+        <!--layout="@layout/row_appnew"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1" />-->
 
-        <include
-            android:id="@+id/meidaplayer"
-            layout="@layout/row_appnew"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+        <!--<include-->
+            <!--android:id="@+id/meidaplayer"-->
+            <!--layout="@layout/row_app" />-->
 
 
         <include
             android:id="@+id/filemanager"
-            layout="@layout/row_appnew"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+            layout="@layout/row_app" />
 
         <include
             android:id="@+id/settings"
-            layout="@layout/row_appnew"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+            layout="@layout/row_app" />
 
 
         <!--<com.example.launcher.ui.RowApp-->

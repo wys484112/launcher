@@ -164,15 +164,13 @@ public final class R {
     public static final int app_grid=0x7f050002;
     public static final int apps=0x7f050003;
     public static final int bottoms=0x7f050004;
-    public static final int browser=0x7f050005;
-    public static final int content=0x7f050006;
-    public static final int filemanager=0x7f050007;
-    public static final int image=0x7f050008;
-    public static final int meidaplayer=0x7f050009;
-    public static final int settings=0x7f05000a;
-    public static final int textView3=0x7f05000b;
-    public static final int textView4=0x7f05000c;
-    public static final int title=0x7f05000d;
+    public static final int content=0x7f050005;
+    public static final int filemanager=0x7f050006;
+    public static final int image=0x7f050007;
+    public static final int settings=0x7f050008;
+    public static final int textView3=0x7f050009;
+    public static final int textView4=0x7f05000a;
+    public static final int title=0x7f05000b;
   }
   public static final class layout {
     public static final int activity_apps=0x7f060000;
@@ -192,11 +190,19 @@ public final class R {
     public static final int apps_title=0x7f080004;
     public static final int browser_title=0x7f080005;
     public static final int cfc_title=0x7f080006;
-    public static final int filemanager_title=0x7f080007;
-    public static final int hello_world=0x7f080008;
-    public static final int mediaplayer_title=0x7f080009;
-    public static final int settings_title=0x7f08000a;
-    public static final int title_activity_main2=0x7f08000b;
+    public static final int cls_Browser=0x7f080007;
+    public static final int cls_Filemanager=0x7f080008;
+    public static final int cls_Mediaplayer=0x7f080009;
+    public static final int cls_Settings=0x7f08000a;
+    public static final int filemanager_title=0x7f08000b;
+    public static final int hello_world=0x7f08000c;
+    public static final int mediaplayer_title=0x7f08000d;
+    public static final int pkg_Browser=0x7f08000e;
+    public static final int pkg_Filemanager=0x7f08000f;
+    public static final int pkg_Mediaplayer=0x7f080010;
+    public static final int pkg_Settings=0x7f080011;
+    public static final int settings_title=0x7f080012;
+    public static final int title_activity_main2=0x7f080013;
   }
   public static final class style {
     public static final int AppBaseTheme=0x7f090000;

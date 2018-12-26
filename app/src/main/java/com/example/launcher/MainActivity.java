@@ -56,36 +56,36 @@ public class MainActivity extends Activity {
         mApps_imageview.setImageResource(R.drawable.icon_app);
         mApps_title= (TextView)mApps.findViewById(R.id.title);
         mApps_title.setText(R.string.apps_title);
-        mApps_imageview.setClickable(true);
-        mApps_imageview.setFocusable(true);
-        mApps_imageview.setFocusableInTouchMode(true);
-		mApps.setOnFocusChangeListener(new View.OnFocusChangeListener(){
-			@Override
-			public void onFocusChange(View var1, boolean var2) {
-                if(var2){
-                    mApps_imageview.requestFocus();
-                }else{
-                }
-
-			}
-		});
-        mApps_imageview.setOnFocusChangeListener(new View.OnFocusChangeListener(){
-			@Override
-			public void onFocusChange(View var1, boolean var2) {
-                mApps_imageview.setImageResource(R.drawable.animation_apps_bg);
-				mAppsAnimation = (AnimationDrawable) mApps_imageview.getDrawable();
-				if(var2){
-					mAppsAnimation.start();
-				}else{
-					mAppsAnimation.stop();
-					mAppsAnimation.selectDrawable(0);
-                    mAppsAnimation=null;
-                    mApps_imageview.setImageResource(R.drawable.icon_app);
-
-				}
-			}
-		});
-        mApps_imageview.setOnClickListener(new View.OnClickListener() {
+//        mApps_imageview.setClickable(true);
+//        mApps_imageview.setFocusable(true);
+//        mApps_imageview.setFocusableInTouchMode(true);
+//		mApps.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+//			@Override
+//			public void onFocusChange(View var1, boolean var2) {
+//                if(var2){
+//                    mApps_imageview.requestFocus();
+//                }else{
+//                }
+//
+//			}
+//		});
+//        mApps_imageview.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+//			@Override
+//			public void onFocusChange(View var1, boolean var2) {
+//                mApps_imageview.setImageResource(R.drawable.animation_apps_bg);
+//				mAppsAnimation = (AnimationDrawable) mApps_imageview.getDrawable();
+//				if(var2){
+//					mAppsAnimation.start();
+//				}else{
+//					mAppsAnimation.stop();
+//					mAppsAnimation.selectDrawable(0);
+//                    mAppsAnimation=null;
+//                    mApps_imageview.setImageResource(R.drawable.icon_app);
+//
+//				}
+//			}
+//		});
+        mApps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,AllAppList.class);
@@ -99,40 +99,40 @@ public class MainActivity extends Activity {
         mSettings_imageview.setImageResource(R.drawable.icon_setting);
         mSettings_title= (TextView)mSettings.findViewById(R.id.title);
         mSettings_title.setText(R.string.settings_title);
-        mSettings_imageview.setClickable(true);
-        mSettings_imageview.setFocusable(true);
-        mSettings_imageview.setFocusableInTouchMode(true);
-        mSettings.setOnFocusChangeListener(new View.OnFocusChangeListener(){
-            @Override
-            public void onFocusChange(View var1, boolean var2) {
-                if(var2){
-                    mSettings_imageview.requestFocus();
-                }else{
-                }
-
-            }
-        });
-        mSettings_imageview.setOnFocusChangeListener(new View.OnFocusChangeListener(){
-            @Override
-            public void onFocusChange(View var1, boolean var2) {
-                mSettings_imageview.setImageResource(R.drawable.animation_settings_bg);
-                mAppsAnimation = (AnimationDrawable) mSettings_imageview.getDrawable();
-                if(var2){
-                    mAppsAnimation.start();
-                }else{
-                    mAppsAnimation.stop();
-                    mAppsAnimation.selectDrawable(0);
-                    mAppsAnimation=null;
-                    mSettings_imageview.setImageResource(R.drawable.icon_setting);
-                }
-            }
-        });
-        mSettings_imageview.setOnClickListener(new View.OnClickListener() {
+//        mSettings_imageview.setClickable(true);
+//        mSettings_imageview.setFocusable(true);
+//        mSettings_imageview.setFocusableInTouchMode(true);
+//        mSettings.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+//            @Override
+//            public void onFocusChange(View var1, boolean var2) {
+//                if(var2){
+//                    mSettings_imageview.requestFocus();
+//                }else{
+//                }
+//
+//            }
+//        });
+//        mSettings_imageview.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+//            @Override
+//            public void onFocusChange(View var1, boolean var2) {
+//                mSettings_imageview.setImageResource(R.drawable.animation_settings_bg);
+//                mAppsAnimation = (AnimationDrawable) mSettings_imageview.getDrawable();
+//                if(var2){
+//                    mAppsAnimation.start();
+//                }else{
+//                    mAppsAnimation.stop();
+//                    mAppsAnimation.selectDrawable(0);
+//                    mAppsAnimation=null;
+//                    mSettings_imageview.setImageResource(R.drawable.icon_setting);
+//                }
+//            }
+//        });
+        mSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 try {
-                    ComponentName componentName = new ComponentName("com.android.settings", "com.android.settings.Settings");
+                    ComponentName componentName = new ComponentName(getString(R.string.pkg_Settings), getString(R.string.cls_Settings));
                     intent.setComponent(componentName);
                     startActivity(intent);
                 } catch (Exception e) {
@@ -152,40 +152,40 @@ public class MainActivity extends Activity {
         mFilemanager_imageview.setImageResource(R.drawable.icon_file);
         mFilemanager_title= (TextView)mFilemanager.findViewById(R.id.title);
         mFilemanager_title.setText(R.string.filemanager_title);
-        mFilemanager_imageview.setClickable(true);
-        mFilemanager_imageview.setFocusable(true);
-        mFilemanager_imageview.setFocusableInTouchMode(true);
-        mFilemanager.setOnFocusChangeListener(new View.OnFocusChangeListener(){
-            @Override
-            public void onFocusChange(View var1, boolean var2) {
-                if(var2){
-                    mFilemanager_imageview.requestFocus();
-                }else{
-                }
-
-            }
-        });
-        mFilemanager_imageview.setOnFocusChangeListener(new View.OnFocusChangeListener(){
-            @Override
-            public void onFocusChange(View var1, boolean var2) {
-                mFilemanager_imageview.setImageResource(R.drawable.animation_filemanager_bg);
-                mAppsAnimation = (AnimationDrawable) mFilemanager_imageview.getDrawable();
-                if(var2){
-                    mAppsAnimation.start();
-                }else{
-                    mAppsAnimation.stop();
-                    mAppsAnimation.selectDrawable(0);
-                    mAppsAnimation=null;
-                    mFilemanager_imageview.setImageResource(R.drawable.icon_file);
-                }
-            }
-        });
-        mFilemanager_imageview.setOnClickListener(new View.OnClickListener() {
+//        mFilemanager_imageview.setClickable(true);
+//        mFilemanager_imageview.setFocusable(true);
+//        mFilemanager_imageview.setFocusableInTouchMode(true);
+//        mFilemanager.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+//            @Override
+//            public void onFocusChange(View var1, boolean var2) {
+//                if(var2){
+//                    mFilemanager_imageview.requestFocus();
+//                }else{
+//                }
+//
+//            }
+//        });
+//        mFilemanager_imageview.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+//            @Override
+//            public void onFocusChange(View var1, boolean var2) {
+//                mFilemanager_imageview.setImageResource(R.drawable.animation_filemanager_bg);
+//                mAppsAnimation = (AnimationDrawable) mFilemanager_imageview.getDrawable();
+//                if(var2){
+//                    mAppsAnimation.start();
+//                }else{
+//                    mAppsAnimation.stop();
+//                    mAppsAnimation.selectDrawable(0);
+//                    mAppsAnimation=null;
+//                    mFilemanager_imageview.setImageResource(R.drawable.icon_file);
+//                }
+//            }
+//        });
+        mFilemanager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 try {
-                    ComponentName componentName = new ComponentName("com.estrongs.android.pop", "com.estrongs.android.pop.app.openscreenad.NewSplashActivity");
+                    ComponentName componentName = new ComponentName(getString(R.string.pkg_Filemanager), getString(R.string.cls_Filemanager));
                     intent.setComponent(componentName);
                     startActivity(intent);
                 } catch (Exception e) {
@@ -197,100 +197,100 @@ public class MainActivity extends Activity {
 
 
 //four
-        mBrowser = findViewById(R.id.browser);
-        mBrowser_imageview= (ImageView)mBrowser.findViewById(R.id.image);
-        mBrowser_imageview.setImageResource(R.drawable.icon_browser);
-        mBrowser_title= (TextView)mBrowser.findViewById(R.id.title);
-        mBrowser_title.setText(R.string.browser_title);
-        mBrowser_imageview.setClickable(true);
-        mBrowser_imageview.setFocusable(true);
-        mBrowser_imageview.setFocusableInTouchMode(true);
-        mBrowser.setOnFocusChangeListener(new View.OnFocusChangeListener(){
-            @Override
-            public void onFocusChange(View var1, boolean var2) {
-                if(var2){
-                    mBrowser_imageview.requestFocus();
-                }else{
-                }
-
-            }
-        });
-        mBrowser_imageview.setOnFocusChangeListener(new View.OnFocusChangeListener(){
-            @Override
-            public void onFocusChange(View var1, boolean var2) {
-                mBrowser_imageview.setImageResource(R.drawable.animation_browser_bg);
-                mAppsAnimation = (AnimationDrawable) mBrowser_imageview.getDrawable();
-                if(var2){
-                    mAppsAnimation.start();
-                }else{
-                    mAppsAnimation.stop();
-                    mAppsAnimation.selectDrawable(0);
-                    mAppsAnimation=null;
-                    mBrowser_imageview.setImageResource(R.drawable.icon_browser);
-                }
-            }
-        });
-        mBrowser_imageview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_MAIN);
-                try {
-                    ComponentName componentName = new ComponentName("com.fanshi.tvbrowser", "com.fanshi.tvbrowser.MainActivity");
-                    intent.setComponent(componentName);
-                    startActivity(intent);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                }
-
-//                Intent intent = new Intent(MainActivity.this,AllAppList.class);
-//                startActivity(intent);
-            }
-        });
+//        mBrowser = findViewById(R.id.browser);
+//        mBrowser_imageview= (ImageView)mBrowser.findViewById(R.id.image);
+//        mBrowser_imageview.setImageResource(R.drawable.icon_browser);
+//        mBrowser_title= (TextView)mBrowser.findViewById(R.id.title);
+//        mBrowser_title.setText(R.string.browser_title);
+//        mBrowser_imageview.setClickable(true);
+//        mBrowser_imageview.setFocusable(true);
+//        mBrowser_imageview.setFocusableInTouchMode(true);
+//        mBrowser.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+//            @Override
+//            public void onFocusChange(View var1, boolean var2) {
+//                if(var2){
+//                    mBrowser_imageview.requestFocus();
+//                }else{
+//                }
+//
+//            }
+//        });
+//        mBrowser_imageview.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+//            @Override
+//            public void onFocusChange(View var1, boolean var2) {
+//                mBrowser_imageview.setImageResource(R.drawable.animation_browser_bg);
+//                mAppsAnimation = (AnimationDrawable) mBrowser_imageview.getDrawable();
+//                if(var2){
+//                    mAppsAnimation.start();
+//                }else{
+//                    mAppsAnimation.stop();
+//                    mAppsAnimation.selectDrawable(0);
+//                    mAppsAnimation=null;
+//                    mBrowser_imageview.setImageResource(R.drawable.icon_browser);
+//                }
+//            }
+//        });
+//        mBrowser_imageview.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Intent.ACTION_MAIN);
+//                try {
+//                    ComponentName componentName = new ComponentName("com.fanshi.tvbrowser", "com.fanshi.tvbrowser.MainActivity");
+//                    intent.setComponent(componentName);
+//                    startActivity(intent);
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                } finally {
+//                }
+//
+////                Intent intent = new Intent(MainActivity.this,AllAppList.class);
+////                startActivity(intent);
+//            }
+//        });
 
 
 
 //five
-        mMediaplayer = findViewById(R.id.meidaplayer);
-        mMediaplayer_imageview= (ImageView)mMediaplayer.findViewById(R.id.image);
-        mMediaplayer_imageview.setImageResource(R.drawable.icon_media);
-        mMediaplayer_title= (TextView)mMediaplayer.findViewById(R.id.title);
-        mMediaplayer_title.setText(R.string.mediaplayer_title);
-        mMediaplayer_imageview.setClickable(true);
-        mMediaplayer_imageview.setFocusable(true);
-        mMediaplayer_imageview.setFocusableInTouchMode(true);
-        mMediaplayer.setOnFocusChangeListener(new View.OnFocusChangeListener(){
-            @Override
-            public void onFocusChange(View var1, boolean var2) {
-                if(var2){
-                    mMediaplayer_imageview.requestFocus();
-                }else{
-                }
-
-            }
-        });
-        mMediaplayer_imageview.setOnFocusChangeListener(new View.OnFocusChangeListener(){
-            @Override
-            public void onFocusChange(View var1, boolean var2) {
-                mMediaplayer_imageview.setImageResource(R.drawable.animation_mediaplayer_bg);
-                mAppsAnimation = (AnimationDrawable) mMediaplayer_imageview.getDrawable();
-                if(var2){
-                    mAppsAnimation.start();
-                }else{
-                    mAppsAnimation.stop();
-                    mAppsAnimation.selectDrawable(0);
-                    mAppsAnimation=null;
-                    mMediaplayer_imageview.setImageResource(R.drawable.icon_media);
-                }
-            }
-        });
-        mMediaplayer_imageview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,AllAppList.class);
-                startActivity(intent);
-            }
-        });
+//        mMediaplayer = findViewById(R.id.meidaplayer);
+//        mMediaplayer_imageview= (ImageView)mMediaplayer.findViewById(R.id.image);
+//        mMediaplayer_imageview.setImageResource(R.drawable.icon_media);
+//        mMediaplayer_title= (TextView)mMediaplayer.findViewById(R.id.title);
+//        mMediaplayer_title.setText(R.string.mediaplayer_title);
+//        mMediaplayer_imageview.setClickable(true);
+//        mMediaplayer_imageview.setFocusable(true);
+//        mMediaplayer_imageview.setFocusableInTouchMode(true);
+//        mMediaplayer.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+//            @Override
+//            public void onFocusChange(View var1, boolean var2) {
+//                if(var2){
+//                    mMediaplayer_imageview.requestFocus();
+//                }else{
+//                }
+//
+//            }
+//        });
+//        mMediaplayer_imageview.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+//            @Override
+//            public void onFocusChange(View var1, boolean var2) {
+//                mMediaplayer_imageview.setImageResource(R.drawable.animation_mediaplayer_bg);
+//                mAppsAnimation = (AnimationDrawable) mMediaplayer_imageview.getDrawable();
+//                if(var2){
+//                    mAppsAnimation.start();
+//                }else{
+//                    mAppsAnimation.stop();
+//                    mAppsAnimation.selectDrawable(0);
+//                    mAppsAnimation=null;
+//                    mMediaplayer_imageview.setImageResource(R.drawable.icon_media);
+//                }
+//            }
+//        });
+//        mMediaplayer.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MainActivity.this,AllAppList.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
 

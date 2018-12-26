@@ -20,5 +20,14 @@
 
     <string name="cfc_title">DDW 社区</string>
 
+    <string name="pkg_Settings">com.android.tv.settings</string>
+    <string name="pkg_Filemanager">com.xiaobaifile.tv</string>
+    <string name="pkg_Browser">播放器</string>
+    <string name="pkg_Mediaplayer">播放器</string>
+
+    <string name="cls_Settings">com.android.tv.settings.MainSettings</string>
+    <string name="cls_Filemanager">com.xiaobaifile.tv.view.StartupActivity</string>
+    <string name="cls_Browser">播放器</string>
+    <string name="cls_Mediaplayer">播放器</string>
 
 </resources>

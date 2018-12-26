@@ -28,7 +28,11 @@ public class AllAppList extends Activity implements LoaderManager.LoaderCallback
 
     private GridView mAppsGrid;
     private AppAdapter mAdapter;
-    static List<String> favorites = Arrays.asList("launcher");
+    static List<String> favorites = Arrays.asList("com.example.launcher/com.example.launcher.MainActivity",
+            "com.cfc.nddw/com.cfc.nddw.MainActivity2",
+            "com.android.tv.settings/com.android.tv.settings.MainSettings",
+            "com.xiaobaifile.tv/com.xiaobaifile.tv.view.StartupActivity"
+    );
 
     @Override
     public Loader<List<AppInfo>> onCreateLoader(int i, Bundle bundle) {
@@ -59,13 +63,13 @@ public class AllAppList extends Activity implements LoaderManager.LoaderCallback
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 final AppInfo info = mAdapter.getItem(i);
-                Log.d("wwww","info.intent=="+info.intent);
+                Log.d("wwww", "info.intent==" + info.intent);
                 startActivity(info.intent);
             }
         });
         if (savedInstanceState == null) {
             getLoaderManager().restartLoader(0, null, this);
-        }else{
+        } else {
             getLoaderManager().restartLoader(0, null, this);
         }
     }
@@ -74,8 +78,9 @@ public class AllAppList extends Activity implements LoaderManager.LoaderCallback
         List<AppInfo> favs = new ArrayList<>(favorites.size());
         for (String name : favorites) {
             for (AppInfo info : infos) {
-                if (name.equals(info.title)) {
-                    Log.d("wwww","title=="+info.title);
+                Log.d("wwww", "com==" + info.componentName.toString());
+                if (name.contains(info.componentName.getClassName())) {
+                    Log.d("wwww", "title==" + info.componentName);
                     favs.add(info);
                     infos.remove(info);
                     break;
