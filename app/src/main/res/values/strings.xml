@@ -16,8 +16,6 @@
     <string name="mediaplayer_title">播放器</string>
 
 
-
-
     <string name="cfc_title">DDW 社区</string>
 
     <string name="pkg_Settings">com.android.tv.settings</string>
@@ -29,5 +27,22 @@
     <string name="cls_Filemanager">com.xiaobaifile.tv.view.StartupActivity</string>
     <string name="cls_Browser">播放器</string>
     <string name="cls_Mediaplayer">播放器</string>
+    <string name="title_activity_main_tv">Leanback MainTvActivity Title</string>
+    <string name="browse_title"><![CDATA[Videos by Your Company]]></string>
+    <string name="related_movies">Related Videos</string>
+    <string name="grid_view">Grid View</string>
+    <string name="error_fragment">Error Fragment</string>
+    <string name="personal_settings">Personal Settings</string>
+    <string name="watch_trailer_1">Watch trailer</string>
+    <string name="watch_trailer_2">FREE</string>
+    <string name="rent_1">Rent By Day</string>
+    <string name="rent_2">From $1.99</string>
+    <string name="buy_1">Buy and Own</string>
+    <string name="buy_2">AT $9.99</string>
+    <string name="movie">Movie</string>
+
+    <!-- Error messages -->
+    <string name="error_fragment_message">An error occurred</string>
+    <string name="dismiss_error">Dismiss</string>
 
 </resources>

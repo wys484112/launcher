@@ -7,6 +7,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.view.ViewCompat;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
@@ -155,16 +156,33 @@ public class MainActivity extends Activity {
 //        mFilemanager_imageview.setClickable(true);
 //        mFilemanager_imageview.setFocusable(true);
 //        mFilemanager_imageview.setFocusableInTouchMode(true);
-//        mFilemanager.setOnFocusChangeListener(new View.OnFocusChangeListener(){
-//            @Override
-//            public void onFocusChange(View var1, boolean var2) {
+        mFilemanager.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+            @Override
+            public void onFocusChange(View var1, boolean var2) {
+
+
+                //获取焦点时变化
+                if (var2) {
+                    ViewCompat.animate(var1)
+                            .scaleX(1.17f)
+                            .scaleY(1.17f)
+                            .translationZ(1)
+                            .start();
+                } else {
+                    ViewCompat.animate(var1)
+                            .scaleX(1)
+                            .scaleY(1)
+                            .translationZ(1)
+                            .start();
+                }
+
 //                if(var2){
 //                    mFilemanager_imageview.requestFocus();
 //                }else{
 //                }
-//
-//            }
-//        });
+
+            }
+        });
 //        mFilemanager_imageview.setOnFocusChangeListener(new View.OnFocusChangeListener(){
 //            @Override
 //            public void onFocusChange(View var1, boolean var2) {

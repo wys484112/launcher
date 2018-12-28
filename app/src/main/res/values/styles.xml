@@ -19,4 +19,28 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <style name="CustomImageCardViewStyle" parent="Widget.Leanback.ImageCardViewStyle">
+        <item name="cardBackground">#F0F</item>
+        <item name="lbImageCardViewType">Title|Content</item>
+    </style>
+    <style name="CustomimageCardViewInfoAreaStyle" parent="Widget.Leanback.ImageCardView.InfoAreaStyle">
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:paddingStart">0dp</item>
+    </style>
+    <style name="CustomrowHorizontalGridStyle" parent="Widget.Leanback.Row.HorizontalGridView">
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:horizontalSpacing">0dp</item>
+
+    </style>
+
+    <style name="CustomImageCardTheme" parent="Theme.Leanback">
+
+        <!--控制item之间的间距等问题-->
+        <!--<item name="rowHorizontalGridStyle">@style/CustomrowHorizontalGridStyle</item>-->
+
+
+
+    </style>
+
 </resources>
