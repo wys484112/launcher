@@ -4890,20 +4890,21 @@ public final class R {
     public static final int notification_template_icon_low_bg=0x7f0700e2;
     public static final int notification_tile_bg=0x7f0700e3;
     public static final int notify_panel_notification_icon_bg=0x7f0700e4;
-    public static final int settings1=0x7f0700e5;
-    public static final int settings10=0x7f0700e6;
-    public static final int settings11=0x7f0700e7;
-    public static final int settings2=0x7f0700e8;
-    public static final int settings3=0x7f0700e9;
-    public static final int settings4=0x7f0700ea;
-    public static final int settings5=0x7f0700eb;
-    public static final int settings6=0x7f0700ec;
-    public static final int settings7=0x7f0700ed;
-    public static final int settings8=0x7f0700ee;
-    public static final int settings9=0x7f0700ef;
-    public static final int text_bg=0x7f0700f0;
-    public static final int tooltip_frame_dark=0x7f0700f1;
-    public static final int tooltip_frame_light=0x7f0700f2;
+    public static final int pic_default=0x7f0700e5;
+    public static final int settings1=0x7f0700e6;
+    public static final int settings10=0x7f0700e7;
+    public static final int settings11=0x7f0700e8;
+    public static final int settings2=0x7f0700e9;
+    public static final int settings3=0x7f0700ea;
+    public static final int settings4=0x7f0700eb;
+    public static final int settings5=0x7f0700ec;
+    public static final int settings6=0x7f0700ed;
+    public static final int settings7=0x7f0700ee;
+    public static final int settings8=0x7f0700ef;
+    public static final int settings9=0x7f0700f0;
+    public static final int text_bg=0x7f0700f1;
+    public static final int tooltip_frame_dark=0x7f0700f2;
+    public static final int tooltip_frame_light=0x7f0700f3;
   }
   public static final class fraction {
     public static final int lb_browse_header_unselect_alpha=0x7f080000;

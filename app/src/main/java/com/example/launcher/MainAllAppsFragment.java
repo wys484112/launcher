@@ -14,7 +14,9 @@
 
 package com.example.launcher;
 
+import android.app.LoaderManager;
 import android.content.Intent;
+import android.content.Loader;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -45,20 +47,23 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
+import com.example.launcher.loader.AppLoader;
+import com.example.launcher.model.AppInfo;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MainAllAppsFragment extends BrowseFragment {
+public class MainAllAppsFragment extends BrowseFragment implements LoaderManager.LoaderCallbacks<List<AppInfo>>{
     private static final String TAG = "MainFragment";
 
     private static final int BACKGROUND_UPDATE_DELAY = 300;
     private static final int GRID_ITEM_WIDTH = 200;
     private static final int GRID_ITEM_HEIGHT = 200;
-    private static final int NUM_ROWS = 6;
-    private static final int NUM_COLS = 6;
 
     private final Handler mHandler = new Handler();
     private Drawable mDefaultBackground;
@@ -66,6 +71,72 @@ public class MainAllAppsFragment extends BrowseFragment {
     private Timer mBackgroundTimer;
     private String mBackgroundUri;
     private BackgroundManager mBackgroundManager;
+    private ArrayObjectAdapter mRowsAdapter;
+
+    private static final int NUM_COLS = 6;//一行显示5个应用
+
+    static List<String> favorites = Arrays.asList("com.example.launcher/com.example.launcher.MainActivity",
+            "com.android.tv.settings/com.android.tv.settings.MainSettings",
+            "com.xiaobaifile.tv/com.xiaobaifile.tv.view.StartupActivity"
+    );
+    @Override
+    public Loader<List<AppInfo>> onCreateLoader(int i, Bundle bundle) {
+        return new AppLoader(getActivity(), LauncherAppState.getInstance().getIconCache());
+    }
+
+    @Override
+    public void onLoadFinished(Loader<List<AppInfo>> loader, List<AppInfo> appInfos) {
+        appInfos = extractFavorites(appInfos);
+
+        mRowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
+        AppCardPresenter cardPresenter = new AppCardPresenter();
+
+        int size=appInfos.size();
+        int rows=size/NUM_COLS+1;
+        Log.d("wwww", "rows=="+rows);
+        Log.d("wwww", "size=="+size);
+
+        int i;
+        for (i = 0; i < rows; i++) {
+
+            ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(cardPresenter);
+            int start=(i)*NUM_COLS;
+            Log.d("wwww", "i==" + i);
+
+            if((i+1)==rows){
+                Log.d("wwww", "add111==");
+
+                for (int j = start; j < size; j++) {
+                    Log.d("wwww", "add111==");
+
+                    listRowAdapter.add(appInfos.get(j));
+                }
+            }else{
+                Log.d("wwww", "add22==");
+
+                for (int j = 0; j < NUM_COLS; j++) {
+                    Log.d("wwww", "add22==");
+
+                    listRowAdapter.add(appInfos.get(start+j));
+                }
+//                HeaderItem header = new HeaderItem(i, MovieList.MOVIE_CATEGORY[i]);
+            }
+
+            mRowsAdapter.add(new ListRow(null, listRowAdapter));
+
+        }
+
+
+
+
+        setAdapter(mRowsAdapter);
+
+    }
+
+    @Override
+    public void onLoaderReset(Loader<List<AppInfo>> loader) {
+        mRowsAdapter.clear();
+    }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -76,9 +147,17 @@ public class MainAllAppsFragment extends BrowseFragment {
 
         setupUIElements();
 
-        loadRows();
+//        loadRows();
 
         setupEventListeners();
+        LauncherAppState.setApplicationContext(getActivity());
+
+        if (savedInstanceState == null) {
+            getLoaderManager().restartLoader(0, null, this);
+        } else {
+            getLoaderManager().restartLoader(0, null, this);
+        }
+
     }
 
     @Override
@@ -89,37 +168,22 @@ public class MainAllAppsFragment extends BrowseFragment {
             mBackgroundTimer.cancel();
         }
     }
-
-    private void loadRows() {
-        List<Movie> list = MovieList.setupMovies();
-
-        ArrayObjectAdapter rowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
-        CardPresenter cardPresenter = new CardPresenter();
-
-        int i;
-        for (i = 0; i < NUM_ROWS; i++) {
-            if (i != 0) {
-                Collections.shuffle(list);
+    private List<AppInfo> extractFavorites(List<AppInfo> infos) {
+        List<AppInfo> favs = new ArrayList<>(favorites.size());
+        for (String name : favorites) {
+            for (AppInfo info : infos) {
+                Log.d("wwww", "com==" + info.componentName.toString());
+                if (name.contains(info.componentName.getClassName())) {
+                    Log.d("wwww", "title==" + info.componentName);
+                    favs.add(info);
+                    infos.remove(info);
+                    break;
+                }
             }
-            ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(cardPresenter);
-            for (int j = 0; j < NUM_COLS; j++) {
-                listRowAdapter.add(list.get(j % 5));
-            }
-            HeaderItem header = new HeaderItem(i, MovieList.MOVIE_CATEGORY[i]);
-            rowsAdapter.add(new ListRow(header, listRowAdapter));
         }
-
-        HeaderItem gridHeader = new HeaderItem(i, "PREFERENCES");
-
-        GridItemPresenter mGridPresenter = new GridItemPresenter();
-        ArrayObjectAdapter gridRowAdapter = new ArrayObjectAdapter(mGridPresenter);
-        gridRowAdapter.add(getResources().getString(R.string.grid_view));
-        gridRowAdapter.add(getString(R.string.error_fragment));
-        gridRowAdapter.add(getResources().getString(R.string.personal_settings));
-        rowsAdapter.add(new ListRow(gridHeader, gridRowAdapter));
-
-        setAdapter(rowsAdapter);
+        return infos;
     }
+
 
     private void prepareBackgroundManager() {
 
@@ -144,6 +208,8 @@ public class MainAllAppsFragment extends BrowseFragment {
         setBrandColor(ContextCompat.getColor(getActivity(), R.color.fastlane_background));
         // set search icon color
         setSearchAffordanceColor(ContextCompat.getColor(getActivity(), R.color.search_opaque));
+
+//        setEntranceTransitionStartState();
     }
 
     private void setupEventListeners() {
