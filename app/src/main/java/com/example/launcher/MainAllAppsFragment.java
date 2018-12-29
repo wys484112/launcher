@@ -198,18 +198,19 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
     private void setupUIElements() {
         // setBadgeDrawable(getActivity().getResources().getDrawable(
         // R.drawable.videos_by_google_banner));
-        showTitle(false);
+        setTitle(getString(R.string.browse_title)); // Badge, when set, takes precedent
+        showTitle(true);
+//        setTitleView(null);
 //        setTitle(getString(R.string.browse_title)); // Badge, when set, takes precedent
         // over title
         setHeadersState(HEADERS_DISABLED);
-        setHeadersTransitionOnBackEnabled(true);
+//        setHeadersTransitionOnBackEnabled(true);
 
         // set fastLane (or headers) background color
         setBrandColor(ContextCompat.getColor(getActivity(), R.color.fastlane_background));
         // set search icon color
-        setSearchAffordanceColor(ContextCompat.getColor(getActivity(), R.color.search_opaque));
+//        setSearchAffordanceColor(ContextCompat.getColor(getActivity(), R.color.search_opaque));
 
-//        setEntranceTransitionStartState();
     }
 
     private void setupEventListeners() {
@@ -257,18 +258,11 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
         public void onItemClicked(Presenter.ViewHolder itemViewHolder, Object item,
                                   RowPresenter.ViewHolder rowViewHolder, Row row) {
 
-            if (item instanceof Movie) {
-                Movie movie = (Movie) item;
-                Log.d(TAG, "Item: " + item.toString());
-                Intent intent = new Intent(getActivity(), DetailsActivity.class);
-                intent.putExtra(DetailsActivity.MOVIE, movie);
+            if (item instanceof AppInfo) {
+                AppInfo appinfo = (AppInfo) item;
+                Log.d(TAG, "Item: " + appinfo.intent);
+                getActivity().startActivity(appinfo.intent);
 
-                Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                        getActivity(),
-                        ((ImageCardView) itemViewHolder.view).getMainImageView(),
-                        DetailsActivity.SHARED_ELEMENT_NAME)
-                        .toBundle();
-                getActivity().startActivity(intent, bundle);
             } else if (item instanceof String) {
                 if (((String) item).contains(getString(R.string.error_fragment))) {
                     Intent intent = new Intent(getActivity(), BrowseErrorActivity.class);

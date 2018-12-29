@@ -65,7 +65,7 @@
             android:label="@string/title_activity_main_tv"
             android:logo="@drawable/app_icon_your_company"
             android:screenOrientation="landscape"
-            android:theme="@style/CustomImageCardTheme" >
+            android:theme="@style/Theme.Leanback" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
