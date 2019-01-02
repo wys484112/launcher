@@ -53,6 +53,9 @@
         <item name="rowHorizontalGridStyle">@style/CustomrowHorizontalGridStyle</item>
 
 
+        <!--控制itemverticalgridview距离上边距-->
+        <item name="browseRowsMarginTop">30dp</item>
+
 
     </style>
 
