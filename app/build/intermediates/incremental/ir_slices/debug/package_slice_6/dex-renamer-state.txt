@@ -1,4 +1,4 @@
-#Thu Jan 03 09:04:56 CST 2019
-base.0=E\:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\7
+#Thu Jan 03 10:30:58 CST 2019
+base.0=E\:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\6
 path.0=classes.dex
 renamed.0=classes.dex
