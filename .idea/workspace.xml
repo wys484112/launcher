@@ -49,7 +49,7 @@
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/example/launcher/MainAllAppsFragment$UpdateBackgroundTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/example/launcher/MainAllAppsFragment$UpdateBackgroundTask.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/example/launcher/MainAllAppsFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/example/launcher/MainAllAppsFragment.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/file-input-save-data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/file-input-save-data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/__content__.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/__content__.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/launcher/MainAllAppsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/launcher/MainAllAppsFragment.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -77,10 +77,15 @@
       <file leaf-file-name="MainAllAppsFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/launcher/MainAllAppsFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="157" column="13" lean-forward="true" selection-start-line="157" selection-start-column="13" selection-end-line="157" selection-end-column="13" />
+            <state relative-caret-position="418">
+              <caret line="87" column="6" lean-forward="true" selection-start-line="87" selection-start-column="6" selection-end-line="87" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#11658#11912#0" expanded="true" />
+                <element signature="e#11911#11912#0" expanded="true" />
+                <element signature="e#13658#13692#0" expanded="true" />
+                <element signature="e#14625#14789#0" expanded="true" />
+                <element signature="e#14788#14789#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -89,8 +94,8 @@
       <file leaf-file-name="ListRowPresenter.java" pinned="false" current-in-tab="false">
         <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/widget/ListRowPresenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="48" column="45" lean-forward="true" selection-start-line="48" selection-start-column="45" selection-end-line="48" selection-end-column="45" />
+            <state relative-caret-position="268">
+              <caret line="48" column="46" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
               <folding>
                 <element signature="e#3722#3723#0" expanded="true" />
                 <element signature="e#3762#3763#0" expanded="true" />
@@ -101,41 +106,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ListRowView.java" pinned="false" current-in-tab="false">
-        <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/widget/ListRowView.java">
+      <file leaf-file-name="HorizontalGridView.java" pinned="false" current-in-tab="false">
+        <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/widget/HorizontalGridView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="316">
+              <caret line="49" column="46" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppRowPresenter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/launcher/AppRowPresenter.java">
+      <file leaf-file-name="BaseGridView.java" pinned="false" current-in-tab="false">
+        <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/widget/BaseGridView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="25" column="46" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VerticalGridFragment.java" pinned="false" current-in-tab="false">
-        <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/app/VerticalGridFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="180" column="31" selection-start-line="180" selection-start-column="31" selection-end-line="180" selection-end-column="31" />
+            <state relative-caret-position="-834">
+              <caret line="711" column="7" selection-start-line="711" selection-start-column="7" selection-end-line="711" selection-end-column="7" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#11644#11645#0" expanded="true" />
+                <element signature="e#11706#11707#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VideoFragment.java" pinned="false" current-in-tab="false">
-        <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/app/VideoFragment.java">
+      <file leaf-file-name="GridLayoutManager.java" pinned="false" current-in-tab="false">
+        <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/widget/GridLayoutManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+            <state relative-caret-position="339">
+              <caret line="711" column="38" selection-start-line="711" selection-start-column="16" selection-end-line="711" selection-end-column="38" />
+              <folding>
+                <element signature="e#23625#23626#0" expanded="true" />
+                <element signature="e#23668#23669#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BrandedFragment.java" pinned="false" current-in-tab="false">
+        <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/app/BrandedFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="79" column="32" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#5694#5695#0" expanded="true" />
+                <element signature="e#5729#5730#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -143,8 +158,8 @@
       <file leaf-file-name="RowPresenter.java" pinned="false" current-in-tab="false">
         <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/widget/RowPresenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="547" column="7" lean-forward="true" selection-start-line="547" selection-start-column="7" selection-end-line="547" selection-end-column="7" />
+            <state relative-caret-position="408">
+              <caret line="400" column="32" selection-start-line="400" selection-start-column="32" selection-end-line="400" selection-end-column="32" />
               <folding>
                 <element signature="e#23084#23085#0" expanded="true" />
                 <element signature="e#23127#23128#0" expanded="true" />
@@ -153,54 +168,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ListRowDataAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/app/ListRowDataAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RowsFragment.java" pinned="false" current-in-tab="false">
-        <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/app/RowsFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RowsSupportFragment.java" pinned="false" current-in-tab="false">
-        <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/app/RowsSupportFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="53" column="3" selection-start-line="53" selection-start-column="3" selection-end-line="53" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mGridView</find>
-      <find>mGridPresenter</find>
-      <find>setGridPresenter</find>
-      <find>onCreateView</find>
-      <find>setupFragment</find>
-      <find>title</find>
-      <find>onInflateTitleView</find>
-      <find>mTitleViewAdapter</find>
-      <find>mSceneRoot</find>
-      <find>onCreateViewHolder</find>
-      <find>initializeGridViewHolder</find>
-      <find>installTitleView</find>
-      <find>Collection</find>
-      <find>horizontalgrid</find>
-      <find>horizontal</find>
-      <find>ground</find>
-      <find>mForeground</find>
       <find>setForegroundColor</find>
       <find>ForegroundHelper</find>
       <find>Foreground</find>
@@ -214,6 +185,23 @@
       <find>mSelectEffectEnabled</find>
       <find>getSelectEffectEnabled</find>
       <find>setActiveLevel</find>
+      <find>isFocusDimmerUsed</find>
+      <find>FocusHighlightHelper</find>
+      <find>mUseFocusDimmer</find>
+      <find>isUsingDefaultShadow</find>
+      <find>needsShadow</find>
+      <find>searc</find>
+      <find>search</find>
+      <find>DEFAULT</find>
+      <find>needsDefaultShadow</find>
+      <find>scroll</find>
+      <find>setFocusScrollStrategy</find>
+      <find>focu</find>
+      <find>mFocusScrollStrategy</find>
+      <find>FOCUS_SCROLL_ALIGNED</find>
+      <find>layoutmana</find>
+      <find>mLayoutManager</find>
+      <find>vertical</find>
     </findStrings>
   </component>
   <component name="GenerateSignedApkSettings">
@@ -2225,28 +2213,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="launcher" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="launcher" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="launcher" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="launcher" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -2380,6 +2346,28 @@
               <item name="classes.jar" type="462c0819:PsiDirectoryNode" />
               <item name="leanback" type="462c0819:PsiDirectoryNode" />
               <item name="widget" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="launcher" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="launcher" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="launcher" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="launcher" type="cbb59c9e:AndroidPsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -2546,65 +2534,43 @@
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="Android Profiler" order="7" />
+      <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Build Variants" order="2" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50183374" side_tool="true" weight="0.32662192" />
-      <window_info anchor="right" id="Preview" order="3" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3293556" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32997763" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49938875" weight="0.30872482" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49938875" visible="true" weight="0.30872482" />
       <window_info anchor="bottom" id="Logcat" order="7" sideWeight="0.49816626" weight="0.32662192" />
       <window_info id="Captures" order="2" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5645439" visible="true" weight="0.25794622" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.4987775" visible="true" weight="0.35011184" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5749441" visible="true" weight="0.25794622" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.4987775" weight="0.35011184" />
       <window_info anchor="right" id="Gradle" order="3" />
-      <window_info id="Structure" order="1" sideWeight="0.4354561" side_tool="true" visible="true" weight="0.25794622" />
+      <window_info id="Structure" order="1" sideWeight="0.42505592" side_tool="true" weight="0.25794622" />
       <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Build Variants" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50183374" side_tool="true" weight="0.32662192" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5765921" visible="true" weight="0.25794622" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Logcat" order="7" sideWeight="0.49816626" weight="0.32662192" />
-      <window_info id="Structure" order="1" sideWeight="0.4234079" side_tool="true" visible="true" weight="0.25794622" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Android Profiler" order="7" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Preview" order="3" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3293556" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.4987775" visible="true" weight="0.35011184" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49938875" weight="0.30872482" />
-      <window_info id="Captures" order="2" weight="0.25" />
-      <window_info anchor="right" id="Gradle" order="3" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info id="Designer" order="2" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="bottom" id="Build" order="7" weight="0.35083532" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.4987775" weight="0.35011184" />
       <window_info id="Designer" order="2" />
       <window_info id="Build Variants" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3293556" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
@@ -2613,21 +2579,21 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50183374" side_tool="true" weight="0.32662192" />
       <window_info anchor="right" id="Preview" order="4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="10" visible="true" weight="0.32816228" />
+      <window_info anchor="bottom" id="Logcat" order="10" sideWeight="0.49816626" weight="0.32662192" />
       <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Terminal" order="12" weight="0.3293556" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49938875" weight="0.30872482" />
       <window_info anchor="right" id="Gradle" order="6" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.59325045" visible="true" weight="0.30522388" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5749441" visible="true" weight="0.25794622" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info id="Structure" order="1" sideWeight="0.40674955" side_tool="true" visible="true" weight="0.30522388" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.42505592" side_tool="true" visible="true" weight="0.25794622" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
     </layout-to-restore>
@@ -2636,20 +2602,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/widget/MediaItemActionPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-415">
-          <caret line="29" column="6" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/widget/SingleRow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3404">
-          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/widget/StaggeredGrid.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-92">
@@ -2686,13 +2638,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
           <caret line="38" column="54" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
         </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/launcher/ErrorFragment.java">
@@ -2703,13 +2655,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/row_app_app.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="305">
           <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/launcher/MainAllAppsVerticalGridFragment.java">
@@ -2734,13 +2686,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_tv.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/launcher/ui/RowApp2.java">
@@ -2806,24 +2758,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/widget/GridLayoutManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="88" column="36" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/widget/Grid.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
           <caret line="38" column="21" lean-forward="true" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/widget/HorizontalGridView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="52" column="36" lean-forward="true" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -2862,27 +2800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/widget/BaseGridView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="45" column="7" lean-forward="true" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/widget/VerticalGridPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="96" column="40" selection-start-line="96" selection-start-column="30" selection-end-line="96" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#15225#0" expanded="true" />
-            <element signature="e#3363#3364#0" expanded="true" />
-            <element signature="e#3403#3404#0" expanded="true" />
-            <element signature="e#4119#4120#0" expanded="true" />
-            <element signature="e#4173#4174#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/app/BrowseFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="99">
@@ -2894,18 +2811,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
           <caret line="87" column="37" selection-start-line="87" selection-start-column="37" selection-end-line="87" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/app/BrandedFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="162" column="7" lean-forward="true" selection-start-line="162" selection-start-column="7" selection-end-line="162" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5694#5695#0" expanded="true" />
-            <element signature="e#5729#5730#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2946,60 +2851,141 @@
     </entry>
     <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/app/ListRowDataAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
+        <state relative-caret-position="345">
           <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/app/RowsFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
+        <state relative-caret-position="276">
           <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/app/RowsSupportFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
+        <state relative-caret-position="299">
           <caret line="53" column="3" selection-start-line="53" selection-start-column="3" selection-end-line="53" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/app/VerticalGridFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="180" column="31" selection-start-line="180" selection-start-column="31" selection-end-line="180" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/app/VideoFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
+        <state relative-caret-position="299">
           <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/widget/ListRowView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
+        <state relative-caret-position="598">
           <caret line="47" selection-start-line="47" selection-end-line="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/launcher/AppRowPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
+        <state relative-caret-position="276">
           <caret line="25" column="46" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/app/BrandedFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="79" column="32" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5694#5695#0" expanded="true" />
+            <element signature="e#5729#5730#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/app/VerticalGridFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="77" column="48" selection-start-line="77" selection-start-column="48" selection-end-line="77" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/widget/VerticalGridPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="94" column="36" lean-forward="true" selection-start-line="94" selection-start-column="36" selection-end-line="94" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#15225#0" expanded="true" />
+            <element signature="e#3363#3364#0" expanded="true" />
+            <element signature="e#3403#3404#0" expanded="true" />
+            <element signature="e#4119#4120#0" expanded="true" />
+            <element signature="e#4173#4174#0" expanded="true" />
+            <element signature="e#5963#5964#0" expanded="true" />
+            <element signature="e#5997#5998#0" expanded="true" />
+            <element signature="e#6506#6507#0" expanded="true" />
+            <element signature="e#6543#6544#0" expanded="true" />
+            <element signature="e#6884#6885#0" expanded="true" />
+            <element signature="e#6943#6944#0" expanded="true" />
+            <element signature="e#8025#8026#0" expanded="true" />
+            <element signature="e#8064#8065#0" expanded="true" />
+            <element signature="e#8217#8218#0" expanded="true" />
+            <element signature="e#8255#8256#0" expanded="true" />
+            <element signature="e#11809#11810#0" expanded="true" />
+            <element signature="e#11852#11853#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/widget/ShadowOverlayHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="192" column="18" selection-start-line="192" selection-start-column="11" selection-end-line="192" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/android_sdk/android-sdk_android_studio/platforms/android-26/android.jar!/android/view/View.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="136" column="28" selection-start-line="136" selection-start-column="28" selection-end-line="136" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/widget/GridLayoutManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="711" column="38" selection-start-line="711" selection-start-column="16" selection-end-line="711" selection-end-column="38" />
+          <folding>
+            <element signature="e#23625#23626#0" expanded="true" />
+            <element signature="e#23668#23669#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/widget/HorizontalGridView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="49" column="46" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/widget/BaseGridView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-834">
+          <caret line="711" column="7" selection-start-line="711" selection-start-column="7" selection-end-line="711" selection-end-column="7" />
+          <folding>
+            <element signature="e#11644#11645#0" expanded="true" />
+            <element signature="e#11706#11707#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/widget/ListRowPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="48" column="45" lean-forward="true" selection-start-line="48" selection-start-column="45" selection-end-line="48" selection-end-column="45" />
+        <state relative-caret-position="268">
+          <caret line="48" column="46" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
           <folding>
             <element signature="e#3722#3723#0" expanded="true" />
             <element signature="e#3762#3763#0" expanded="true" />
@@ -3011,8 +2997,8 @@
     </entry>
     <entry file="jar://E:/gradle_repositary/caches/modules-2/files-2.1/com.android.support/leanback-v17/26.1.0/3fca2022896ef9a48932d4997fbbec59a9c31d0a/leanback-v17-26.1.0-sources.jar!/android/support/v17/leanback/widget/RowPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="547" column="7" lean-forward="true" selection-start-line="547" selection-start-column="7" selection-end-line="547" selection-end-column="7" />
+        <state relative-caret-position="408">
+          <caret line="400" column="32" selection-start-line="400" selection-start-column="32" selection-end-line="400" selection-end-column="32" />
           <folding>
             <element signature="e#23084#23085#0" expanded="true" />
             <element signature="e#23127#23128#0" expanded="true" />
@@ -3022,10 +3008,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/launcher/MainAllAppsFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="157" column="13" lean-forward="true" selection-start-line="157" selection-start-column="13" selection-end-line="157" selection-end-column="13" />
+        <state relative-caret-position="418">
+          <caret line="87" column="6" lean-forward="true" selection-start-line="87" selection-start-column="6" selection-end-line="87" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#11658#11912#0" expanded="true" />
+            <element signature="e#11911#11912#0" expanded="true" />
+            <element signature="e#13658#13692#0" expanded="true" />
+            <element signature="e#14625#14789#0" expanded="true" />
+            <element signature="e#14788#14789#0" expanded="true" />
           </folding>
         </state>
       </provider>

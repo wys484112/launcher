@@ -84,9 +84,7 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
     private static final int NUM_COLS = 5;//一行显示5个应用
 
     static List<String> favorites = Arrays.asList("com.example.launcher/com.example.launcher.MainActivity",
-            "com.android.tv.settings/com.android.tv.settings.MainSettings",
-            "com.example.launcher/com.example.launcher.MainTvActivity",
-            "com.xiaobaifile.tv/com.xiaobaifile.tv.view.StartupActivity"
+            "com.example.launcher/com.example.launcher.MainTvActivity"
     );
 
     @Override
