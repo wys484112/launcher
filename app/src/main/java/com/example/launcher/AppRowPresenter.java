@@ -26,8 +26,8 @@ import com.example.launcher.ui.RowApp2;
 public class AppRowPresenter extends Presenter {
 
     private Context mContext;
-    private int CARD_WIDTH = 313;
-    private int CARD_HEIGHT = 176;
+    private int CARD_WIDTH = 600;
+    private int CARD_HEIGHT = 300;
     private static int sSelectedBackgroundColor;
     private static int sDefaultBackgroundColor;
     private Drawable mDefaultCardImage;
@@ -60,6 +60,13 @@ public class AppRowPresenter extends Presenter {
                 super.setSelected(selected);
             }
         };
+
+//        ViewGroup.LayoutParams lp = cardView.getLayoutParams();
+//        lp.width = CARD_WIDTH;
+//        lp.height = CARD_HEIGHT;
+//        cardView.setLayoutParams(lp);
+        cardView.setLayoutParams(new ViewGroup.LayoutParams(CARD_WIDTH, CARD_HEIGHT));
+
 //        cardView.setLayoutParams(new ViewGroup.LayoutParams(CARD_WIDTH, CARD_HEIGHT));
         cardView.setFocusable(true);
         cardView.setOrientation(LinearLayout.VERTICAL);
