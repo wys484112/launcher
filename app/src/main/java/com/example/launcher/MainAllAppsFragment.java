@@ -144,6 +144,35 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
 
         /**
          * */
+
+        mRowsAdapter = new ArrayObjectAdapter(new ListRowPresenter() {
+            @Override
+            public boolean isUsingDefaultShadow() {
+//                return super.isUsingDefaultShadow();
+                return false;
+            }
+
+            @Override
+            protected void onSelectLevelChanged(RowPresenter.ViewHolder holder) {
+//                super.onSelectLevelChanged(holder);
+            }
+
+            @Override
+            protected ShadowOverlayHelper.Options createShadowOverlayOptions() {
+                return super.createShadowOverlayOptions();
+            }
+
+            @Override
+            protected void initializeRowViewHolder(RowPresenter.ViewHolder holder) {
+                super.initializeRowViewHolder(holder);
+
+                final ViewHolder rowViewHolder = (ViewHolder) holder;
+                Context context = holder.view.getContext();
+                // set wrapper if needed
+//                rowViewHolder.getGridView().setNumRows(rows);
+//                rowViewHolder.getGridView().setNumRows(rows);
+            }
+        });
         appInfos = extractFavorites(appInfos);
         int size = appInfos.size();
         final int rows = size / NUM_COLS + 1;
