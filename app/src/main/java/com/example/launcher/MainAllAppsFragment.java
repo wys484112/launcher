@@ -100,21 +100,29 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
 
         mRowsAdapter = new ArrayObjectAdapter(new ListRowPresenter(){
             @Override
+            public boolean isUsingDefaultShadow() {
+//                return super.isUsingDefaultShadow();
+                return false;
+
+            }
+
+            @Override
+            protected ShadowOverlayHelper.Options createShadowOverlayOptions() {
+                return super.createShadowOverlayOptions();
+            }
+
+            @Override
             protected void initializeRowViewHolder(RowPresenter.ViewHolder holder) {
                 super.initializeRowViewHolder(holder);
 
                 final ViewHolder rowViewHolder = (ViewHolder) holder;
                 Context context = holder.view.getContext();
-
                 // set wrapper if needed
-
-
                 rowViewHolder.getGridView().setNumRows(rows);
+//                rowViewHolder.getGridView().setNumRows(rows);
             }
         });
         AppCardPresenter cardPresenter = new AppCardPresenter();
-
-
         Log.d("wwww", "rows=="+rows);
         Log.d("wwww", "size=="+size);
 
@@ -123,6 +131,16 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
             listRowAdapter.add(appInfos.get(i));
         }
             mRowsAdapter.add(new ListRow(null, listRowAdapter));
+
+
+
+
+        AppRowPresenter gridPresenter = new AppRowPresenter();
+        ArrayObjectAdapter gridAdapter = new ArrayObjectAdapter(gridPresenter);
+        for(int i=0;i<size;i++){
+            gridAdapter.add(appInfos.get(i));
+        }
+        mRowsAdapter.add(new ListRow(null, gridAdapter));
 
 
 //
@@ -372,7 +390,8 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
 
         @Override
         public void onBindViewHolder(ViewHolder viewHolder, Object item) {
-            ((TextView) viewHolder.view).setText((String) item);
+            AppInfo appBean = (AppInfo) item;
+            ((TextView) viewHolder.view).setText((String) appBean.title.toString());
         }
 
         @Override

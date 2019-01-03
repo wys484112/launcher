@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Jan 02 12:42:17 CST 2019
+#Wed Jan 02 14:46:56 CST 2019
 1.base=E\:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\12
 2.path=classes.dex
 0.baseType=DIRECTORY

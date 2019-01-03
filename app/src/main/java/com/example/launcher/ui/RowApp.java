@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,16 +24,31 @@ public class RowApp extends LinearLayout {
     private boolean isAnimateApp;
     private CharSequence pkg;
     private CharSequence cls;
-    private int title;
+    private int title=-1;
 
     private int backgroundResource;
-    private int imageviewBackgroundResource;
+    private int imageviewBackgroundResource=-1;
 
+    public TextView getTextView() {
+        return textView;
+    }
 
+    public ImageView getImageview() {
+        return imageview;
+    }
+    public void setImageDrawable(Drawable drawable) {
+
+    }
+    public final void setText(CharSequence text) {
+        if (textView == null) {
+            return;
+        }
+        textView.setText(text);
+    }
     private AnimationDrawable mAppsAnimation;
 
     public RowApp(Context context) {
-        super(context);
+        this(context,null);
         Log.d("wwww","asdfasdfdddd444");
 
     }
@@ -58,8 +74,8 @@ public class RowApp extends LinearLayout {
             pkg = a.getText(R.styleable.RowApp_rowcomponentPKG);
             cls = a.getText(R.styleable.RowApp_rowcomponentCLS);
             imageviewBackgroundResource = a.getResourceId(R.styleable.RowApp_rowimageviewBackgroundResource,0);
-            title = a.getResourceId(R.styleable.RowApp_rowtitle,0);
-            backgroundResource =a.getResourceId(R.styleable.RowApp_rowbackgroundResource,0);
+            title = a.getResourceId(R.styleable.RowApp_rowtitle,-1);
+            backgroundResource =a.getResourceId(R.styleable.RowApp_rowbackgroundResource,-1);
         } finally {
             a.recycle();
         }
@@ -75,8 +91,12 @@ public class RowApp extends LinearLayout {
 
 
     private void init(){
-        textView.setText(title);
-        imageview.setBackgroundResource(imageviewBackgroundResource);
+        if(title!=-1){
+            textView.setText(title);
+        }
+        if(imageviewBackgroundResource!=-1){
+            imageview.setBackgroundResource(imageviewBackgroundResource);
+        }
 
         if(isAnimateApp){
             this.setBackground(null);
