@@ -85,6 +85,7 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
 
     static List<String> favorites = Arrays.asList("com.example.launcher/com.example.launcher.MainActivity",
             "com.android.tv.settings/com.android.tv.settings.MainSettings",
+            "com.example.launcher/com.example.launcher.MainTvActivity",
             "com.xiaobaifile.tv/com.xiaobaifile.tv.view.StartupActivity"
     );
     @Override
@@ -130,7 +131,7 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
         for(int i=0;i<size;i++){
             listRowAdapter.add(appInfos.get(i));
         }
-            mRowsAdapter.add(new ListRow(null, listRowAdapter));
+//            mRowsAdapter.add(new ListRow(null, listRowAdapter));
 
 
 

@@ -75,6 +75,7 @@ public class MainAllAppsVerticalGridFragment extends VerticalGridFragment implem
 
     static List<String> favorites = Arrays.asList("com.example.launcher/com.example.launcher.MainActivity",
             "com.android.tv.settings/com.android.tv.settings.MainSettings",
+            "com.example.launcher/com.example.launcher.MainTvActivity",
             "com.xiaobaifile.tv/com.xiaobaifile.tv.view.StartupActivity"
     );
     @Override
@@ -206,7 +207,9 @@ public class MainAllAppsVerticalGridFragment extends VerticalGridFragment implem
         gridPresenter.setNumberOfColumns(NUM_COLS);
         setGridPresenter(gridPresenter);
 
-        AppCardPresenter cardPresenter = new AppCardPresenter();
+//        AppCardPresenter cardPresenter = new AppCardPresenter();
+//        mAdapter = new ArrayObjectAdapter(cardPresenter);
+        AppRowPresenter cardPresenter = new AppRowPresenter();
         mAdapter = new ArrayObjectAdapter(cardPresenter);
         setAdapter(mAdapter);
     }

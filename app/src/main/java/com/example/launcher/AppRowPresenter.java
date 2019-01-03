@@ -61,11 +61,7 @@ public class AppRowPresenter extends Presenter {
             }
         };
 
-//        ViewGroup.LayoutParams lp = cardView.getLayoutParams();
-//        lp.width = CARD_WIDTH;
-//        lp.height = CARD_HEIGHT;
-//        cardView.setLayoutParams(lp);
-        cardView.setLayoutParams(new ViewGroup.LayoutParams(CARD_WIDTH, CARD_HEIGHT));
+//        cardView.setLayoutParams(new ViewGroup.LayoutParams(CARD_WIDTH, CARD_HEIGHT));
 
 //        cardView.setLayoutParams(new ViewGroup.LayoutParams(CARD_WIDTH, CARD_HEIGHT));
         cardView.setFocusable(true);
