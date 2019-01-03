@@ -66,7 +66,7 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MainAllAppsFragment extends BrowseFragment implements LoaderManager.LoaderCallbacks<List<AppInfo>>{
+public class MainAllAppsFragment extends BrowseFragment implements LoaderManager.LoaderCallbacks<List<AppInfo>> {
     private static final String TAG = "MainFragment";
 
     private static final int BACKGROUND_UPDATE_DELAY = 300;
@@ -88,6 +88,7 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
             "com.example.launcher/com.example.launcher.MainTvActivity",
             "com.xiaobaifile.tv/com.xiaobaifile.tv.view.StartupActivity"
     );
+
     @Override
     public Loader<List<AppInfo>> onCreateLoader(int i, Bundle bundle) {
         return new AppLoader(getActivity(), LauncherAppState.getInstance().getIconCache());
@@ -95,87 +96,87 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
 
     @Override
     public void onLoadFinished(Loader<List<AppInfo>> loader, List<AppInfo> appInfos) {
-        appInfos = extractFavorites(appInfos);
-        int size=appInfos.size();
-        final int rows=size/NUM_COLS+1;
-
-        mRowsAdapter = new ArrayObjectAdapter(new ListRowPresenter(){
-            @Override
-            public boolean isUsingDefaultShadow() {
-//                return super.isUsingDefaultShadow();
-                return false;
-
-            }
-
-            @Override
-            protected ShadowOverlayHelper.Options createShadowOverlayOptions() {
-                return super.createShadowOverlayOptions();
-            }
-
-            @Override
-            protected void initializeRowViewHolder(RowPresenter.ViewHolder holder) {
-                super.initializeRowViewHolder(holder);
-
-                final ViewHolder rowViewHolder = (ViewHolder) holder;
-                Context context = holder.view.getContext();
-                // set wrapper if needed
-                rowViewHolder.getGridView().setNumRows(rows);
-//                rowViewHolder.getGridView().setNumRows(rows);
-            }
-        });
-        AppCardPresenter cardPresenter = new AppCardPresenter();
-        Log.d("wwww", "rows=="+rows);
-        Log.d("wwww", "size=="+size);
-
-        ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(cardPresenter);
-        for(int i=0;i<size;i++){
-            listRowAdapter.add(appInfos.get(i));
-        }
-//            mRowsAdapter.add(new ListRow(null, listRowAdapter));
-
-
-
-
-        AppRowPresenter gridPresenter = new AppRowPresenter();
-        ArrayObjectAdapter gridAdapter = new ArrayObjectAdapter(gridPresenter);
-        for(int i=0;i<size;i++){
-            gridAdapter.add(appInfos.get(i));
-        }
-        mRowsAdapter.add(new ListRow(null, gridAdapter));
-
-
+//        appInfos = extractFavorites(appInfos);
+//        int size = appInfos.size();
+//        final int rows = size / NUM_COLS + 1;
 //
-//        int i;
-//        for (i = 0; i < rows; i++) {
-//
-//            ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(cardPresenter);
-//            int start=(i)*NUM_COLS;
-//            Log.d("wwww", "i==" + i);
-//
-//            if((i+1)==rows){
-//                Log.d("wwww", "add111==");
-//
-//                for (int j = start; j < size; j++) {
-//                    Log.d("wwww", "add111==");
-//
-//                    listRowAdapter.add(appInfos.get(j));
-//                }
-//            }else{
-//                Log.d("wwww", "add22==");
-//
-//                for (int j = 0; j < NUM_COLS; j++) {
-//                    Log.d("wwww", "add22==");
-//
-//                    listRowAdapter.add(appInfos.get(start+j));
-//                }
+//        mRowsAdapter = new ArrayObjectAdapter(new ListRowPresenter() {
+//            @Override
+//            public boolean isUsingDefaultShadow() {
+////                return super.isUsingDefaultShadow();
+//                return false;
 //            }
-//                HeaderItem header = new HeaderItem(0, "afsdf");
 //
-//            mRowsAdapter.add(new ListRow(null, listRowAdapter));
+//            @Override
+//            protected ShadowOverlayHelper.Options createShadowOverlayOptions() {
+//                return super.createShadowOverlayOptions();
+//            }
 //
+//            @Override
+//            protected void initializeRowViewHolder(RowPresenter.ViewHolder holder) {
+//                super.initializeRowViewHolder(holder);
+//
+//                final ViewHolder rowViewHolder = (ViewHolder) holder;
+//                Context context = holder.view.getContext();
+//                // set wrapper if needed
+//                rowViewHolder.getGridView().setNumRows(rows);
+////                rowViewHolder.getGridView().setNumRows(rows);
+//            }
+//        });
+//        AppCardPresenter cardPresenter = new AppCardPresenter();
+//        Log.d("wwww", "rows==" + rows);
+//        Log.d("wwww", "size==" + size);
+//
+//        ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(cardPresenter);
+//        for (int i = 0; i < size; i++) {
+//            listRowAdapter.add(appInfos.get(i));
 //        }
+////            mRowsAdapter.add(new ListRow(null, listRowAdapter));
+//
+//
+//        AppRowPresenter gridPresenter = new AppRowPresenter();
+//        ArrayObjectAdapter gridAdapter = new ArrayObjectAdapter(gridPresenter);
+//        for (int i = 0; i < size; i++) {
+//            gridAdapter.add(appInfos.get(i));
+//        }
+//        mRowsAdapter.add(new ListRow(null, gridAdapter));
 
 
+        /**
+         * */
+        appInfos = extractFavorites(appInfos);
+        int size = appInfos.size();
+        final int rows = size / NUM_COLS + 1;
+        int i;
+        AppRowPresenter mgridPresenter = new AppRowPresenter();
+        for (i = 0; i < rows; i++) {
+
+            ArrayObjectAdapter mlistRowAdapter = new ArrayObjectAdapter(mgridPresenter);
+            int start = (i) * NUM_COLS;
+            Log.d("wwww", "i==" + i);
+
+            if ((i + 1) == rows) {
+                Log.d("wwww", "add111==");
+
+                for (int j = start; j < size; j++) {
+                    Log.d("wwww", "add111==");
+
+                    mlistRowAdapter.add(appInfos.get(j));
+                }
+            } else {
+                Log.d("wwww", "add22==");
+
+                for (int j = 0; j < NUM_COLS; j++) {
+                    Log.d("wwww", "add22==");
+
+                    mlistRowAdapter.add(appInfos.get(start + j));
+                }
+            }
+            HeaderItem header = new HeaderItem(0, "afsdf");
+
+            mRowsAdapter.add(new ListRow(null, mlistRowAdapter));
+
+        }
 
 
         setAdapter(mRowsAdapter);
@@ -242,6 +243,7 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
             mBackgroundTimer.cancel();
         }
     }
+
     private List<AppInfo> extractFavorites(List<AppInfo> infos) {
         List<AppInfo> favs = new ArrayList<>(favorites.size());
         for (String name : favorites) {
