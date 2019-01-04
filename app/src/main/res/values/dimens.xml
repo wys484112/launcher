@@ -5,5 +5,16 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="app_icon_size">80dp</dimen>
     <dimen name="app_size">130dp</dimen>
+    <dimen name="tab_height">53.0px</dimen>
+    <dimen name="tab_layout_width">1500.0px</dimen>
+    <dimen name="tab_lin_height">90.0px</dimen>
+    <dimen name="tab_margin_start">130.0px</dimen>
+    <dimen name="tab_normal_textsize">38.0px</dimen>
+    <dimen name="tab_padding">58.0px</dimen>
+    <dimen name="tab_pointer_height">6.0px</dimen>
+    <dimen name="tab_pointer_radius">20.0px</dimen>
+    <dimen name="tab_selected_textsize">48.0px</dimen>
+    <dimen name="tab_width">120.0px</dimen>
+    <dimen name="launcher_margin">100.0px</dimen>
 
 </resources>

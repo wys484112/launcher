@@ -84,7 +84,9 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
     private static final int NUM_COLS = 5;//一行显示5个应用
 
     static List<String> favorites = Arrays.asList("com.example.launcher/com.example.launcher.MainActivity",
-            "com.example.launcher/com.example.launcher.MainTvActivity"
+            "com.example.launcher/com.example.launcher.MainTvActivity",
+            "com.example.launcher/com.example.launcher.MainTvActivityTableLayout"
+
     );
 
     @Override
@@ -291,7 +293,9 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
     private void prepareBackgroundManager() {
 
         mBackgroundManager = BackgroundManager.getInstance(getActivity());
-        mBackgroundManager.attach(getActivity().getWindow());
+        if(!mBackgroundManager.isAttached()){
+            mBackgroundManager.attach(getActivity().getWindow());
+        }
 
         mDefaultBackground = ContextCompat.getDrawable(getActivity(), R.drawable.default_background);
         mMetrics = new DisplayMetrics();

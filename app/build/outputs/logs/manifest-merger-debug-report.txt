@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:2:1-91:12
-INJECTED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:2:1-91:12
-INJECTED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:2:1-91:12
-INJECTED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:2:1-91:12
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:2:1-121:12
+INJECTED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:2:1-121:12
+INJECTED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:2:1-121:12
+INJECTED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:2:1-121:12
 MERGED from [com.hwangjr.rxbus:rxbus:2.0.0] E:\gradle_repositary\caches\transforms-1\files-1.1\rxbus-2.0.0.aar\ba329668641e03f3681d266feaa3fc60\AndroidManifest.xml:2:1-14:12
 MERGED from [com.jakewharton:butterknife:8.8.1] E:\gradle_repositary\caches\transforms-1\files-1.1\butterknife-8.8.1.aar\7a80b61eec630c71d89fd4ab2cddf041\AndroidManifest.xml:2:1-7:12
 MERGED from [com.android.support:design:26.1.0] E:\gradle_repositary\caches\transforms-1\files-1.1\design-26.1.0.aar\09f33d86ccb55204e0056bacb164947f\AndroidManifest.xml:17:1-31:12
@@ -27,9 +27,9 @@ MERGED from [android.arch.core:runtime:1.1.1] E:\gradle_repositary\caches\transf
 MERGED from [com.android.support:support-compat:26.1.0] E:\gradle_repositary\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\74cd1766f58a89ac25e9d743f3b27de9\AndroidManifest.xml:17:1-31:12
 MERGED from [android.arch.lifecycle:runtime:1.1.1] E:\gradle_repositary\caches\transforms-1\files-1.1\runtime-1.1.1.aar\89b9376749aaae2803a4cdf9f7c543e6\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] E:\gradle_repositary\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\fb7bffdd39164fe34a2f08c549e36d10\AndroidManifest.xml:17:1-22:12
-INJECTED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:2:1-91:12
-INJECTED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:2:1-91:12
-INJECTED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:2:1-91:12
+INJECTED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:2:1-121:12
+INJECTED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:2:1-121:12
+INJECTED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:2:1-121:12
 	package
 		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:3:5-35
 		INJECTED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml
@@ -118,20 +118,44 @@ uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:13:5-80
 	android:name
 		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:13:22-77
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:14:5-76
+	android:name
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:14:22-73
+uses-permission#android.permission.INTERNET
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:15:5-67
+	android:name
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:15:22-64
+uses-permission#android.permission.BLUETOOTH
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:16:5-68
+	android:name
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:16:22-65
+uses-permission#android.permission.BLUETOOTH_ADMIN
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:17:5-74
+	android:name
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:17:22-71
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:18:5-76
+	android:name
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:18:22-73
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:19:5-79
+	android:name
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:19:22-76
 uses-feature#android.hardware.touchscreen
-ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:15:5-17:36
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:20:5-22:36
 	android:required
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:17:9-33
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:22:9-33
 	android:name
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:16:9-52
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:21:9-52
 uses-feature#android.software.leanback
-ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:18:5-20:35
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:23:5-25:35
 	android:required
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:20:9-32
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:25:9-32
 	android:name
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:19:9-49
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:24:9-49
 application
-ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:22:5-89:19
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:27:5-119:19
 MERGED from [com.hwangjr.rxbus:rxbus:2.0.0] E:\gradle_repositary\caches\transforms-1\files-1.1\rxbus-2.0.0.aar\ba329668641e03f3681d266feaa3fc60\AndroidManifest.xml:9:5-12:19
 MERGED from [com.hwangjr.rxbus:rxbus:2.0.0] E:\gradle_repositary\caches\transforms-1\files-1.1\rxbus-2.0.0.aar\ba329668641e03f3681d266feaa3fc60\AndroidManifest.xml:9:5-12:19
 MERGED from [com.android.support:design:26.1.0] E:\gradle_repositary\caches\transforms-1\files-1.1\design-26.1.0.aar\09f33d86ccb55204e0056bacb164947f\AndroidManifest.xml:25:5-29:19
@@ -167,99 +191,115 @@ MERGED from [com.android.support:support-compat:26.1.0] E:\gradle_repositary\cac
 	android:supportsRtl
 		ADDED from [com.hwangjr.rxbus:rxbus:2.0.0] E:\gradle_repositary\caches\transforms-1\files-1.1\rxbus-2.0.0.aar\ba329668641e03f3681d266feaa3fc60\AndroidManifest.xml:11:9-35
 	android:label
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:27:9-41
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:32:9-41
 	android:hardwareAccelerated
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:25:9-43
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:30:9-43
 	android:icon
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:26:9-45
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:31:9-45
 	android:allowBackup
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:23:9-35
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:28:9-35
 	android:theme
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:28:9-40
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:33:9-40
 	android:directBootAware
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:24:9-39
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:29:9-39
 activity#com.example.launcher.MainActivity
-ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:29:9-51:20
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:34:9-56:20
 	android:enabled
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:32:13-35
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:37:13-35
 	android:clearTaskOnLaunch
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:31:13-45
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:36:13-45
 	android:label
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:33:13-45
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:38:13-45
 	android:launchMode
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:34:13-44
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:39:13-44
 	android:resumeWhilePausing
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:35:13-46
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:40:13-46
 	android:name
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:30:13-41
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:35:13-41
 activity#com.example.launcher.AllAppList
-ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:52:9-54:60
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:57:9-59:60
 	android:label
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:54:13-57
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:59:13-57
 	android:name
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:53:13-39
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:58:13-39
 activity#com.example.launcher.MainTvActivity
-ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:55:9-69:20
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:61:9-75:20
 	android:screenOrientation
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:61:13-50
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:67:13-50
 	android:label
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:59:13-59
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:65:13-59
 	android:icon
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:58:13-59
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:64:13-59
 	android:banner
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:57:13-61
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:63:13-61
 	android:theme
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:62:13-56
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:68:13-56
 	android:logo
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:60:13-59
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:66:13-59
 	android:name
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:56:13-43
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.DEFAULT+category:name:android.intent.category.HOME+category:name:android.intent.category.LAUNCHER
-ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:63:13-68:29
-action#android.intent.action.MAIN
-ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:64:17-69
-	android:name
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:64:25-66
-category#android.intent.category.LAUNCHER
-ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:65:17-77
-	android:name
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:65:27-74
-category#android.intent.category.HOME
-ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:66:17-73
-	android:name
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:66:27-70
-category#android.intent.category.DEFAULT
-ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:67:17-76
-	android:name
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:67:27-73
-activity#com.example.launcher.DetailsActivity
-ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:70:9-53
-	android:name
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:70:19-50
-activity#com.example.launcher.PlaybackActivity
-ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:71:9-54
-	android:name
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:71:19-51
-activity#com.example.launcher.BrowseErrorActivity
-ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:72:9-57
-	android:name
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:72:19-54
-activity#com.example.launcher.MainTableLayoutTvActivity
-ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:73:9-87:20
-	android:enabled
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:75:13-35
-	android:clearTaskOnLaunch
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:74:13-45
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:62:13-43
+activity#com.example.launcher.MainTvActivityTableLayout
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:82:9-96:20
+	android:screenOrientation
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:88:13-50
 	android:label
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:76:13-45
-	android:launchMode
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:77:13-44
-	android:resumeWhilePausing
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:79:13-46
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:86:13-59
+	android:icon
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:85:13-59
+	android:banner
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:84:13-61
 	android:theme
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:78:13-59
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:89:13-56
+	android:logo
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:87:13-59
 	android:name
-		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:73:19-60
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:83:13-54
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.DEFAULT+category:name:android.intent.category.HOME+category:name:android.intent.category.LAUNCHER
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:90:13-95:29
+action#android.intent.action.MAIN
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:91:17-69
+	android:name
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:91:25-66
+category#android.intent.category.LAUNCHER
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:92:17-77
+	android:name
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:92:27-74
+category#android.intent.category.HOME
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:93:17-73
+	android:name
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:93:27-70
+category#android.intent.category.DEFAULT
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:94:17-76
+	android:name
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:94:27-73
+activity#com.example.launcher.DetailsActivity
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:100:9-53
+	android:name
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:100:19-50
+activity#com.example.launcher.PlaybackActivity
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:101:9-54
+	android:name
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:101:19-51
+activity#com.example.launcher.BrowseErrorActivity
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:102:9-57
+	android:name
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:102:19-54
+activity#com.example.launcher.MainTableLayoutTvActivity
+ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:103:9-117:20
+	android:enabled
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:105:13-35
+	android:clearTaskOnLaunch
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:104:13-45
+	android:label
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:106:13-45
+	android:launchMode
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:107:13-44
+	android:resumeWhilePausing
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:109:13-46
+	android:theme
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:108:13-59
+	android:name
+		ADDED from E:\iot\android_application_development_\launcher\app\src\main\AndroidManifest.xml:103:19-60
 meta-data#android.support.VERSION
 ADDED from [com.android.support:design:26.1.0] E:\gradle_repositary\caches\transforms-1\files-1.1\design-26.1.0.aar\09f33d86ccb55204e0056bacb164947f\AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:appcompat-v7:26.1.0] E:\gradle_repositary\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\5a8a88d68e5e692aa90ae3f83ea827ed\AndroidManifest.xml:26:9-28:38

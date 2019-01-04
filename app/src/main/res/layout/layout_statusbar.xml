@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.example.launcher.timeclock.TextClock
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:gravity="center_vertical"
+
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        app:formatTV="hh:mm a" />
+
+    <com.example.launcher.timeclock.TextClock
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="0dp"
+        android:gravity="center_vertical"
+
+        android:layout_marginLeft="10dp"
+
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:formatTV="EEEE, yyyy年MM月dd日" />
+
+
+    <com.example.launcher.bluetoothimageview.BluetoothImageView
+        android:layout_width="40dp"
+        android:layout_height="56dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@id/network"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="70dp"
+
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        app:bluetoothDrawable="@drawable/ic_bluetooth" />
+
+    <com.example.launcher.networkimageview.NetworkImageView
+        android:id="@+id/network"
+        android:layout_width="63dp"
+        android:layout_height="56dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_margin="10dp"
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        app:exampleColor="#33b5e5"
+        app:exampleDimension="24sp"
+        app:exampleDrawable="@drawable/ic_wifi_4"
+        />
+
+</RelativeLayout>

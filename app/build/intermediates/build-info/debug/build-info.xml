@@ -6,7 +6,7 @@
     density="xhdpi"
     format="10"
     plugin-version="3.1.2"
-    timestamp="1546566086775"
+    timestamp="1546583442137"
     token="-3687089321692762671"
     verifier="COLD_SWAP_REQUESTED" >
 
@@ -29,12 +29,50 @@
 
     <build
         build-mode="FULL"
-        ir-eligibility="PARENT_CLASS_CHANGED"
-        timestamp="1546566041869"
-        verifier="COLD_SWAP_REQUESTED" >
+        timestamp="1546582568227"
+        verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="E:\iot\android_application_development_\launcher\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
+        <artifact
+            location="E:\iot\android_application_development_\launcher\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\iot\android_application_development_\launcher\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\iot\android_application_development_\launcher\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\iot\android_application_development_\launcher\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\iot\android_application_development_\launcher\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\iot\android_application_development_\launcher\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\iot\android_application_development_\launcher\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\iot\android_application_development_\launcher\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\iot\android_application_development_\launcher\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\iot\android_application_development_\launcher\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\iot\android_application_development_\launcher\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+            type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="R_CLASS_CHANGE"
+        timestamp="1546583234934"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="E:\iot\android_application_development_\launcher\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
@@ -48,30 +86,18 @@
             location="E:\iot\android_application_development_\launcher\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
-            location="E:\iot\android_application_development_\launcher\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\iot\android_application_development_\launcher\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\iot\android_application_development_\launcher\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
-            type="SPLIT" />
-        <artifact
             location="E:\iot\android_application_development_\launcher\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\iot\android_application_development_\launcher\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
         <artifact
             location="E:\iot\android_application_development_\launcher\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
         <artifact
-            location="E:\iot\android_application_development_\launcher\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
-            type="SPLIT_MAIN" />
+            location="E:\iot\android_application_development_\launcher\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            type="SPLIT" />
     </build>
     <build
         build-mode="COLD"
-        timestamp="1546566086775"
+        timestamp="1546583442137"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="E:\iot\android_application_development_\launcher\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
