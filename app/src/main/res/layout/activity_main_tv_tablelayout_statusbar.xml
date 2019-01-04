@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <!--<com.example.launcher.timeclock.TextClock-->
+        <!--android:id="@+id/textView3"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--android:textSize="30sp"-->
+        <!--app:formatTV="hh:mm a" />-->
+
+    <!--<com.example.launcher.timeclock.TextClock-->
+        <!--android:id="@+id/textView4"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--android:textSize="18sp"-->
+        <!--app:formatTV="EEEE, yyyy年MM月dd日" />-->
+
+    <include
+        layout="@layout/layout_statusbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="@dimen/tab_layout_width"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/tab_margin_start"
+        android:gravity="center_vertical"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/horizontalScrollViewItemContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/tab_lin_height"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="20.0px" />
+
+            <TextView
+                android:id="@+id/tab_pointer"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/tab_pointer_height"
+                android:background="@drawable/tab_pointer_bg" />
+        </LinearLayout>
+
+
+        <!--<LinearLayout-->
+            <!--android:id="@+id/horizontalScrollViewItemContainer"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:orientation="horizontal" />-->
+    </HorizontalScrollView>
+
+
+
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></FrameLayout>
+
+
+
+
+</LinearLayout>
+
+<!--<fragment xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:tools="http://schemas.android.com/tools"-->
+<!--android:id="@+id/main_browse_fragment"-->
+<!--android:name="com.example.launcher.MainFragment"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+<!--tools:context=".MainTvActivity"-->
+<!--tools:deviceIds="tv"-->
+<!--tools:ignore="MergeRootFrame" />-->
