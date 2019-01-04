@@ -112,16 +112,16 @@
         "source": "E:\\gradle_repositary\\caches\\transforms-1\\files-1.1\\leanback-v17-26.1.0.aar\\f5b1b6283ab20674eef44477bcdce45d\\res\\drawable-hdpi-v4\\lb_ic_actions_right_arrow.png"
     },
     {
-        "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_popup_exit.xml.flat",
-        "source": "E:\\gradle_repositary\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\5a8a88d68e5e692aa90ae3f83ea827ed\\res\\anim\\abc_popup_exit.xml"
+        "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_media5.png.flat",
+        "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\drawable-hdpi\\media5.png"
     },
     {
         "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_lb_in_app_search_shadow_focused.9.png.flat",
         "source": "E:\\gradle_repositary\\caches\\transforms-1\\files-1.1\\leanback-v17-26.1.0.aar\\f5b1b6283ab20674eef44477bcdce45d\\res\\drawable-mdpi-v4\\lb_in_app_search_shadow_focused.9.png"
     },
     {
-        "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_media5.png.flat",
-        "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\drawable-hdpi\\media5.png"
+        "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_popup_exit.xml.flat",
+        "source": "E:\\gradle_repositary\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\5a8a88d68e5e692aa90ae3f83ea827ed\\res\\anim\\abc_popup_exit.xml"
     },
     {
         "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_design_ic_visibility.png.flat",
@@ -578,6 +578,10 @@
     {
         "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_lb_ic_actions_right_arrow.png.flat",
         "source": "E:\\gradle_repositary\\caches\\transforms-1\\files-1.1\\leanback-v17-26.1.0.aar\\f5b1b6283ab20674eef44477bcdce45d\\res\\drawable-mdpi-v4\\lb_ic_actions_right_arrow.png"
+    },
+    {
+        "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\layout_titleview.xml.flat",
+        "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\layout\\titleview.xml"
     },
     {
         "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable_animation_settings_bg.xml.flat",
@@ -1532,6 +1536,10 @@
         "source": "E:\\gradle_repositary\\caches\\transforms-1\\files-1.1\\leanback-v17-26.1.0.aar\\f5b1b6283ab20674eef44477bcdce45d\\res\\layout\\lb_list_row.xml"
     },
     {
+        "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\layout_custom_titleview.xml.flat",
+        "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\layout\\custom_titleview.xml"
+    },
+    {
         "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_star_black_48dp.png.flat",
         "source": "E:\\gradle_repositary\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\5a8a88d68e5e692aa90ae3f83ea827ed\\res\\drawable-xxhdpi-v4\\abc_ic_star_black_48dp.png"
     },
@@ -1662,6 +1670,10 @@
     {
         "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
         "source": "E:\\gradle_repositary\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\5a8a88d68e5e692aa90ae3f83ea827ed\\res\\drawable-hdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main_tv_new.xml.flat",
+        "source": "E:\\iot\\android_application_development_\\launcher\\app\\src\\main\\res\\layout\\activity_main_tv_new.xml"
     },
     {
         "merged": "E:\\iot\\android_application_development_\\launcher\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_file4.png.flat",

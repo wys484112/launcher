@@ -16,15 +16,27 @@ package com.example.launcher;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
+
+import java.util.List;
 
 /*
  * MainActivity class that loads {@link MainFragment}.
  */
 public class MainTvActivity extends Activity {
-
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+    //写一个List集合，把每个页面，也就是Fragment,存进去
+    private List<Fragment> list;
+    private MainTableLayoutTvActivity.MyAdapter adapter;
+    private String[] titles = {"页面1", "页面2", "页面3"};
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_tv);
+//        setContentView(R.layout.activity_main_tv);
+        setContentView(R.layout.activity_main_tv_new);
+
     }
 }

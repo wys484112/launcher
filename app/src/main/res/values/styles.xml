@@ -54,9 +54,10 @@
         <item name="rowHorizontalGridStyle">@style/CustomrowHorizontalGridStyle</item>
         <!--<item name="browseTitleViewLayout">null</item>-->
 
+        <!--<item name="browseTitleViewLayout">@layout/titleview</item>-->
 
         <!--控制itemverticalgridview距离上边距-->
-        <item name="browseRowsMarginTop">30dp</item>
+        <item name="browseRowsMarginTop">0dp</item>
 
 
     </style>
