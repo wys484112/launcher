@@ -84,7 +84,7 @@ public class AppRowPresenter extends Presenter {
 
     @Override
     public void onUnbindViewHolder(ViewHolder viewHolder) {
-        RowApp cardView = (RowApp) viewHolder.view;
+        RowApp2 cardView = (RowApp2) viewHolder.view;
 //        cardView.getImageview().setImageDrawable(new BitmapDrawable(mContext.getResources(), appBean.iconBitmap));
 //        cardView.getTextView().setText(appBean.title);
     }
