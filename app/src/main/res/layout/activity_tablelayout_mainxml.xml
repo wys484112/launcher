@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/application_bg"
+    android:background="@drawable/function_bg"
     tools:context="com.example.launcher.MainTableLayoutTvActivity">
     <include
         layout="@layout/layout_statusbar"
@@ -14,7 +14,7 @@
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
-        android:layout_height="100.0dip"
+        android:layout_height="@dimen/tab_lin_height"
         android:background="#FFFFFF" >
 
         <TextView
@@ -49,10 +49,11 @@
     </LinearLayout>
     <ImageView
         android:id="@+id/cursor"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tab_pointer_margin_top"
+        android:layout_width="@dimen/tab_pointer_width"
+        android:layout_height="@dimen/tab_pointer_height"
         android:scaleType="matrix"
-        android:src="@drawable/apps1" />
+        android:src="@drawable/tab_pointer_bg" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"

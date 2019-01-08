@@ -29,6 +29,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.TranslateAnimation;
@@ -56,22 +57,48 @@ public class MainTableLayoutTvActivityxml extends Activity {
     private ImageView cursor;// 动画图片
     private int bmpW;//动画图片宽度
 
+//    private void InitImageView() {
+//        cursor = (ImageView) findViewById(R.id.cursor);
+////        bmpW=getResources().getDimensionPixelOffset(R.dimen.tab_pointer_width);
+//        bmpW = BitmapFactory.decodeResource(getResources(), R.drawable.apps1).getWidth();
+//        DisplayMetrics dm = new DisplayMetrics();
+//        getWindowManager().getDefaultDisplay().getMetrics(dm);
+//        int screenW = dm.widthPixels;// 获取屏幕分辨率宽度
+//        offset = (screenW / 3 - bmpW) / 2; // 计算偏移量:屏幕宽度/3，平分为3分，如果是3个view的话，再减去图片宽度，因为图片居中，所以要得到两变剩下的空隙需要再除以2
+//        Matrix matrix = new Matrix();
+//        Log.e("wwww","MyOnClickListener offset="+offset);
+//        Log.e("wwww","MyOnClickListener bmpW="+bmpW);
+//        Log.e("wwww","MyOnClickListener screenW="+screenW);
+//
+//        matrix.postTranslate(offset, 0);  // 初始化位置，在中间
+//        cursor.setImageMatrix(matrix);   // 设置动画初始位置
+//    }
+
+
     private void InitImageView() {
         cursor = (ImageView) findViewById(R.id.cursor);
+        ViewGroup.MarginLayoutParams layoutParams =
+                (ViewGroup.MarginLayoutParams) cursor.getLayoutParams();
+        bmpW=layoutParams.width;
+        Log.e("wwww","MyOnClickListener layoutParams.topMargin="+layoutParams.topMargin);
+
 //        bmpW=getResources().getDimensionPixelOffset(R.dimen.tab_pointer_width);
-        bmpW = BitmapFactory.decodeResource(getResources(), R.drawable.apps1).getWidth();
+//        bmpW = BitmapFactory.decodeResource(getResources(), R.drawable.apps1).getWidth();
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int screenW = dm.widthPixels;// 获取屏幕分辨率宽度
         offset = (screenW / 3 - bmpW) / 2; // 计算偏移量:屏幕宽度/3，平分为3分，如果是3个view的话，再减去图片宽度，因为图片居中，所以要得到两变剩下的空隙需要再除以2
-        Matrix matrix = new Matrix();
+//        Matrix matrix = new Matrix();
+        layoutParams.setMarginStart(offset);
+        cursor.setLayoutParams(layoutParams);
         Log.e("wwww","MyOnClickListener offset="+offset);
         Log.e("wwww","MyOnClickListener bmpW="+bmpW);
         Log.e("wwww","MyOnClickListener screenW="+screenW);
 
-        matrix.postTranslate(offset, 0);  // 初始化位置，在中间
-        cursor.setImageMatrix(matrix);   // 设置动画初始位置
+//        matrix.postTranslate(offset, 0);  // 初始化位置，在中间
+//        cursor.setImageMatrix(matrix);   // 设置动画初始位置
     }
+
 
     private void InitTextView() {
         t1 = (TextView) findViewById(R.id.text1);
