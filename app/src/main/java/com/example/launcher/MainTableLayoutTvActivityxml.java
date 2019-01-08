@@ -58,6 +58,7 @@ public class MainTableLayoutTvActivityxml extends Activity {
 
     private void InitImageView() {
         cursor = (ImageView) findViewById(R.id.cursor);
+//        bmpW=getResources().getDimensionPixelOffset(R.dimen.tab_pointer_width);
         bmpW = BitmapFactory.decodeResource(getResources(), R.drawable.apps1).getWidth();
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
