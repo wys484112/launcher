@@ -3,62 +3,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/function_bg"
+    android:orientation="vertical"
     tools:context="com.example.launcher.MainTableLayoutTvActivity">
+
     <include
         layout="@layout/layout_statusbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="fill_parent"
-        android:layout_height="@dimen/tab_lin_height"
-        android:background="#FFFFFF" >
 
-        <TextView
-            android:id="@+id/text1"
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="@dimen/tab_layout_width"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/tab_margin_start"
+        android:gravity="center_vertical"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="1.0"
-            android:gravity="center"
-            android:text="页卡1"
-            android:textColor="#000000"
-            android:textSize="22.0dip" />
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/text2"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1.0"
-            android:gravity="center"
-            android:text="页卡2"
-            android:textColor="#000000"
-            android:textSize="22.0dip" />
+            <LinearLayout
+                android:id="@+id/horizontalScrollViewItemContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/tab_lin_height"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="20.0px" />
 
-        <TextView
-            android:id="@+id/text3"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1.0"
-            android:gravity="center"
-            android:text="页卡3"
-            android:textColor="#000000"
-            android:textSize="22.0dip" />
-    </LinearLayout>
-    <ImageView
-        android:id="@+id/cursor"
-        android:layout_marginTop="@dimen/tab_pointer_margin_top"
-        android:layout_width="@dimen/tab_pointer_width"
-        android:layout_height="@dimen/tab_pointer_height"
-        android:scaleType="matrix"
-        android:src="@drawable/tab_pointer_bg" />
+            <TextView
+                android:id="@+id/tab_pointer"
+                android:layout_width="110px"
+                android:layout_height="@dimen/tab_pointer_height"
+                android:background="@drawable/tab_pointer_bg" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
-    </android.support.v4.view.ViewPager>
+        android:layout_weight="1"></android.support.v4.view.ViewPager>
 </LinearLayout>

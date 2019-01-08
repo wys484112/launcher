@@ -15,6 +15,7 @@
 package com.example.launcher;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.design.widget.TabLayout;
@@ -22,16 +23,20 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.TranslateAnimation;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /*
@@ -50,60 +55,134 @@ public class MainTableLayoutTvActivityxmlHorizontalScrollView extends Activity {
     private int currIndex = 0;//当前页卡编号
     private ImageView cursor;// 动画图片
     private int bmpW;//动画图片宽度
+    private HorizontalScrollView horizontalScrollView;
+    private LinearLayout container;
+    private TextView cursorTextView;
+    private String cities[] = new String[]{"应用", "设置", "Paris"};
+    private ArrayList<String> data = new ArrayList<>();
+    private TextView currentClickedTextView;
+    private ArrayList<TextView> tabs = new ArrayList<>();
 
-//    private void InitImageView() {
-//        cursor = (ImageView) findViewById(R.id.cursor);
-////        bmpW=getResources().getDimensionPixelOffset(R.dimen.tab_pointer_width);
-//        bmpW = BitmapFactory.decodeResource(getResources(), R.drawable.apps1).getWidth();
-//        DisplayMetrics dm = new DisplayMetrics();
-//        getWindowManager().getDefaultDisplay().getMetrics(dm);
-//        int screenW = dm.widthPixels;// 获取屏幕分辨率宽度
-//        offset = (screenW / 3 - bmpW) / 2; // 计算偏移量:屏幕宽度/3，平分为3分，如果是3个view的话，再减去图片宽度，因为图片居中，所以要得到两变剩下的空隙需要再除以2
-//        Matrix matrix = new Matrix();
-//        Log.e("wwww","MyOnClickListener offset="+offset);
-//        Log.e("wwww","MyOnClickListener bmpW="+bmpW);
-//        Log.e("wwww","MyOnClickListener screenW="+screenW);
-//
-//        matrix.postTranslate(offset, 0);  // 初始化位置，在中间
-//        cursor.setImageMatrix(matrix);   // 设置动画初始位置
-//    }
+    //将字符串数组与集合绑定起来
+    private void bindData()
+    {
+        //add all cities to our ArrayList
+        Collections.addAll(data, cities);
+    }
+    //将集合中的数据绑定到HorizontalScrollView上
+    private void bindHZSWData()
+    {	//为布局中textview设置好相关属性
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParams.gravity = Gravity.CENTER;
+        layoutParams.setMargins(20, 10, 20, 10);
 
+        for (int i = 0; i < data.size(); i++)
+        {
+            final TextView textView = new TextView(this);
+            textView.setText(data.get(i));
+            textView.setTextColor(Color.WHITE);
+            textView.setLayoutParams(layoutParams);
+            if(i==viewPager.getCurrentItem()){
+                ((TextView)textView).setTextSize(30);
 
-    private void InitImageView() {
-        cursor = (ImageView) findViewById(R.id.cursor);
+            }else{
+                ((TextView)textView).setTextSize(20);
+
+            }
+            textView.setOnClickListener(new MyOnClickListener(i));
+            tabs.add(textView);
+            textView.post(new Runnable() {
+                @Override
+                public void run() {
+                    int width=textView.getWidth();
+                    float x=textView.getX();
+                    Log.e("wwww","Runnable x="+x);
+
+                    Log.e("wwww","Runnable width="+width);
+
+                }
+            });
+            textView.addOnLayoutChangeListener(new MyOnLayoutChangeListener(i));
+            container.addView(textView);
+            container.requestLayout();
+            container.invalidate();
+        }
+    }
+    private void InitCursorView(int width,float x) {
+        cursorTextView = (TextView) findViewById(R.id.tab_pointer);
         ViewGroup.MarginLayoutParams layoutParams =
-                (ViewGroup.MarginLayoutParams) cursor.getLayoutParams();
-        bmpW=layoutParams.width;
-        Log.e("wwww","MyOnClickListener layoutParams.topMargin="+layoutParams.topMargin);
+                (ViewGroup.MarginLayoutParams) tabs.get(currIndex).getLayoutParams();
+        int leftMargin=layoutParams.leftMargin;
+//        int left=tabs.get(viewPager.getCurrentItem()).getLeft();
 
-//        bmpW=getResources().getDimensionPixelOffset(R.dimen.tab_pointer_width);
-//        bmpW = BitmapFactory.decodeResource(getResources(), R.drawable.apps1).getWidth();
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-        int screenW = dm.widthPixels;// 获取屏幕分辨率宽度
-        offset = (screenW / 3 - bmpW) / 2; // 计算偏移量:屏幕宽度/3，平分为3分，如果是3个view的话，再减去图片宽度，因为图片居中，所以要得到两变剩下的空隙需要再除以2
-//        Matrix matrix = new Matrix();
-        layoutParams.setMarginStart(offset);
-        cursor.setLayoutParams(layoutParams);
-        Log.e("wwww","MyOnClickListener offset="+offset);
-        Log.e("wwww","MyOnClickListener bmpW="+bmpW);
-        Log.e("wwww","MyOnClickListener screenW="+screenW);
+        Log.e("wwww","InitCursorView leftMargin="+leftMargin);
+        Log.e("wwww","InitCursorView x="+x);
+        Log.e("wwww","InitCursorView width="+width);
 
-//        matrix.postTranslate(offset, 0);  // 初始化位置，在中间
-//        cursor.setImageMatrix(matrix);   // 设置动画初始位置
+        ViewGroup.MarginLayoutParams cursorLayoutParams =
+                (ViewGroup.MarginLayoutParams) cursorTextView.getLayoutParams();
+        cursorLayoutParams.setMarginStart(leftMargin);
+        cursorLayoutParams.width=width;
+        cursorTextView.setTextColor(Color.RED);
+
+        cursorTextView.setX((float) x);
+//        cursorTextView.setLeft(left);
+        cursorTextView.setWidth(width);
+        cursorTextView.setLayoutParams(cursorLayoutParams);
+        cursorTextView.requestLayout();
+        cursorTextView.invalidate();
+//        cursorTextView.addOnLayoutChangeListener();
+
+    }
+    private void InitCursorView() {
+        cursorTextView = (TextView) findViewById(R.id.tab_pointer);
+        ViewGroup.MarginLayoutParams layoutParams =
+                (ViewGroup.MarginLayoutParams) tabs.get(viewPager.getCurrentItem()).getLayoutParams();
+        int width=tabs.get(viewPager.getCurrentItem()).getWidth();
+        int leftMargin=layoutParams.leftMargin;
+        float x=tabs.get(viewPager.getCurrentItem()).getX();
+//        int left=tabs.get(viewPager.getCurrentItem()).getLeft();
+
+        Log.e("wwww","InitCursorView leftMargin="+leftMargin);
+        Log.e("wwww","InitCursorView x="+x);
+
+        ViewGroup.MarginLayoutParams cursorLayoutParams =
+                (ViewGroup.MarginLayoutParams) cursorTextView.getLayoutParams();
+        cursorLayoutParams.setMarginStart(leftMargin);
+        cursorLayoutParams.width=width;
+        cursorTextView.setTextColor(Color.RED);
+
+        cursorTextView.setX((float) x);
+//        cursorTextView.setLeft(left);
+        cursorTextView.setWidth(width);
+        cursorTextView.setLayoutParams(cursorLayoutParams);
+        cursorTextView.invalidate();
+//        cursorTextView.addOnLayoutChangeListener();
+
     }
 
-
-    private void InitTextView() {
-        t1 = (TextView) findViewById(R.id.text1);
-        t2 = (TextView) findViewById(R.id.text2);
-        t3 = (TextView) findViewById(R.id.text3);
-        t1.setClickable(true);
-        t1.setOnClickListener(new MyOnClickListener(0));
-        t2.setOnClickListener(new MyOnClickListener(1));
-        t3.setOnClickListener(new MyOnClickListener(2));
+    public class MyOnLayoutChangeListener implements View.OnLayoutChangeListener {
+        private int index = 0;
+        public MyOnLayoutChangeListener(int i) {
+            index = i;
+        }
+        @Override
+        public void onLayoutChange(View view, int i, int i1, int i2, int i3, int i4, int i5, int i6, int i7) {
+//                    view.removeOnLayoutChangeListener(this);
+            int width=view.getWidth();
+            float x=view.getX();
+            if(index==currIndex){
+                InitCursorView(width,x);
+            }
+            Log.e("wwww","onLayoutChange x="+x);
+            Log.e("wwww","onLayoutChange width="+width);
+            ViewGroup.MarginLayoutParams layoutParams =
+                    (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+            int leftMargin=layoutParams.leftMargin;
+            Log.e("wwww","onLayoutChange leftMargin="+leftMargin);
+        }
     }
-
       /**
   2      * 头标点击监听
   3 */
@@ -117,12 +196,30 @@ public class MainTableLayoutTvActivityxmlHorizontalScrollView extends Activity {
           @Override
           public void onClick(View v) {
               Log.e("wwww","MyOnClickListener index="+index);
+              int oldindex=currIndex;
+              currIndex=index;
+              tabs.get(oldindex).setTextSize(20);
+//              tabs.get(currIndex).requestLayout();
+//              tabs.get(currIndex).invalidate();
               viewPager.setCurrentItem(index);
+              tabs.get(index).setTextSize(30);
+              Log.e("wwww","MyOnClickListener getWidth="+tabs.get(index).getWidth());
+
+//              tabs.get(index).requestLayout();
+//              tabs.get(index).invalidate();
+//              InitCursorView();
+
           }
       }
 
     ;
-
+    //初始化布局中的控件
+    private void setUIRef()
+    {
+        horizontalScrollView = (HorizontalScrollView) findViewById(R.id.horizontalScrollView);
+        container = (LinearLayout) findViewById(R.id.horizontalScrollViewItemContainer);
+        cursorTextView = (TextView) findViewById(R.id.tab_pointer);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -141,8 +238,15 @@ public class MainTableLayoutTvActivityxmlHorizontalScrollView extends Activity {
         viewPager.setCurrentItem(0);
         viewPager.addOnPageChangeListener(new MyOnPageChangeListener());
 
-        InitTextView();
-        InitImageView();
+
+        bindData();
+        setUIRef();
+        bindHZSWData();
+//        tabs.get(viewPager.getCurrentItem()).setTextSize(30);
+//        tabs.get(viewPager.getCurrentItem()).requestLayout();
+//        tabs.get(viewPager.getCurrentItem()).invalidate();
+//        InitCursorView();
+
         //将TabLayout和ViewPager绑定在一起，一个动另一个也会跟着动
     }
     //创建Fragment的适配器
@@ -203,70 +307,15 @@ public class MainTableLayoutTvActivityxmlHorizontalScrollView extends Activity {
             int two = one * 2;// 页卡1 -> 页卡3 偏移量
             Animation animation = null;
             Log.e("wwww","MyOnPageChangeListener arg0="+arg0);
+            tabs.get(currIndex).setTextSize(20);
+            tabs.get(currIndex).requestLayout();
+            tabs.get(currIndex).invalidate();
+            tabs.get(arg0).setTextSize(30);
+            tabs.get(arg0).requestLayout();
+            tabs.get(arg0).invalidate();
+            currIndex=arg0;
+//            InitCursorView();
 
-            switch (arg0) {
-                case 0:
-                    if (currIndex == 1)
-                    {
-                        animation = new TranslateAnimation(one, 0, 0, 0);
-                    }
-                    else if (currIndex == 2)
-                    {
-                        animation = new TranslateAnimation(two, 0, 0, 0);
-                    }
-                    break;
-                case 1:
-                    if (currIndex == 0)
-                    {
-                        animation = new TranslateAnimation(offset, one, 0, 0);
-                    }
-                    else if (currIndex == 2)
-                    {
-                        animation = new TranslateAnimation(two, one, 0, 0);
-                    }
-                    break;
-                case 2:
-                    if (currIndex == 0) {
-                        animation = new TranslateAnimation(offset, two, 0, 0);
-                    } else if (currIndex == 1) {
-                        animation = new TranslateAnimation(one, two, 0, 0);
-                    }
-                    break;
-            }
-            currIndex = arg0;
-            animation.setAnimationListener(new Animation.AnimationListener() {
-                @Override
-                public void onAnimationStart(Animation animation) {
-                }
-
-                @Override
-                public void onAnimationRepeat(Animation animation) {
-                }
-
-                @Override
-                public void onAnimationEnd(Animation animation) {
-//                    cursor.clearAnimation();
-//                    int left = cursor.getLeft()+100;
-//                    int top = cursor.getTop();
-//                    int width = cursor.getWidth();
-//                    int height = cursor.getHeight();
-//                    cursor.layout(left, top, left+width, top+height);
-
-                }
-            });
-
-            AnimationSet set = new AnimationSet(true);
-
-            TranslateAnimation translate = new TranslateAnimation(
-
-                    Animation.ABSOLUTE, 0, Animation.ABSOLUTE, 0.5f,
-
-                    Animation.ABSOLUTE, 0, Animation.ABSOLUTE, 0);
-
-            set.addAnimation(animation);
-            set.setDuration(300);
-            set.setFillAfter(true);// True:图片停在动画结束位置
-            cursor.startAnimation(set);
         }
 
         @Override
