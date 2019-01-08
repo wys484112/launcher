@@ -15,6 +15,7 @@
 package com.example.launcher;
 
 import android.app.LoaderManager;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
@@ -82,6 +83,7 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
     private ArrayObjectAdapter mRowsAdapter;
 
     private static final int NUM_COLS = 5;//一行显示5个应用
+    private ProgressDialog progressDialog;
 
     static List<String> favorites = Arrays.asList("com.example.launcher/com.example.launcher.MainActivity",
             "com.example.launcher/com.example.launcher.MainTvActivity",
@@ -91,11 +93,19 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
 
     @Override
     public Loader<List<AppInfo>> onCreateLoader(int i, Bundle bundle) {
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.show();
         return new AppLoader(getActivity(), LauncherAppState.getInstance().getIconCache());
     }
 
     @Override
     public void onLoadFinished(Loader<List<AppInfo>> loader, List<AppInfo> appInfos) {
+
+        if(progressDialog.isShowing()){
+            progressDialog.dismiss();
+        }
+
 //        appInfos = extractFavorites(appInfos);
 //        int size = appInfos.size();
 //        final int rows = size / NUM_COLS + 1;
@@ -214,6 +224,13 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
 
     @Override
     public void onLoaderReset(Loader<List<AppInfo>> loader) {
+        if(progressDialog!=null&&!progressDialog.isShowing()){
+            progressDialog.show();
+        }else{
+            progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            progressDialog.show();
+        }
         mRowsAdapter.clear();
     }
 
