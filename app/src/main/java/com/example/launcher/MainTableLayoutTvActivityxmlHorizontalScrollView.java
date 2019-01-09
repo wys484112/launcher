@@ -35,6 +35,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.launcher.ui.CustomTabItem;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -58,168 +60,12 @@ public class MainTableLayoutTvActivityxmlHorizontalScrollView extends Activity {
     private HorizontalScrollView horizontalScrollView;
     private LinearLayout container;
     private TextView cursorTextView;
-    private String cities[] = new String[]{"应用", "设置", "Paris"};
+    private String cities[] = new String[]{"应用应用应用应用应用", "设置", "Paris"};
     private ArrayList<String> data = new ArrayList<>();
     private TextView currentClickedTextView;
-    private ArrayList<TextView> tabs = new ArrayList<>();
+    private ArrayList<View> tabs = new ArrayList<>();
 
-    //将字符串数组与集合绑定起来
-    private void bindData()
-    {
-        //add all cities to our ArrayList
-        Collections.addAll(data, cities);
-    }
-    //将集合中的数据绑定到HorizontalScrollView上
-    private void bindHZSWData()
-    {	//为布局中textview设置好相关属性
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.gravity = Gravity.CENTER;
-        layoutParams.setMargins(20, 10, 20, 10);
 
-        for (int i = 0; i < data.size(); i++)
-        {
-            final TextView textView = new TextView(this);
-            textView.setText(data.get(i));
-            textView.setTextColor(Color.WHITE);
-            textView.setLayoutParams(layoutParams);
-            if(i==viewPager.getCurrentItem()){
-                ((TextView)textView).setTextSize(30);
-
-            }else{
-                ((TextView)textView).setTextSize(20);
-
-            }
-            textView.setOnClickListener(new MyOnClickListener(i));
-            tabs.add(textView);
-            textView.post(new Runnable() {
-                @Override
-                public void run() {
-                    int width=textView.getWidth();
-                    float x=textView.getX();
-                    Log.e("wwww","Runnable x="+x);
-
-                    Log.e("wwww","Runnable width="+width);
-
-                }
-            });
-            textView.addOnLayoutChangeListener(new MyOnLayoutChangeListener(i));
-            container.addView(textView);
-            container.requestLayout();
-            container.invalidate();
-        }
-    }
-    private void InitCursorView(int width,float x) {
-        cursorTextView = (TextView) findViewById(R.id.tab_pointer);
-        ViewGroup.MarginLayoutParams layoutParams =
-                (ViewGroup.MarginLayoutParams) tabs.get(currIndex).getLayoutParams();
-        int leftMargin=layoutParams.leftMargin;
-//        int left=tabs.get(viewPager.getCurrentItem()).getLeft();
-
-        Log.e("wwww","InitCursorView leftMargin="+leftMargin);
-        Log.e("wwww","InitCursorView x="+x);
-        Log.e("wwww","InitCursorView width="+width);
-
-        ViewGroup.MarginLayoutParams cursorLayoutParams =
-                (ViewGroup.MarginLayoutParams) cursorTextView.getLayoutParams();
-        cursorLayoutParams.setMarginStart(leftMargin);
-        cursorLayoutParams.width=width;
-        cursorTextView.setTextColor(Color.RED);
-
-        cursorTextView.setX((float) x);
-//        cursorTextView.setLeft(left);
-        cursorTextView.setWidth(width);
-        cursorTextView.setLayoutParams(cursorLayoutParams);
-        cursorTextView.requestLayout();
-        cursorTextView.invalidate();
-//        cursorTextView.addOnLayoutChangeListener();
-
-    }
-    private void InitCursorView() {
-        cursorTextView = (TextView) findViewById(R.id.tab_pointer);
-        ViewGroup.MarginLayoutParams layoutParams =
-                (ViewGroup.MarginLayoutParams) tabs.get(viewPager.getCurrentItem()).getLayoutParams();
-        int width=tabs.get(viewPager.getCurrentItem()).getWidth();
-        int leftMargin=layoutParams.leftMargin;
-        float x=tabs.get(viewPager.getCurrentItem()).getX();
-//        int left=tabs.get(viewPager.getCurrentItem()).getLeft();
-
-        Log.e("wwww","InitCursorView leftMargin="+leftMargin);
-        Log.e("wwww","InitCursorView x="+x);
-
-        ViewGroup.MarginLayoutParams cursorLayoutParams =
-                (ViewGroup.MarginLayoutParams) cursorTextView.getLayoutParams();
-        cursorLayoutParams.setMarginStart(leftMargin);
-        cursorLayoutParams.width=width;
-        cursorTextView.setTextColor(Color.RED);
-
-        cursorTextView.setX((float) x);
-//        cursorTextView.setLeft(left);
-        cursorTextView.setWidth(width);
-        cursorTextView.setLayoutParams(cursorLayoutParams);
-        cursorTextView.invalidate();
-//        cursorTextView.addOnLayoutChangeListener();
-
-    }
-
-    public class MyOnLayoutChangeListener implements View.OnLayoutChangeListener {
-        private int index = 0;
-        public MyOnLayoutChangeListener(int i) {
-            index = i;
-        }
-        @Override
-        public void onLayoutChange(View view, int i, int i1, int i2, int i3, int i4, int i5, int i6, int i7) {
-//                    view.removeOnLayoutChangeListener(this);
-            int width=view.getWidth();
-            float x=view.getX();
-            if(index==currIndex){
-                InitCursorView(width,x);
-            }
-            Log.e("wwww","onLayoutChange x="+x);
-            Log.e("wwww","onLayoutChange width="+width);
-            ViewGroup.MarginLayoutParams layoutParams =
-                    (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-            int leftMargin=layoutParams.leftMargin;
-            Log.e("wwww","onLayoutChange leftMargin="+leftMargin);
-        }
-    }
-      /**
-  2      * 头标点击监听
-  3 */
-      public class MyOnClickListener implements View.OnClickListener {
-          private int index = 0;
-
-          public MyOnClickListener(int i) {
-              index = i;
-          }
-
-          @Override
-          public void onClick(View v) {
-              Log.e("wwww","MyOnClickListener index="+index);
-              int oldindex=currIndex;
-              currIndex=index;
-              tabs.get(oldindex).setTextSize(20);
-//              tabs.get(currIndex).requestLayout();
-//              tabs.get(currIndex).invalidate();
-              viewPager.setCurrentItem(index);
-              tabs.get(index).setTextSize(30);
-              Log.e("wwww","MyOnClickListener getWidth="+tabs.get(index).getWidth());
-
-//              tabs.get(index).requestLayout();
-//              tabs.get(index).invalidate();
-//              InitCursorView();
-
-          }
-      }
-
-    ;
-    //初始化布局中的控件
-    private void setUIRef()
-    {
-        horizontalScrollView = (HorizontalScrollView) findViewById(R.id.horizontalScrollView);
-        container = (LinearLayout) findViewById(R.id.horizontalScrollViewItemContainer);
-        cursorTextView = (TextView) findViewById(R.id.tab_pointer);
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -229,25 +75,18 @@ public class MainTableLayoutTvActivityxmlHorizontalScrollView extends Activity {
         //页面，数据源，里面是创建的三个页面（Fragment）
         list = new ArrayList<View>();
                  LayoutInflater mInflater = getLayoutInflater();
-        list.add(mInflater.inflate(R.layout.activity_viewpagexml, null));
-        list.add(mInflater.inflate(R.layout.activity_viewpagexml2, null));
         list.add(mInflater.inflate(R.layout.activity_viewpagexml3, null));
+        list.add(mInflater.inflate(R.layout.activity_viewpagexml2, null));
+        list.add(mInflater.inflate(R.layout.activity_viewpagexml, null));
 
 
         viewPager.setAdapter(new MyPagerAdapter(list));
         viewPager.setCurrentItem(0);
         viewPager.addOnPageChangeListener(new MyOnPageChangeListener());
 
-
         bindData();
         setUIRef();
         bindHZSWData();
-//        tabs.get(viewPager.getCurrentItem()).setTextSize(30);
-//        tabs.get(viewPager.getCurrentItem()).requestLayout();
-//        tabs.get(viewPager.getCurrentItem()).invalidate();
-//        InitCursorView();
-
-        //将TabLayout和ViewPager绑定在一起，一个动另一个也会跟着动
     }
     //创建Fragment的适配器
     /**
@@ -307,33 +146,119 @@ public class MainTableLayoutTvActivityxmlHorizontalScrollView extends Activity {
             int two = one * 2;// 页卡1 -> 页卡3 偏移量
             Animation animation = null;
             Log.e("wwww","MyOnPageChangeListener arg0="+arg0);
-            tabs.get(currIndex).setTextSize(20);
-            tabs.get(currIndex).requestLayout();
-            tabs.get(currIndex).invalidate();
-            tabs.get(arg0).setTextSize(30);
-            tabs.get(arg0).requestLayout();
-            tabs.get(arg0).invalidate();
+            int oldindex=currIndex;
             currIndex=arg0;
+//            tabs.get(oldindex).findViewById(R.id.cursor).setVisibility(View.GONE);
+            for(int i=0;i<tabs.size();i++){
+                if(arg0==i){
+                    tabs.get(arg0).findViewById(R.id.cursor).setVisibility(View.VISIBLE);
+                    tabs.get(arg0).findViewById(R.id.textView).requestFocus();
+                    ((TextView)tabs.get(arg0).findViewById(R.id.textView)).setTextSize(20);
+                    ((TextView)tabs.get(arg0).findViewById(R.id.cursor)).setTextSize(20);
+
+
+                }else{
+                    tabs.get(i).findViewById(R.id.cursor).setVisibility(View.GONE);
+                    ((TextView)tabs.get(i).findViewById(R.id.textView)).setTextSize(18);
+                    ((TextView)tabs.get(i).findViewById(R.id.cursor)).setTextSize(18);
+
+                }
+            }
+
 //            InitCursorView();
 
         }
 
         @Override
         public void onPageScrolled(int arg0, float arg1, int arg2) {
-
-//            //获取父布局布局管理器
-//            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(cursor.getLayoutParams());
-//            /**
-//             *   设置margin的值思路主要是position的值为当前fragment的下标 positionOffset为比例数当第一个页面滑动到第二个的时候positionOffset= 0
-//             *   如果只采用item_width * position显得有些僵硬如果加上item_width * positionOffset就有动画的效果了
-//             */
-//            layoutParams.setMargins((int) (item_width * positionOffset) + item_width * position, 0, 0, 0);
-//            cursor.setLayoutParams(layoutParams);
-
         }
 
         @Override
         public void onPageScrollStateChanged(int arg0) {
         }
+    }
+
+
+    //将字符串数组与集合绑定起来
+    private void bindData()
+    {
+        Collections.addAll(data, cities);
+    }
+    //将集合中的数据绑定到HorizontalScrollView上
+    private void bindHZSWData()
+    {	//为布局中textview设置好相关属性
+
+        for (int i = 0; i < data.size(); i++)
+        {
+            View root  = LayoutInflater.from(this).inflate(R.layout.tabitem, container,false);
+            TextView txt = (TextView) root
+                    .findViewById(R.id.textView);
+            TextView cursor = (TextView) root
+                    .findViewById(R.id.cursor);
+            txt.setText(data.get(i));
+
+            txt.setTextColor(Color.WHITE);
+            txt.setTextSize(18);
+            cursor.setText(data.get(i));
+            cursor.setTextSize(18);
+            if(i==viewPager.getCurrentItem()){
+                cursor.setVisibility(View.VISIBLE);
+
+            }else{
+                cursor.setVisibility(View.GONE);
+
+            }
+
+            txt.setOnClickListener(new MyOnClickListener(i));
+            txt.setOnFocusChangeListener(new MyOnFocusChangeListener(i));
+            tabs.add(root);
+            Log.e("wwww","getTextWidth CustomTabItem="+txt.getWidth());
+            container.addView(root);
+        }
+    }
+
+
+    public class MyOnFocusChangeListener implements View.OnFocusChangeListener {
+        private int index = 0;
+        public MyOnFocusChangeListener(int i) {
+            index = i;
+        }
+
+        @Override
+        public void onFocusChange(View view, boolean b) {
+            if(b){
+                Log.e("wwww","onFocusChange index="+index);
+                if(viewPager.getCurrentItem()!=index){
+                    viewPager.setCurrentItem(index);
+                }
+            }else{
+            }
+
+        }
+    }
+    /**
+     2      * 头标点击监听
+     3 */
+    public class MyOnClickListener implements View.OnClickListener {
+        private int index = 0;
+
+        public MyOnClickListener(int i) {
+            index = i;
+        }
+
+        @Override
+        public void onClick(View v) {
+            Log.e("wwww","MyOnClickListener index="+index);
+            viewPager.setCurrentItem(index);
+
+        }
+    }
+
+    ;
+    //初始化布局中的控件
+    private void setUIRef()
+    {
+        horizontalScrollView = (HorizontalScrollView) findViewById(R.id.horizontalScrollView);
+        container = (LinearLayout) findViewById(R.id.horizontalScrollViewItemContainer);
     }
 }

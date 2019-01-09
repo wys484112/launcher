@@ -9,6 +9,8 @@
     <dimen name="tab_width">120.0px</dimen>
     <dimen name="tab_layout_width">1500.0px</dimen>
     <dimen name="tab_lin_height">90.0px</dimen>
+    <dimen name="tab_lin_text_height">84.0px</dimen>
+
     <dimen name="tab_margin_start">130.0px</dimen>
     <dimen name="tab_normal_textsize">38.0px</dimen>
     <dimen name="tab_padding">58.0px</dimen>
