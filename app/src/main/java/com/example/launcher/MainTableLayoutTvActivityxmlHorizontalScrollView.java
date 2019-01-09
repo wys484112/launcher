@@ -60,7 +60,7 @@ public class MainTableLayoutTvActivityxmlHorizontalScrollView extends Activity {
     private HorizontalScrollView horizontalScrollView;
     private LinearLayout container;
     private TextView cursorTextView;
-    private String cities[] = new String[]{"应用应用应用应用应用", "设置", "Paris"};
+    private String cities[] = new String[]{"应用", "设置", "Paris"};
     private ArrayList<String> data = new ArrayList<>();
     private TextView currentClickedTextView;
     private ArrayList<View> tabs = new ArrayList<>();
