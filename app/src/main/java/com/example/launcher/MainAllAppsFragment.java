@@ -387,7 +387,8 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
                 Log.d(TAG, "Item: " + appinfo.intent);
                 getActivity().startActivity(appinfo.intent);
 //                getActivity().overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
-                getActivity().overridePendingTransition(R.anim.system_ui_start,R.anim.system_ui_close);
+
+//                getActivity().overridePendingTransition(R.anim.system_ui_start,R.anim.system_ui_close);
 
 
             } else if (item instanceof String) {
