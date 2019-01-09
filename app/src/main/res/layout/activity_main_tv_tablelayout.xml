@@ -27,7 +27,7 @@
         <!--app:formatTV="EEEE, yyyy年MM月dd日" />-->
 
     <include
-        layout="@layout/layout_statusbar"
+        layout="@layout/layout_statusbar_new"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
