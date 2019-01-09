@@ -72,12 +72,12 @@ public class MainTableLayoutTvActivityxmlHorizontalScrollView extends Activity {
         setContentView(R.layout.activity_tablelayout_mainxmlhorizontalscrollview);
         //实例化
         viewPager = (ViewPager) findViewById(R.id.viewpager);
-        //页面，数据源，里面是创建的三个页面（Fragment）
+        //页面，数据源，里面是创建的三个页面（Fragment）g
         list = new ArrayList<View>();
                  LayoutInflater mInflater = getLayoutInflater();
-        list.add(mInflater.inflate(R.layout.activity_viewpagexml3, null));
-        list.add(mInflater.inflate(R.layout.activity_viewpagexml2, null));
         list.add(mInflater.inflate(R.layout.activity_viewpagexml, null));
+        list.add(mInflater.inflate(R.layout.activity_viewpagexml2, null));
+        list.add(mInflater.inflate(R.layout.activity_viewpagexml3, null));
 
 
         viewPager.setAdapter(new MyPagerAdapter(list));
