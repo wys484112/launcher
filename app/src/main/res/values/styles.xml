@@ -55,7 +55,6 @@
 
     </style>
     <style name="CustomImageCardTheme" parent="Theme.Leanback">
-
         <!--控制item之间的间距等问题-->
         <item name="rowHorizontalGridStyle">@style/CustomrowHorizontalGridStyle</item>
         <!--<item name="browseTitleViewLayout">null</item>-->

@@ -88,6 +88,10 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
 
     static List<String> favorites = Arrays.asList("com.example.launcher/com.example.launcher.MainActivity",
             "com.example.launcher/com.example.launcher.MainTvActivity",
+            "com.example.launcher/com.example.launcher.MainTableLayoutTvActivity",
+            "com.example.launcher/com.example.launcher.MainTableLayoutTvActivityxmlHorizontalScrollView",
+            "com.example.launcher/com.example.launcher.MainTableLayoutTvActivityxml",
+            "com.example.launcher/com.example.launcher.MainTvActivityTableLayoutStatusBar",
             "com.example.launcher/com.example.launcher.MainTvActivityTableLayout"
 
     );
