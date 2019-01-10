@@ -76,7 +76,7 @@ public class MainTableLayoutTvActivityxmlHorizontalScrollView extends Activity {
         list = new ArrayList<View>();
                  LayoutInflater mInflater = getLayoutInflater();
         list.add(mInflater.inflate(R.layout.activity_viewpagexml2, null));
-        list.add(mInflater.inflate(R.layout.activity_viewverticalpagexml, null));
+        list.add(mInflater.inflate(R.layout.activity_viewpagexml, null));
         list.add(mInflater.inflate(R.layout.activity_viewpagexml3, null));
 
 

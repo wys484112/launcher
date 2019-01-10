@@ -47,12 +47,19 @@
         <item name="android:verticalSpacing">30dp</item>
 
     </style>
+    <style name="CustomitemsVerticalGridStyle" parent="Widget.Leanback.GridItems.VerticalGridView">
+        <item name="android:paddingEnd">30dp</item>
+        <item name="android:paddingStart">30dp</item>
+        <item name="android:horizontalSpacing">30dp</item>
+        <item name="android:verticalSpacing">30dp</item>
 
+    </style>
     <style name="CustomImageCardTheme" parent="Theme.Leanback">
 
         <!--控制item之间的间距等问题-->
         <item name="rowHorizontalGridStyle">@style/CustomrowHorizontalGridStyle</item>
         <!--<item name="browseTitleViewLayout">null</item>-->
+        <item name="itemsVerticalGridStyle">@style/CustomitemsVerticalGridStyle</item>
 
         <!--<item name="browseTitleViewLayout">@layout/titleview</item>-->
 
