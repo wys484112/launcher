@@ -75,8 +75,8 @@ public class MainTableLayoutTvActivityxmlHorizontalScrollView extends Activity {
         //页面，数据源，里面是创建的三个页面（Fragment）g
         list = new ArrayList<View>();
                  LayoutInflater mInflater = getLayoutInflater();
-        list.add(mInflater.inflate(R.layout.activity_viewpagexml, null));
         list.add(mInflater.inflate(R.layout.activity_viewpagexml2, null));
+        list.add(mInflater.inflate(R.layout.activity_viewverticalpagexml, null));
         list.add(mInflater.inflate(R.layout.activity_viewpagexml3, null));
 
 

@@ -26,6 +26,7 @@ import android.support.v17.leanback.app.BackgroundManager;
 import android.support.v17.leanback.app.BrowseFragment;
 import android.support.v17.leanback.app.VerticalGridFragment;
 import android.support.v17.leanback.widget.ArrayObjectAdapter;
+import android.support.v17.leanback.widget.FocusHighlight;
 import android.support.v17.leanback.widget.ListRow;
 import android.support.v17.leanback.widget.OnItemViewClickedListener;
 import android.support.v17.leanback.widget.OnItemViewSelectedListener;
@@ -203,7 +204,10 @@ public class MainAllAppsVerticalGridFragment extends VerticalGridFragment implem
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(mMetrics);
     }
     private void setupFragment() {
-        VerticalGridPresenter gridPresenter = new VerticalGridPresenter();
+//        VerticalGridPresenter gridPresenter = new VerticalGridPresenter();
+
+//        determine  useFocusDimmer on other items
+        VerticalGridPresenter gridPresenter = new VerticalGridPresenter(FocusHighlight.ZOOM_FACTOR_LARGE,false);
         gridPresenter.setNumberOfColumns(NUM_COLS);
         setGridPresenter(gridPresenter);
 
@@ -232,15 +236,20 @@ public class MainAllAppsVerticalGridFragment extends VerticalGridFragment implem
     }
 
     private void setupEventListeners() {
-        setOnSearchClickedListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getActivity(), "Implement your own in-app search", Toast.LENGTH_LONG)
-                        .show();
-            }
-        });
-
+//        setOnSearchClickedListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(getActivity(), "Implement your own in-app search", Toast.LENGTH_LONG)
+//                        .show();
+//            }
+//        });
+        //        titleview.java determine if show search view
+//        private void updateSearchOrbViewVisiblity() {
+//            int visibility = mHasSearchListener && (flags & SEARCH_VIEW_VISIBLE) == SEARCH_VIEW_VISIBLE
+//                    ? View.VISIBLE : View.INVISIBLE;
+//            mSearchOrbView.setVisibility(visibility);
+//        }
         setOnItemViewClickedListener(new ItemViewClickedListener());
         setOnItemViewSelectedListener(new ItemViewSelectedListener());
     }

@@ -261,14 +261,9 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
         super.onViewCreated(view, savedInstanceState);
         prepareBackgroundManager();
         setupUIElements();
-//        setupEventListeners();
+        setupEventListeners();
 
-//        titleview.java determine if show search view
-//        private void updateSearchOrbViewVisiblity() {
-//            int visibility = mHasSearchListener && (flags & SEARCH_VIEW_VISIBLE) == SEARCH_VIEW_VISIBLE
-//                    ? View.VISIBLE : View.INVISIBLE;
-//            mSearchOrbView.setVisibility(visibility);
-//        }
+
     }
 
     @Override
@@ -368,14 +363,21 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
     }
 
     private void setupEventListeners() {
-        setOnSearchClickedListener(new View.OnClickListener() {
+//        setOnSearchClickedListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(getActivity(), "Implement your own in-app search", Toast.LENGTH_LONG)
+//                        .show();
+//            }
+//        });
 
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getActivity(), "Implement your own in-app search", Toast.LENGTH_LONG)
-                        .show();
-            }
-        });
+        //        titleview.java determine if show search view
+//        private void updateSearchOrbViewVisiblity() {
+//            int visibility = mHasSearchListener && (flags & SEARCH_VIEW_VISIBLE) == SEARCH_VIEW_VISIBLE
+//                    ? View.VISIBLE : View.INVISIBLE;
+//            mSearchOrbView.setVisibility(visibility);
+//        }
 
         setOnItemViewClickedListener(new ItemViewClickedListener());
         setOnItemViewSelectedListener(new ItemViewSelectedListener());
