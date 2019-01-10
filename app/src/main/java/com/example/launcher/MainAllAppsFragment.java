@@ -69,6 +69,7 @@ import java.util.TimerTask;
 
 public class MainAllAppsFragment extends BrowseFragment implements LoaderManager.LoaderCallbacks<List<AppInfo>> {
     private static final String TAG = "MainFragment";
+    private static final boolean DEBUG = false;
 
     private static final int BACKGROUND_UPDATE_DELAY = 300;
     private static final int GRID_ITEM_WIDTH = 200;
@@ -93,18 +94,32 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
 
     @Override
     public Loader<List<AppInfo>> onCreateLoader(int i, Bundle bundle) {
+        if (DEBUG)
+            Log.d(TAG, "onCreateLoader==");
+
+        showProgressDialog();
+
+        return new AppLoader(getActivity(), LauncherAppState.getInstance().getIconCache());
+    }
+
+    public void showProgressDialog() {
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.show();
-        return new AppLoader(getActivity(), LauncherAppState.getInstance().getIconCache());
+    }
+
+    public void dismissProgressDialog() {
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.dismiss();
+        }
     }
 
     @Override
     public void onLoadFinished(Loader<List<AppInfo>> loader, List<AppInfo> appInfos) {
+        if (DEBUG)
+            Log.d(TAG, "onLoadFinished==");
 
-        if(progressDialog.isShowing()){
-            progressDialog.dismiss();
-        }
+        dismissProgressDialog();
 
 //        appInfos = extractFavorites(appInfos);
 //        int size = appInfos.size();
@@ -192,21 +207,26 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
 
             ArrayObjectAdapter mlistRowAdapter = new ArrayObjectAdapter(mgridPresenter);
             int start = (i) * NUM_COLS;
-            Log.d("wwww", "i==" + i);
+            if (DEBUG)
+                Log.d(TAG, "i==" + i);
 
             if ((i + 1) == rows) {
-                Log.d("wwww", "add111==");
+                if (DEBUG)
+                    Log.d(TAG, "add111==");
 
                 for (int j = start; j < size; j++) {
-                    Log.d("wwww", "add111==");
+                    if (DEBUG)
+                        Log.d(TAG, "add111==");
 
                     mlistRowAdapter.add(appInfos.get(j));
                 }
             } else {
-                Log.d("wwww", "add22==");
+                if (DEBUG)
+                    Log.d(TAG, "add22==");
 
                 for (int j = 0; j < NUM_COLS; j++) {
-                    Log.d("wwww", "add22==");
+                    if (DEBUG)
+                        Log.d(TAG, "add22==");
 
                     mlistRowAdapter.add(appInfos.get(start + j));
                 }
@@ -224,20 +244,15 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
 
     @Override
     public void onLoaderReset(Loader<List<AppInfo>> loader) {
-        if(progressDialog!=null&&!progressDialog.isShowing()){
-            progressDialog.show();
-        }else{
-            progressDialog = new ProgressDialog(getActivity());
-            progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            progressDialog.show();
-        }
+        if (DEBUG)
+            Log.d(TAG, "onLoaderReset==");
+
+        dismissProgressDialog();
         mRowsAdapter.clear();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
@@ -245,26 +260,37 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         prepareBackgroundManager();
-
         setupUIElements();
+//        setupEventListeners();
 
-        setupEventListeners();
+//        titleview.java determine if show search view
+//        private void updateSearchOrbViewVisiblity() {
+//            int visibility = mHasSearchListener && (flags & SEARCH_VIEW_VISIBLE) == SEARCH_VIEW_VISIBLE
+//                    ? View.VISIBLE : View.INVISIBLE;
+//            mSearchOrbView.setVisibility(visibility);
+//        }
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        LauncherAppState.setApplicationContext(getActivity());
+        if (DEBUG)
+            Log.d(TAG, "restartLoader==");
+
+        if (savedInstanceState == null) {
+            getLoaderManager().initLoader(0, null, this);
+        } else {
+            getLoaderManager().initLoader(0, null, this);
+        }
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-        Log.i(TAG, "onCreate");
+        if (DEBUG)
+            Log.i(TAG, "onCreate");
         super.onActivityCreated(savedInstanceState);
-
-
-        LauncherAppState.setApplicationContext(getActivity());
-
-        if (savedInstanceState == null) {
-            getLoaderManager().restartLoader(0, null, this);
-        } else {
-            getLoaderManager().restartLoader(0, null, this);
-        }
-
     }
 
 
@@ -285,18 +311,22 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
     public void onDestroy() {
         super.onDestroy();
         if (null != mBackgroundTimer) {
-            Log.d(TAG, "onDestroy: " + mBackgroundTimer.toString());
+            if (DEBUG)
+                Log.d(TAG, "onDestroy: " + mBackgroundTimer.toString());
             mBackgroundTimer.cancel();
         }
+        dismissProgressDialog();
     }
 
     private List<AppInfo> extractFavorites(List<AppInfo> infos) {
         List<AppInfo> favs = new ArrayList<>(favorites.size());
         for (String name : favorites) {
             for (AppInfo info : infos) {
-                Log.d("wwww", "com==" + info.componentName.toString());
+                if (DEBUG)
+                    Log.d(TAG, "com==" + info.componentName.toString());
                 if (name.contains(info.componentName.getClassName())) {
-                    Log.d("wwww", "title==" + info.componentName);
+                    if (DEBUG)
+                        Log.d(TAG, "title==" + info.componentName);
                     favs.add(info);
                     infos.remove(info);
                     break;
@@ -310,7 +340,7 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
     private void prepareBackgroundManager() {
 
         mBackgroundManager = BackgroundManager.getInstance(getActivity());
-        if(!mBackgroundManager.isAttached()){
+        if (!mBackgroundManager.isAttached()) {
             mBackgroundManager.attach(getActivity().getWindow());
         }
 
@@ -323,8 +353,8 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
         // setBadgeDrawable(getActivity().getResources().getDrawable(
         // R.drawable.videos_by_google_banner));
 //        setTitle(getString(R.string.browse_title)); // Badge, when set, takes precedent
-        showTitle(false);
-        setTitleView(null);
+//        showTitle(true);
+//        setTitleView(null);
 //        setTitle(getString(R.string.browse_title)); // Badge, when set, takes precedent
         // over title
         setHeadersState(HEADERS_DISABLED);
@@ -333,7 +363,7 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
         // set fastLane (or headers) background color
         setBrandColor(ContextCompat.getColor(getActivity(), R.color.fastlane_background));
         // set search icon color
-//        setSearchAffordanceColor(ContextCompat.getColor(getActivity(), R.color.search_opaque));
+        setSearchAffordanceColor(ContextCompat.getColor(getActivity(), R.color.search_opaque));
 
     }
 
@@ -384,7 +414,8 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
 
             if (item instanceof AppInfo) {
                 AppInfo appinfo = (AppInfo) item;
-                Log.d(TAG, "Item: " + appinfo.intent);
+                if (DEBUG)
+                    Log.d(TAG, "Item: " + appinfo.intent);
                 getActivity().startActivity(appinfo.intent);
 //                getActivity().overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
 

@@ -17,6 +17,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <uses-feature
         android:name="android.hardware.touchscreen"
         android:required="false" />
@@ -34,16 +35,17 @@
         <activity
             android:name=".MainActivity"
             android:clearTaskOnLaunch="true"
+            android:configChanges="density|fontScale|keyboard|keyboardHidden|layoutDirection|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode"
             android:enabled="true"
             android:label="@string/app_name"
             android:launchMode="singleTask"
             android:resumeWhilePausing="true">
             <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-                <!--<category android:name="android.intent.category.HOME" />-->
-                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--<category android:name="android.intent.category.HOME" />-->
+            <!--<category android:name="android.intent.category.DEFAULT" />-->
             <!--</intent-filter>-->
 
             <!-- <intent-filter> -->
@@ -56,32 +58,31 @@
         </activity>
         <activity
             android:name=".AllAppList"
+            android:configChanges="density|fontScale|keyboard|keyboardHidden|layoutDirection|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode"
             android:label="@string/title_activity_main2" />
 
         <activity
             android:name=".MainTvActivity"
             android:banner="@drawable/app_icon_your_company"
+            android:configChanges="density|fontScale|keyboard|keyboardHidden|layoutDirection|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode"
             android:icon="@drawable/app_icon_your_company"
             android:label="@string/title_activity_main_tv"
             android:logo="@drawable/app_icon_your_company"
             android:screenOrientation="landscape"
             android:theme="@style/CustomImageCardTheme">
             <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-                <!--<category android:name="android.intent.category.HOME" />-->
-                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--<category android:name="android.intent.category.HOME" />-->
+            <!--<category android:name="android.intent.category.DEFAULT" />-->
             <!--</intent-filter>-->
         </activity>
-
-
-
-
 
 
         <activity
             android:name=".MainTvActivityTableLayout"
             android:banner="@drawable/app_icon_your_company"
+            android:configChanges="density|fontScale|keyboard|keyboardHidden|layoutDirection|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode"
             android:icon="@drawable/app_icon_your_company"
             android:label="@string/title_activity_main_tv"
             android:logo="@drawable/app_icon_your_company"
@@ -89,6 +90,7 @@
             android:theme="@style/CustomImageCardTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -96,38 +98,36 @@
         </activity>
 
 
-
-
-
-
         <activity
             android:name=".MainTvActivityTableLayoutStatusBar"
             android:banner="@drawable/app_icon_your_company"
+            android:configChanges="density|fontScale|keyboard|keyboardHidden|layoutDirection|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode"
             android:icon="@drawable/app_icon_your_company"
             android:label="@string/title_activity_main_tv"
             android:logo="@drawable/app_icon_your_company"
             android:screenOrientation="landscape"
             android:theme="@style/CustomImageCardTheme">
             <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-                <!--<category android:name="android.intent.category.HOME" />-->
-                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--<category android:name="android.intent.category.HOME" />-->
+            <!--<category android:name="android.intent.category.DEFAULT" />-->
             <!--</intent-filter>-->
         </activity>
-
 
 
         <activity android:name=".DetailsActivity" />
         <activity android:name=".PlaybackActivity" />
         <activity android:name=".BrowseErrorActivity" />
-        <activity android:name=".MainTableLayoutTvActivity"
+        <activity
+            android:name=".MainTableLayoutTvActivity"
             android:clearTaskOnLaunch="true"
+            android:configChanges="density|fontScale|keyboard|keyboardHidden|layoutDirection|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode"
             android:enabled="true"
             android:label="@string/app_name"
             android:launchMode="singleTask"
-            android:theme="@style/AppTableLayoutBaseTheme"
-            android:resumeWhilePausing="true">
+            android:resumeWhilePausing="true"
+            android:theme="@style/AppTableLayoutBaseTheme">
 
             <!--<intent-filter>-->
             <!--<action android:name="android.intent.action.MAIN" />-->
@@ -138,14 +138,15 @@
         </activity>
 
 
-
-        <activity android:name=".MainTableLayoutTvActivityxml"
+        <activity
+            android:name=".MainTableLayoutTvActivityxml"
             android:clearTaskOnLaunch="true"
+            android:configChanges="density|fontScale|keyboard|keyboardHidden|layoutDirection|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode"
             android:enabled="true"
             android:label="@string/app_name"
             android:launchMode="singleTask"
-            android:theme="@style/CustomImageCardTheme"
-            android:resumeWhilePausing="true">
+            android:resumeWhilePausing="true"
+            android:theme="@style/CustomImageCardTheme">
 
             <!--<intent-filter>-->
             <!--<action android:name="android.intent.action.MAIN" />-->
@@ -156,19 +157,21 @@
         </activity>
 
 
-        <activity android:name=".MainTableLayoutTvActivityxmlHorizontalScrollView"
+        <activity
+            android:name=".MainTableLayoutTvActivityxmlHorizontalScrollView"
             android:clearTaskOnLaunch="true"
+            android:configChanges="density|fontScale|keyboard|keyboardHidden|layoutDirection|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode"
             android:enabled="true"
             android:label="@string/app_name"
             android:launchMode="singleTask"
-            android:theme="@style/CustomImageCardTheme"
-            android:resumeWhilePausing="true">
+            android:resumeWhilePausing="true"
+            android:theme="@style/CustomImageCardTheme">
 
             <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-                <!--<category android:name="android.intent.category.HOME" />-->
-                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--<category android:name="android.intent.category.HOME" />-->
+            <!--<category android:name="android.intent.category.DEFAULT" />-->
             <!--</intent-filter>-->
         </activity>
     </application>
