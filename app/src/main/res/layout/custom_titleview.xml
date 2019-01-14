@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <com.example.launcher.timeclock.TextClock
+    <com.example.launcher.customview.TextClock
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -13,7 +13,7 @@
         android:textSize="30sp"
         app:formatTV="hh:mm a" />
 
-    <com.example.launcher.timeclock.TextClock
+    <com.example.launcher.customview.TextClock
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

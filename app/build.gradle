@@ -20,6 +20,9 @@ android {
 }
 
 dependencies {
+    implementation project(':activeandroid')
+    implementation 'com.jakewharton.rxbinding3:rxbinding:3.0.0-alpha1'
+
     implementation 'com.hwangjr.rxbus:rxbus:2.0.0'
     implementation 'com.jakewharton:butterknife:8.8.1'
     implementation 'com.android.support:appcompat-v7:26.1.0'

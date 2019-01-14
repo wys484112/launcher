@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
 
-    <!--<com.example.launcher.timeclock.TextClock-->
+    <!--<com.example.launcher.customview.TextClock-->
         <!--android:id="@+id/textView3"-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->
@@ -17,7 +17,7 @@
         <!--android:textSize="30sp"-->
         <!--app:formatTV="hh:mm a" />-->
 
-    <!--<com.example.launcher.timeclock.TextClock-->
+    <!--<com.example.launcher.customview.TextClock-->
         <!--android:id="@+id/textView4"-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->

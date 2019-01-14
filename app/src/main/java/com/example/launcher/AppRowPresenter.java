@@ -3,17 +3,13 @@ package com.example.launcher;
 import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.support.v17.leanback.widget.ImageCardView;
 import android.support.v17.leanback.widget.Presenter;
 import android.support.v4.content.ContextCompat;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.launcher.model.AppInfo;
-import com.example.launcher.ui.RowApp;
-import com.example.launcher.ui.RowApp2;
+import com.example.launcher.customview.RowApp2;
 
 
 /**

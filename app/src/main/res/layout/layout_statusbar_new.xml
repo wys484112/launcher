@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.example.launcher.timeclock.TextClock
+    <com.example.launcher.customview.TextClock
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
         android:textSize="18sp"
         app:formatTV="hh:mm a" />
 
-    <com.example.launcher.timeclock.TextClock
+    <com.example.launcher.customview.TextClock
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
         app:formatTV="EEEE, yyyy年MM月dd日" />
 
 
-    <com.example.launcher.bluetoothimageview.BluetoothImageView
+    <com.example.launcher.customview.BluetoothImageView
         android:layout_width="20dp"
         android:layout_height="28dp"
         android:layout_alignParentTop="true"
@@ -51,7 +51,7 @@
         android:textSize="30sp"
         app:bluetoothDrawable="@drawable/ic_bluetooth" />
 
-    <com.example.launcher.networkimageview.NetworkImageView
+    <com.example.launcher.customview.NetworkImageView
         android:id="@+id/network"
         android:layout_width="30dp"
         android:layout_height="28dp"
