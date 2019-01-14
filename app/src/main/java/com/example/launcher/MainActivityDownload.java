@@ -75,6 +75,10 @@ public class MainActivityDownload extends Activity {
 		stopButton.setOnClickListener(listener);
 //		pathText.setText("http://172.16.1.78/HttpURLConnection使用.zip");
 		pathText.setText("http://172.16.1.78/app_activity_bg.png");
+		Log.e("mmmm","getFilesDir  =="+this.getFilesDir().getAbsolutePath());
+		Log.e("mmmm","getCacheDir  =="+this.getCacheDir().getAbsolutePath());
+		Log.e("mmmm","getObbDir  =="+this.getObbDir().getAbsolutePath());
+
 
 	}
 
@@ -96,7 +100,7 @@ public class MainActivityDownload extends Activity {
 
 				path = path.substring(0, path.lastIndexOf("/") + 1) + filename;
 				if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-					File savDir = Environment.getExternalStorageDirectory();
+					File savDir = MainActivityDownload.this.getExternalCacheDir();//Environment.getExternalStorageDirectory();
 					download(path, savDir);
 				} else {
 					Toast.makeText(getApplicationContext(), R.string.sdcarderror, Toast.LENGTH_LONG).show();
