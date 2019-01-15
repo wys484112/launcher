@@ -18,6 +18,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.launcher.model.FileDownLoadInfo;
 import com.example.launcher.net.FileDownLoadUtil;
 import com.example.launcher.net.JsonUtil;
 import com.example.launcher.net.download.DownloadProgressListener;
@@ -34,6 +35,8 @@ import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
@@ -158,8 +161,102 @@ public class MainActivityDownloadRxjava extends Activity {
         FileDownLoadUtil.getInstance(getApplicationContext()).exit();
     }
 
-    private void download(String path, File savDir) {
-        FileDownLoadUtil.getInstance(getApplicationContext()).download(path, savDir, downloadProgressListener);
+
+    Consumer<FileDownLoadInfo> onNext= new Consumer<FileDownLoadInfo>() {
+        @Override
+        public void accept(FileDownLoadInfo o) throws Exception {
+
+        }
+    };
+    Consumer<FileDownLoadInfo> onError= new Consumer<FileDownLoadInfo>() {
+        @Override
+        public void accept(FileDownLoadInfo o) throws Exception {
+
+        }
+    };
+    Action   onComplete =new Action() {
+        @Override
+        public void run() throws Exception {
+
+        }
+    };
+    private FileDownLoadInfo mFileInfo =new FileDownLoadInfo();
+    private void download(final String path, final File savDir) {
+        Observable download=Observable.create(new ObservableOnSubscribe<FileDownLoadInfo>() {
+            @Override
+            public void subscribe(final ObservableEmitter<FileDownLoadInfo> emitter) throws Exception {
+                FileDownLoadUtil.getInstance(getApplicationContext()).download(path, savDir, new DownloadProgressListener() {
+                    @Override
+                    public void onDownloadGetFileSize(int totalSize) {
+                        mFileInfo.setTotalSize(totalSize);
+                        emitter.onNext(mFileInfo);
+                    }
+
+                    @Override
+                    public void onDownloadSize(int size) {
+                        mFileInfo.setDownloadedsize(size);
+                        emitter.onNext(mFileInfo);
+                    }
+
+                    @Override
+                    public void onDownloadComplete(File saveFilePath) {
+                        mFileInfo.setmFile(saveFilePath);
+                        emitter.onNext(mFileInfo);
+                        emitter.onComplete();
+                    }
+
+                    @Override
+                    public void onDownloadError(Exception e) {
+                        emitter.onError(e);
+                    }
+                });
+
+            }
+        }).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+
+        download.subscribe(new Observer<FileDownLoadInfo>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(FileDownLoadInfo info) {
+                        if(info.getTotalSize()!=0&&progressBar.getMax()!=info.getTotalSize()){
+                            progressBar.setMax(info.getTotalSize());
+                        }
+                        progressBar.setProgress(info.getDownloadedsize());
+                        //已经下载的占总的大小的百分比
+                        float fraction = (float) progressBar.getProgress() / (float) progressBar.getMax();
+                        //当前已经下载的大小
+                        int currentLength = (int) (fraction * 100);
+                        resultView.setText(currentLength + "%");
+                        if (progressBar.getProgress() == progressBar.getMax()) {
+                            end = System.currentTimeMillis();
+                            Log.e("mmmm", "times  ==" + (end - start));
+                            Toast.makeText(getApplicationContext(), R.string.success, Toast.LENGTH_LONG).show();
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Toast.makeText(getApplicationContext(), R.string.error, Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        Log.e("mmmm", "onDownloadComplete  saveFilePath==" + mFileInfo.getmFile().getAbsolutePath());
+
+                        Uri uri = Uri.fromFile(mFileInfo.getmFile());
+                        //安装程序
+                        Intent installIntent = new Intent(Intent.ACTION_VIEW);
+                        installIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        installIntent.setDataAndType(uri,
+                                "application/vnd.android.package-archive");
+                        MainActivityDownloadRxjava.this.startActivity(installIntent);
+                    }
+                });
     }
 
     DownloadProgressListener downloadProgressListener = new DownloadProgressListener() {
