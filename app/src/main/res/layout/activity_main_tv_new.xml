@@ -4,26 +4,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <com.example.launcher.customview.TextClock
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        android:textColor="@android:color/white"
-        android:textSize="30sp"
-        app:formatTV="hh:mm a" />
+    <!--<com.example.launcher.customview.TextClock-->
+        <!--android:id="@+id/textView3"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--android:textSize="30sp"-->
+        <!--app:formatTV="hh:mm a" />-->
 
-    <com.example.launcher.customview.TextClock
-        android:id="@+id/textView4"
+    <!--<com.example.launcher.customview.TextClock-->
+        <!--android:id="@+id/textView4"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--android:textSize="18sp"-->
+        <!--app:formatTV="EEEE, yyyy年MM月dd日" />-->
+    <include
+        layout="@layout/layout_statusbar_new"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        app:formatTV="EEEE, yyyy年MM月dd日" />
-
+        android:layout_height="wrap_content" />
 
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
