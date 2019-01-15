@@ -1,6 +1,11 @@
 package com.example.launcher;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -40,6 +45,13 @@ public class MainActivityDownload extends Activity {
     private Handler handler = new UIHandler();
 
     private long start, end;
+
+
+    // 通知栏
+    private NotificationManager updateNotificationManager = null;
+    private Notification updateNotification = null;
+    private Intent updateIntent = null;// 下载完成
+    private PendingIntent updatePendingIntent = null;// 在下载的时候
 
     /**
      * 当Handler被创建会关联到创建它的当前线程的消息队列，该类用于往消息队列发送消息
@@ -85,7 +97,7 @@ public class MainActivityDownload extends Activity {
         downloadButton.setOnClickListener(listener);
         stopButton.setOnClickListener(listener);
 //		pathText.setText("http://172.16.1.78/HttpURLConnection使用.zip");
-        pathText.setText("http://172.16.1.78/app_activity_bg.png");
+        pathText.setText("http://172.16.1.78/app-debug.apk");
         Log.e("mmmm", "getFilesDir  ==" + this.getFilesDir().getAbsolutePath());
         Log.e("mmmm", "getCacheDir  ==" + this.getCacheDir().getAbsolutePath());
         Log.e("mmmm", "getObbDir  ==" + this.getObbDir().getAbsolutePath());
@@ -133,7 +145,16 @@ public class MainActivityDownload extends Activity {
         }
 
         @Override
-        public void onDownloadComplete() {
+        public void onDownloadComplete(File saveFilePath) {
+            Log.e("mmmm", "onDownloadComplete  saveFilePath==" + saveFilePath);
+
+            Uri uri = Uri.fromFile(saveFilePath);
+            //安装程序
+            Intent installIntent = new Intent(Intent.ACTION_VIEW);
+            installIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            installIntent.setDataAndType(uri,
+                    "application/vnd.android.package-archive");
+            MainActivityDownload.this.startActivity(installIntent);
 
         }
 

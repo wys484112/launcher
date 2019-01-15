@@ -168,7 +168,7 @@ public class FileDownloader {
 			}
 			if (downloadSize == this.fileSize){
 				if (listener != null){
-					listener.onDownloadComplete();//通知目前已经下载完成
+					listener.onDownloadComplete(saveFile);//通知目前已经下载完成
 				}
 				fileService.delete(this.downloadUrl);// 下载完成删除记录
 			}
