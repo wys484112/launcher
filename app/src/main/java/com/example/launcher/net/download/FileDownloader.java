@@ -122,6 +122,9 @@ public class FileDownloader {
 			if (this.fileSize > 0){
 				randOut.setLength(this.fileSize); // 设置文件的大小
 			}
+			if (listener != null){
+				listener.onDownloadGetFileSize(this.fileSize);//通知目前已经下载完成
+			}
 			randOut.close();
 			URL url = new URL(this.downloadUrl);
 			if (this.data.size() != this.threads.length) {
@@ -164,11 +167,16 @@ public class FileDownloader {
 				}
 			}
 			if (downloadSize == this.fileSize){
+				if (listener != null){
+					listener.onDownloadComplete();//通知目前已经下载完成
+				}
 				fileService.delete(this.downloadUrl);// 下载完成删除记录
 			}
 		} catch (Exception e) {
+			if (listener != null){
+				listener.onDownloadError(e);//通知目前已经下载完成
+			}
 			print(e.toString());
-			throw new Exception("file download error");
 		}
 		return this.downloadSize;
 	}
