@@ -107,9 +107,9 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
     }
 
     public void showProgressDialog() {
-        progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progressDialog.show();
+//        progressDialog = new ProgressDialog(getActivity());
+//        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//        progressDialog.show();
     }
 
     public void dismissProgressDialog() {
