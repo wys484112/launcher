@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.launcher.model;
+package com.example.launcher.fotaupdate.model;
 
 import android.content.ComponentName;
 import android.content.Intent;
@@ -33,18 +33,17 @@ import java.util.HashMap;
 /**
  * Represents an app in AllAppsView.
  */
-public class UpdateInfoModel {
-    //app名字
+public class ServerJsonInfoModel {
     private String appname;
-    //服务器版本
-    private int serverVersion;
-    //服务器标志
-    private int serverFlag;
-    //强制升级
-    private int lastForce;
-    //app最新版本地址
+
+    private String serverVersion;
+
+    private String serverFlag;
+
+    private String lastForce;
+
     private String updateurl;
-    //升级信息
+
     private String upgradeinfo;
 
     public void setAppname(String appname) {
@@ -55,27 +54,27 @@ public class UpdateInfoModel {
         return this.appname;
     }
 
-    public void setServerVersion(int serverVersion) {
+    public void setServerVersion(String serverVersion) {
         this.serverVersion = serverVersion;
     }
 
-    public int getServerVersion() {
+    public String getServerVersion() {
         return this.serverVersion;
     }
 
-    public void setServerFlag(int serverFlag) {
+    public void setServerFlag(String serverFlag) {
         this.serverFlag = serverFlag;
     }
 
-    public int getServerFlag() {
+    public String getServerFlag() {
         return this.serverFlag;
     }
 
-    public void setLastForce(int lastForce) {
+    public void setLastForce(String lastForce) {
         this.lastForce = lastForce;
     }
 
-    public int getLastForce() {
+    public String getLastForce() {
         return this.lastForce;
     }
 

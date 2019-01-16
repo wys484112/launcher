@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.launcher.model;
+package com.example.launcher.fotaupdate.model;
 
 import android.content.ComponentName;
 import android.content.Intent;
@@ -34,9 +34,9 @@ import java.util.HashMap;
 /**
  * Represents an app in AllAppsView.
  */
-public class FileDownLoadInfo {
-   private File   mFile;   //下载的文件
-   private int totalSize=0;   //总的大小
+public class FileDownLoadInfo extends Throwable{
+   private File   mFile;   //
+   private int totalSize=0;   //总的大小下载的文件
    private int  downloadedsize;   //已经下载的大小
 
     public File getmFile() {
@@ -62,4 +62,5 @@ public class FileDownLoadInfo {
     public void setDownloadedsize(int downloadedsize) {
         this.downloadedsize = downloadedsize;
     }
+
 }
