@@ -5,14 +5,18 @@ import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Message;
+import android.os.RemoteException;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +31,8 @@ import com.example.launcher.fotaupdate.model.FileDownLoadInfo;
 import com.example.launcher.net.FileDownLoadUtil;
 import com.example.launcher.net.JsonUtil;
 import com.example.launcher.net.download.DownloadProgressListener;
+import com.example.launcher.service.fotaudpate.IFotaUpdateService;
+import com.example.launcher.util.ServiceUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -76,6 +82,32 @@ public class MainActivityDownloadRxjava extends Activity {
 
     ServerJsonInfoModel model = new ServerJsonInfoModel();
     AlertDialog.Builder mDialog;
+    private FileDownLoadUtil mFileDownLoadUtil;
+
+
+
+
+    private ServiceUtils.ServiceToken mToken;
+    private IFotaUpdateService mService = null;
+    private ServiceConnection osc = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName classname, IBinder obj) {
+            mService = IFotaUpdateService.Stub.asInterface(obj);
+
+            if (mService != null) {
+                try {
+                    mService.startPostData();
+                } catch (RemoteException ex) {
+                }
+            }
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName classname) {
+                Log.e("mmmm","onServiceDisconnected");
+            mService = null;
+        }
+    };
 
     /**
      * 当Handler被创建会关联到创建它的当前线程的消息队列，该类用于往消息队列发送消息
@@ -126,43 +158,54 @@ public class MainActivityDownloadRxjava extends Activity {
         Log.e("mmmm", "getCacheDir  ==" + this.getCacheDir().getAbsolutePath());
         Log.e("mmmm", "getObbDir  ==" + this.getObbDir().getAbsolutePath());
 //        compositeDisposable.dispose();
+        mToken = ServiceUtils.bindToService(this, osc);
+        if (mToken == null) {
+            // something went wrong
+            Toast.makeText(this, "service error!", Toast.LENGTH_LONG).show();
+        }
         compositeDisposable = new CompositeDisposable();
-        compositeDisposable.add(Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(final ObservableEmitter<String> emitter) throws Exception {  //
-                JsonUtil.getInstance(MainActivityDownloadRxjava.this).getJsonData("http://172.16.1.78/update.json", new JsonUtil.DataCallBack() {
-                            @Override
-                            public void requestFailure(Exception e) {
-                            }
+        if (getExit()) {
+            compositeDisposable.add(Observable.create(new ObservableOnSubscribe<String>() {
+                @Override
+                public void subscribe(final ObservableEmitter<String> emitter) throws Exception {  //
+                    JsonUtil.getInstance(MainActivityDownloadRxjava.this).getJsonData("http://172.16.1.78/update.json", new JsonUtil.DataCallBack() {
+                                @Override
+                                public void requestFailure(Exception e) {
+                                }
 
-                            @Override
-                            public void requestSuccess(String result) {
-                                emitter.onNext(result);
+                                @Override
+                                public void requestSuccess(String result) {
+                                    emitter.onNext(result);
 //                                emitter.onNext(result);
 
-                                emitter.onComplete();
+                                    emitter.onComplete();
+                                }
                             }
+                    );
+                }
+            }).subscribeOn(Schedulers.io()) //指定ObservableEmitter 发生的线程
+                    .observeOn(AndroidSchedulers.mainThread()) //指定回调comsumer发生的线程
+                    .subscribe(new Consumer<String>() {
+                        @Override
+                        public void accept(String result) throws Exception {
+                            Log.e("mmmm", "accept getJsonData  ==" + result);
+                            JSONObject object = new JSONObject(result);
+                            model.setAppname(object.getString("appname"));
+                            model.setLastForce(object.getString("lastForce"));
+                            model.setServerFlag(object.getString("serverFlag"));
+                            model.setServerVersion(object.getString("serverVersion"));
+                            model.setUpdateurl(object.getString("updateurl"));
+                            model.setUpgradeinfo(object.getString("upgradeinfo"));
+                            getUpdateInformation(model);
+                            Log.e("mmmm", "getExit getExit  ==true");
+                            checkVersion(MainActivityDownloadRxjava.this, false);
                         }
-                );
-            }
-        }).subscribeOn(Schedulers.io()) //指定ObservableEmitter 发生的线程
-                .observeOn(AndroidSchedulers.mainThread()) //指定回调comsumer发生的线程
-                .subscribe(new Consumer<String>() {
-                    @Override
-                    public void accept(String result) throws Exception {
-                        Log.e("mmmm", "accept getJsonData  ==" + result);
-                        JSONObject object = new JSONObject(result);
-                        model.setAppname(object.getString("appname"));
-                        model.setLastForce(object.getString("lastForce"));
-                        model.setServerFlag(object.getString("serverFlag"));
-                        model.setServerVersion(object.getString("serverVersion"));
-                        model.setUpdateurl(object.getString("updateurl"));
-                        model.setUpgradeinfo(object.getString("upgradeinfo"));
-                        getUpdateInformation(model);
-                        checkVersion(MainActivityDownloadRxjava.this, false);
-                    }
 
-                }));
+                    }));
+        }else{
+
+        }
+
 
 
     }
@@ -170,7 +213,10 @@ public class MainActivityDownloadRxjava extends Activity {
     private void exit() {
         FileDownLoadUtil.getInstance(getApplicationContext()).exit();
     }
+    public boolean getExit() {
 
+        return FileDownLoadUtil.getInstance(getApplicationContext()).getExit();
+    }
     private void getUpdateInformation(ServerJsonInfoModel model) {
         try {
             /**
@@ -320,17 +366,7 @@ public class MainActivityDownloadRxjava extends Activity {
         mDialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
-
                 startDownload();
-
-
-//                Intent mIntent = new Intent(context, UpdateService.class);
-//                mIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                //传递数据
-//                mIntent.putExtra("appname", UpdateInformation.appname);
-//                mIntent.putExtra("appurl", UpdateInformation.updateurl);
-//                context.startService(mIntent);
             }
         }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
             @Override
@@ -411,7 +447,7 @@ public class MainActivityDownloadRxjava extends Activity {
         compositeDisposable.add(Observable.create(new ObservableOnSubscribe<FileDownLoadInfo>() {
             @Override
             public void subscribe(final ObservableEmitter<FileDownLoadInfo> emitter) throws Exception {
-                FileDownLoadUtil.getInstance(getApplicationContext()).download(downloadUrl, savDir, new DownloadProgressListener() {
+                FileDownLoadUtil.getInstance(getApplicationContext()).initialize(downloadUrl, savDir, new DownloadProgressListener() {
                     @Override
                     public void onDownloadGetFileSize(int totalSize) {
                         mFileInfo.setTotalSize(totalSize);
@@ -420,6 +456,8 @@ public class MainActivityDownloadRxjava extends Activity {
 
                     @Override
                     public void onDownloadSize(int size) {
+                        android.util.Log.e("mmmm", "onDownloadSize  =="+size );
+
                         mFileInfo.setDownloadedsize(size);
                         emitter.onNext(mFileInfo);
                     }
@@ -427,56 +465,22 @@ public class MainActivityDownloadRxjava extends Activity {
                     @Override
                     public void onDownloadComplete(File saveFilePath) {
                         mFileInfo.setmFile(saveFilePath);
+                        mFileInfo.setDownLoadComplete(true);
                         emitter.onNext(mFileInfo);
                         emitter.onComplete();
+                        exit();
                     }
 
                     @Override
                     public void onDownloadError(Exception e) {
                         emitter.onError(e);
                     }
-                });
-
+                }).download();
             }
         }).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(onNext, onError, onComplete));
     }
-
-    DownloadProgressListener downloadProgressListener = new DownloadProgressListener() {
-        @Override
-        public void onDownloadSize(int size) {
-            Message msg = new Message();
-            msg.what = PROCESSING;
-            msg.getData().putInt("size", size);
-            handler.sendMessage(msg);
-        }
-
-        @Override
-        public void onDownloadGetFileSize(int totalSize) {
-            progressBar.setMax(totalSize);
-
-        }
-
-        @Override
-        public void onDownloadComplete(File saveFilePath) {
-            Log.e("mmmm", "onDownloadComplete  saveFilePath==" + saveFilePath);
-
-            Uri uri = Uri.fromFile(saveFilePath);
-            //安装程序
-            Intent installIntent = new Intent(Intent.ACTION_VIEW);
-            installIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            installIntent.setDataAndType(uri,
-                    "application/vnd.android.package-archive");
-            MainActivityDownloadRxjava.this.startActivity(installIntent);
-
-        }
-
-        @Override
-        public void onDownloadError(Exception e) {
-
-        }
-    };
 
     @Override
     protected void onDestroy() {

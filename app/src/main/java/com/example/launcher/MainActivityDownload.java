@@ -126,7 +126,7 @@ public class MainActivityDownload extends Activity {
     }
 
     private void download(String path, File savDir) {
-        FileDownLoadUtil.getInstance(getApplicationContext()).download(path, savDir, downloadProgressListener);
+        FileDownLoadUtil.getInstance(getApplicationContext()).initialize(path, savDir, downloadProgressListener).download();
     }
 
     DownloadProgressListener downloadProgressListener = new DownloadProgressListener() {

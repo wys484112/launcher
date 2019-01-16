@@ -34,10 +34,11 @@ import java.util.HashMap;
 /**
  * Represents an app in AllAppsView.
  */
-public class FileDownLoadInfo extends Throwable{
-   private File   mFile;   //
-   private int totalSize=0;   //总的大小下载的文件
-   private int  downloadedsize;   //已经下载的大小
+public class FileDownLoadInfo extends Throwable {
+    private File mFile;   //
+    private int totalSize = 0;   //总的大小下载的文件
+    private int downloadedsize;   //已经下载的大小
+    private boolean isDownLoadComplete = false;
 
     public File getmFile() {
         return mFile;
@@ -63,4 +64,11 @@ public class FileDownLoadInfo extends Throwable{
         this.downloadedsize = downloadedsize;
     }
 
+    public boolean isDownLoadComplete() {
+        return isDownLoadComplete;
+    }
+
+    public void setDownLoadComplete(boolean downLoadComplete) {
+        isDownLoadComplete = downLoadComplete;
+    }
 }

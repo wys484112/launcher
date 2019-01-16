@@ -36,23 +36,30 @@ public class FileDownLoadUtil {
         }
         return instance;
     }
-
-    public void download(String path, File savDir, DownloadProgressListener listener) {
-        android.util.Log.e("mmmm", "download  ==" );
-
-        downloadProgressListener = listener;
-        task = new DownloadTask(path, savDir);
-        new Thread(task).start();
-
-    }
+//
+//    public void download(String path, File savDir, DownloadProgressListener listener) {
+//        downloadProgressListener = listener;
+//        task = new DownloadTask(path, savDir);
+//        new Thread(task).start();
+//
+//    }
     public void exit() {
         if (task != null)
             task.exit();
     }
 
-    private synchronized void download(String path, File savDir) {
-
+    public boolean getExit() {
+        if (task != null)
+            return task.getExit();
+        return true;
+    }
+    public FileDownLoadUtil initialize(String path, File savDir, DownloadProgressListener listener){
+        android.util.Log.e("mmmm", "download  ==" );
+        downloadProgressListener = listener;
         task = new DownloadTask(path, savDir);
+        return instance;
+    }
+    public void download() {
         new Thread(task).start();
     }
 
@@ -64,19 +71,25 @@ public class FileDownLoadUtil {
         public DownloadTask(String path, File saveDir) {
             this.path = path;
             this.saveDir = saveDir;
+            this.loader = new FileDownloader(mContext, path, saveDir,downloadProgressListener, 3);
+
         }
         public void exit() {
             if (loader != null)
                 loader.exit();
+        }
+        public boolean getExit() {
+            if (loader != null)
+                return loader.getExit();
+            return true;
         }
         @Override
         public void run() {
             try {
                 android.util.Log.e("mmmm", "run  ==" );
                 //构造下载器
-                loader = new FileDownloader(mContext, path, saveDir, 3);
                 //开始下载
-                loader.download(downloadProgressListener);
+                loader.download();
             } catch (Exception e) {
                 e.printStackTrace();
                 if (downloadProgressListener != null){

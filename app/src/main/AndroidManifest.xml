@@ -32,6 +32,8 @@
         android:name=".CustomerApplicaion"
         android:allowBackup="true"
         android:directBootAware="true"
+        android:largeHeap="true"
+        android:supportsRtl="true"
         android:hardwareAccelerated="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -82,9 +84,10 @@
             android:name=".MainTvActivity"
             android:banner="@drawable/app_icon_your_company"
             android:configChanges="density|fontScale|keyboard|keyboardHidden|layoutDirection|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode"
-            android:icon="@drawable/app_icon_your_company"
+            android:launchMode="singleTask"
+            android:icon="@drawable/ic_launcher"
             android:label="@string/title_activity_main_tv"
-            android:logo="@drawable/app_icon_your_company"
+            android:logo="@drawable/ic_launcher"
             android:screenOrientation="landscape"
             android:theme="@style/CustomImageCardTheme">
             <!--<intent-filter>-->
@@ -93,6 +96,14 @@
             <!--<category android:name="android.intent.category.HOME" />-->
             <!--<category android:name="android.intent.category.DEFAULT" />-->
             <!--</intent-filter>-->
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.MONKEY"/>
+                <category android:name="android.intent.category.HOME"/>
+            </intent-filter>
         </activity>
 
 
@@ -214,12 +225,25 @@
         <activity
             android:name=".MainActivityDownloadRxjava"
             android:label="@string/app_download">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
 
+
+        <activity
+            android:name=".MainActivityDownloadRxjavaService"
+            android:label="@string/app_download">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+
+        <!--<service-->
+            <!--android:name=".service.fotaudpate.FotaUpdateService"-->
+            <!--android:exported="false" />-->
     </application>
 
 </manifest>

@@ -40,7 +40,8 @@ public class FileDownloader {
 	private int blockLength;
 	/** 下载路径  */
 	private String downloadUrl;
-
+	/** 下载监听  */
+	private DownloadProgressListener listener;
 	/**
 	 * 构建文件下载器
 	 * @param downloadUrl 下载资源文件路径
@@ -48,8 +49,9 @@ public class FileDownloader {
 	 * @param threadNum 下载文件的线程数
 	 */
 	public FileDownloader(Context context, String downloadUrl,
-			File fileSaveDir, int threadNum) {
+			File fileSaveDir,DownloadProgressListener downloadProgressListener,int threadNum) {
 		try {
+			this.listener=downloadProgressListener;
 			this.context = context;
 			this.downloadUrl = downloadUrl;
 			fileService = new FileDBService(this.context);
@@ -81,6 +83,9 @@ public class FileDownloader {
 				this.fileSize = conn.getContentLength();// 获取资源文件的大小
 				if (this.fileSize <= 0){
 					throw new RuntimeException("Unkown file size ");
+				}
+				if (listener != null){
+					listener.onDownloadGetFileSize(this.fileSize);//通知目前已经下载完成
 				}
 				String filename = getFileName(conn);//获取文件名
 				this.saveFile = new File(fileSaveDir, filename);//构建保存文件
@@ -116,14 +121,11 @@ public class FileDownloader {
 	 * @return 已下载文件大小
 	 * @throws Exception
 	 */
-	public int download(DownloadProgressListener listener) throws Exception {
+	public int download() throws Exception {
 		try {
 			RandomAccessFile randOut = new RandomAccessFile(this.saveFile, "rw");
 			if (this.fileSize > 0){
 				randOut.setLength(this.fileSize); // 设置文件的大小
-			}
-			if (listener != null){
-				listener.onDownloadGetFileSize(this.fileSize);//通知目前已经下载完成
 			}
 			randOut.close();
 			URL url = new URL(this.downloadUrl);
