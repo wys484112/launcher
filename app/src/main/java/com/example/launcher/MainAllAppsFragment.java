@@ -273,16 +273,6 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        LauncherAppState.setApplicationContext(getActivity());
-        if (DEBUG)
-            Log.d(TAG, "restartLoader==");
-
-        if (savedInstanceState == null) {
-            getLoaderManager().initLoader(0, null, this);
-        } else {
-            getLoaderManager().initLoader(0, null, this);
-        }
     }
 
     @Override
@@ -290,6 +280,15 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
         if (DEBUG)
             Log.i(TAG, "onCreate");
         super.onActivityCreated(savedInstanceState);
+        LauncherAppState.setApplicationContext(getActivity());
+        if (DEBUG)
+            Log.d(TAG, "restartLoader==");
+
+        if (savedInstanceState == null) {
+            getLoaderManager().restartLoader(0, null, this);
+        } else {
+            getLoaderManager().restartLoader(0, null, this);
+        }
     }
 
 
