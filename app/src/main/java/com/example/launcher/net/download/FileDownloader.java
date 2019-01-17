@@ -175,6 +175,7 @@ public class FileDownloader {
 				fileService.delete(this.downloadUrl);// 下载完成删除记录
 			}
 		} catch (Exception e) {
+			fileService.delete(this.downloadUrl);//删除已有的缓存
 			if (listener != null){
 				listener.onDownloadError(e);//通知目前已经下载完成
 			}

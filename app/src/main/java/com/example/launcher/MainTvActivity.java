@@ -15,10 +15,18 @@
 package com.example.launcher;
 
 import android.app.Activity;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.os.RemoteException;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.widget.Toast;
+
+import com.example.launcher.util.ServiceUtils;
 
 import java.util.List;
 
@@ -37,10 +45,40 @@ public class MainTvActivity extends Activity {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_main_tv);
         setContentView(R.layout.activity_main_tv_new);
+
+        mToken = ServiceUtils.bindToService(this, osc);
+        if (mToken == null) {
+            // something went wrong
+            Toast.makeText(this, "service error!", Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
     public void onBackPressed() {
 //        super.onBackPressed();
     }
+
+
+
+    private ServiceUtils.ServiceToken mToken;
+    private IFotaUpdateService mService = null;
+    private ServiceConnection osc = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName classname, IBinder obj) {
+            mService = IFotaUpdateService.Stub.asInterface(obj);
+
+            if (mService != null) {
+                try {
+                    mService.startPostData();
+                } catch (RemoteException ex) {
+                }
+            }
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName classname) {
+            Log.e("mmmm","onServiceDisconnected");
+            mService = null;
+        }
+    };
 }
