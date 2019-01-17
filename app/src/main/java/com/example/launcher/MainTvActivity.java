@@ -37,6 +37,10 @@ public class MainTvActivity extends Activity {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_main_tv);
         setContentView(R.layout.activity_main_tv_new);
+    }
 
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
     }
 }
