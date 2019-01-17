@@ -292,6 +292,15 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
         super.onCreate(savedInstanceState);
 
 
+        LauncherAppState.setApplicationContext(getActivity());
+        if (DEBUG)
+            Log.d(TAG, "onCreate==");
+
+        if (savedInstanceState == null) {
+            getLoaderManager().restartLoader(0, null, this);
+        } else {
+            getLoaderManager().restartLoader(0, null, this);
+        }
     }
 
     @Override
@@ -301,15 +310,6 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
         super.onActivityCreated(savedInstanceState);
 
 
-        LauncherAppState.setApplicationContext(getActivity());
-        if (DEBUG)
-            Log.d(TAG, "restartLoader==");
-
-        if (savedInstanceState == null) {
-            getLoaderManager().restartLoader(0, null, this);
-        } else {
-            getLoaderManager().restartLoader(0, null, this);
-        }
 
     }
 

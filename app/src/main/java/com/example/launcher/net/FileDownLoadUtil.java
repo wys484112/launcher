@@ -3,7 +3,6 @@ package com.example.launcher.net;
 import android.content.Context;
 import android.os.Message;
 
-import com.activeandroid.util.Log;
 import com.example.launcher.net.download.DownloadProgressListener;
 import com.example.launcher.net.download.FileDownloader;
 

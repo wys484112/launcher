@@ -1,5 +1,6 @@
 package com.example.launcher.loader;
 
+import com.example.launcher.StartUpReceiver;
 import com.example.launcher.model.AppInfo;
 import com.example.launcher.util.IconCache;
 
@@ -145,7 +146,9 @@ public class AppLoader extends AsyncTaskLoader<List<AppInfo>> {
         if (mLocaleObserver == null) {
             mLocaleObserver = new SystemLocaleObserver(this);
         }
-
+        if (mBootcompleteObserver == null) {
+            mBootcompleteObserver = new BootCompleteObserver(this);
+        }
         if (takeContentChanged()) {
             // When the observer detects a new installed application, it will call
             // onContentChanged() on the Loader, which will cause the next call to
@@ -236,6 +239,10 @@ public class AppLoader extends AsyncTaskLoader<List<AppInfo>> {
     // The observer to notify the Loader when the system Locale has been changed.
     private SystemLocaleObserver mLocaleObserver;
 
+
+    private BootCompleteObserver mBootcompleteObserver;
+
+
     /**************************/
     /** (5) Everything else! **/
     /**************************/
@@ -255,7 +262,7 @@ public class AppLoader extends AsyncTaskLoader<List<AppInfo>> {
 }
 
 class InstalledAppsObserver extends BroadcastReceiver {
-    private static final String TAG = "ADP_InstalledAppsObserver";
+    private static final String TAG = "ADP_InstalledApps";
     private static final boolean DEBUG = true;
 
     private AppLoader mLoader;
@@ -288,7 +295,7 @@ class InstalledAppsObserver extends BroadcastReceiver {
 }
 
 class SystemLocaleObserver extends BroadcastReceiver {
-    private static final String TAG = "ADP_SystemLocaleObserver";
+    private static final String TAG = "ADP_SystemLocale";
     private static final boolean DEBUG = true;
 
     private AppLoader mLoader;
@@ -302,6 +309,34 @@ class SystemLocaleObserver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (DEBUG) Log.i(TAG, "+++ The observer has detected a locale change!" +
+                " Notifying Loader... +++");
+
+        // Tell the loader about the change.
+        mLoader.onContentChanged();
+    }
+
+
+}
+
+
+
+class BootCompleteObserver extends BroadcastReceiver {
+    private static final String TAG = "ADP_Boot";
+    private static final boolean DEBUG = true;
+
+    private AppLoader mLoader;
+
+    public BootCompleteObserver(AppLoader loader) {
+        mLoader = loader;
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(StartUpReceiver.SYSTEM_READY);
+        filter.addAction(Intent.ACTION_BOOT_COMPLETED);
+        mLoader.getContext().registerReceiver(this, filter);
+    }
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        if (DEBUG) Log.e(TAG, "+++ The observer has ACTION_BOOT_COMPLETED!" +
                 " Notifying Loader... +++");
 
         // Tell the loader about the change.
