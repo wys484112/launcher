@@ -14,6 +14,7 @@
 
 package com.example.launcher;
 
+import android.app.Fragment;
 import android.app.LoaderManager;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -42,6 +43,7 @@ import android.support.v17.leanback.widget.RowPresenter;
 import android.support.v17.leanback.widget.ShadowOverlayHelper;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
@@ -68,8 +70,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MainAllAppsFragment extends BrowseFragment implements LoaderManager.LoaderCallbacks<List<AppInfo>> {
-    private static final String TAG = "MainFragment";
-    private static final boolean DEBUG = false;
+    private static final String TAG = "MainTvActivity";
+    private static final boolean DEBUG = true;
 
     private static final int BACKGROUND_UPDATE_DELAY = 300;
     private static final int GRID_ITEM_WIDTH = 200;
@@ -113,9 +115,9 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
     }
 
     public void dismissProgressDialog() {
-        if (progressDialog != null && progressDialog.isShowing()) {
-            progressDialog.dismiss();
-        }
+//        if (progressDialog != null && progressDialog.isShowing()) {
+//            progressDialog.dismiss();
+//        }
     }
 
     @Override
@@ -125,54 +127,6 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
 
         dismissProgressDialog();
 
-//        appInfos = extractFavorites(appInfos);
-//        int size = appInfos.size();
-//        final int rows = size / NUM_COLS + 1;
-//
-//        mRowsAdapter = new ArrayObjectAdapter(new ListRowPresenter() {
-//            @Override
-//            public boolean isUsingDefaultShadow() {
-////                return super.isUsingDefaultShadow();
-//                return false;
-//            }
-//
-//            @Override
-//            protected ShadowOverlayHelper.Options createShadowOverlayOptions() {
-//                return super.createShadowOverlayOptions();
-//            }
-//
-//            @Override
-//            protected void initializeRowViewHolder(RowPresenter.ViewHolder holder) {
-//                super.initializeRowViewHolder(holder);
-//
-//                final ViewHolder rowViewHolder = (ViewHolder) holder;
-//                Context context = holder.view.getContext();
-//                // set wrapper if needed
-//                rowViewHolder.getGridView().setNumRows(rows);
-////                rowViewHolder.getGridView().setNumRows(rows);
-//            }
-//        });
-//        AppCardPresenter cardPresenter = new AppCardPresenter();
-//        Log.d("wwww", "rows==" + rows);
-//        Log.d("wwww", "size==" + size);
-//
-//        ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(cardPresenter);
-//        for (int i = 0; i < size; i++) {
-//            listRowAdapter.add(appInfos.get(i));
-//        }
-////            mRowsAdapter.add(new ListRow(null, listRowAdapter));
-//
-//
-//        AppRowPresenter gridPresenter = new AppRowPresenter();
-//        ArrayObjectAdapter gridAdapter = new ArrayObjectAdapter(gridPresenter);
-//        for (int i = 0; i < size; i++) {
-//            gridAdapter.add(appInfos.get(i));
-//        }
-//        mRowsAdapter.add(new ListRow(null, gridAdapter));
-
-
-        /**
-         * */
 
         mRowsAdapter = new ArrayObjectAdapter(new ListRowPresenter() {
             @Override
@@ -246,6 +200,54 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
 
     }
 
+    public MainAllAppsFragment() {
+        super();
+        if (DEBUG)
+            Log.d(TAG, "MainAllAppsFragment==");
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (DEBUG)
+            Log.d(TAG, "onActivityResult==");
+    }
+
+    @Override
+    public void onInflate(Context context, AttributeSet attrs, Bundle savedInstanceState) {
+        super.onInflate(context, attrs, savedInstanceState);
+        if (DEBUG)
+            Log.d(TAG, "onInflate==");
+    }
+
+    @Override
+    public void onAttachFragment(Fragment childFragment) {
+        super.onAttachFragment(childFragment);
+        if (DEBUG)
+            Log.d(TAG, "onAttachFragment==");
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (DEBUG)
+            Log.d(TAG, "onAttach==");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (DEBUG)
+            Log.d(TAG, "onStop==");
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        if (DEBUG)
+            Log.d(TAG, "onDetach==");
+    }
+
     @Override
     public void onLoaderReset(Loader<List<AppInfo>> loader) {
         if (DEBUG)
@@ -271,25 +273,44 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        if (DEBUG)
+            Log.i(TAG, "onActivityCreated");
+        super.onActivityCreated(savedInstanceState);
+
 
         LauncherAppState.setApplicationContext(getActivity());
         if (DEBUG)
             Log.d(TAG, "restartLoader==");
 
         if (savedInstanceState == null) {
-            getLoaderManager().initLoader(0, null, this);
+            getLoaderManager().restartLoader(0, null, this);
         } else {
-            getLoaderManager().initLoader(0, null, this);
+            getLoaderManager().restartLoader(0, null, this);
         }
-    }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        if (DEBUG)
-            Log.i(TAG, "onCreate");
-        super.onActivityCreated(savedInstanceState);
     }
 
 

@@ -19,6 +19,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 
 import java.util.List;
 
@@ -26,6 +27,8 @@ import java.util.List;
  * MainActivity class that loads {@link MainFragment}.
  */
 public class MainTvActivity extends Activity {
+    private static final String TAG = "MainTvActivity";
+    private static final boolean DEBUG = true;
     private TabLayout tabLayout;
     private ViewPager viewPager;
     //写一个List集合，把每个页面，也就是Fragment,存进去
@@ -37,6 +40,77 @@ public class MainTvActivity extends Activity {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_main_tv);
         setContentView(R.layout.activity_main_tv_new);
+        if (DEBUG)
+            Log.d(TAG, "onCreate==");
+    }
 
+    public MainTvActivity() {
+        super();
+        if (DEBUG)
+            Log.d(TAG, "MainTvActivity==");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (DEBUG)
+            Log.d(TAG, "onStart==");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (DEBUG)
+            Log.d(TAG, "onRestart==");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (DEBUG)
+            Log.d(TAG, "onResume==");
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        if (DEBUG)
+            Log.d(TAG, "onPostResume==");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (DEBUG)
+            Log.d(TAG, "onPause==");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (DEBUG)
+            Log.d(TAG, "onStop==");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (DEBUG)
+            Log.d(TAG, "onDestroy==");
+    }
+
+    @Override
+    public void onBackPressed() {
+
+//        super.onBackPressed();
+        if (DEBUG)
+            Log.d(TAG, "onBackPressed==");
+    }
+
+    @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        if (DEBUG)
+            Log.d(TAG, "onAttachedToWindow==");
     }
 }
