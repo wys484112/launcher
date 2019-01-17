@@ -12,7 +12,7 @@ import android.os.RemoteException;
 import android.util.Log;
 
 import com.example.launcher.service.fotaudpate.FotaUpdateService;
-import com.example.launcher.service.fotaudpate.IFotaUpdateService;
+import com.example.launcher.IFotaUpdateService;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

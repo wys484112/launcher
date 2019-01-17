@@ -1,5 +1,5 @@
 // IFotaUpdateService.aidl
-package com.example.launcher.service.fotaudpate;
+package com.example.launcher;
 
 // Declare any non-default types here with import statements
 

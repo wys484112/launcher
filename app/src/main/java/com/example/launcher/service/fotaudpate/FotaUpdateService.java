@@ -35,6 +35,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.launcher.IFotaUpdateService;
 import com.hwangjr.rxbus.RxBus;
 
 import java.lang.ref.WeakReference;
@@ -53,7 +54,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class FotaUpdateService extends Service {
 
-    private static final String TAG = "aaa";
+    private static final String TAG = "FotaUpdateService";
     private static final boolean DBG = true;
 
 
@@ -117,7 +118,8 @@ public class FotaUpdateService extends Service {
     }
 
     private void startPostData() {
-
+        if (DBG)
+            Log.d(TAG, "startPostData");
     }
 
     private void stopPostData() {

@@ -31,7 +31,7 @@ import com.example.launcher.fotaupdate.model.FileDownLoadInfo;
 import com.example.launcher.net.FileDownLoadUtil;
 import com.example.launcher.net.JsonUtil;
 import com.example.launcher.net.download.DownloadProgressListener;
-import com.example.launcher.service.fotaudpate.IFotaUpdateService;
+import com.example.launcher.IFotaUpdateService;
 import com.example.launcher.util.ServiceUtils;
 
 import org.json.JSONException;
