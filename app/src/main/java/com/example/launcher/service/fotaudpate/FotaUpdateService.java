@@ -8,6 +8,8 @@ package com.example.launcher.service.fotaudpate;
 import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
@@ -40,10 +42,12 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.RemoteViews;
 import android.widget.Toast;
 
 import com.example.launcher.IFotaUpdateService;
 import com.example.launcher.MainActivityDownloadRxjava;
+import com.example.launcher.MainTvActivity;
 import com.example.launcher.R;
 import com.example.launcher.fotaupdate.model.FileDownLoadInfo;
 import com.example.launcher.fotaupdate.model.ServerJsonInfoModel;
@@ -58,6 +62,7 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.lang.ref.WeakReference;
+import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -95,6 +100,28 @@ public class FotaUpdateService extends Service {
     AlertDialog.Builder mDialog;
 
 
+    // 通知栏
+    private NotificationManager updateNotificationManager = null;
+    private Notification updateNotification = null;
+    private Intent updateIntent = null;// 下载完成
+    private PendingIntent updatePendingIntent = null;// 在下载的时候
+    // BT字节参考量
+    private static final float SIZE_BT = 1024L;
+    // KB字节参考量
+    private static final float SIZE_KB = SIZE_BT * 1024.0f;
+    // MB字节参考量
+    private static final float SIZE_MB = SIZE_KB * 1024.0f;
+    private static final String UpdateAction = "action.update";
+    private UpdateReceiver updateReceiver = new UpdateReceiver();
+
+    class UpdateReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            startVersionUpdate(false);
+        }
+
+    }
     @Override
     public void onCreate() {
         super.onCreate();
@@ -103,10 +130,47 @@ public class FotaUpdateService extends Service {
 
 
         compositeDisposable = new CompositeDisposable();
-
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(UpdateAction);
+        registerReceiver(updateReceiver, filter);
     }
 
+    public static String getMsgSpeed(long downSize, long allSize) {
+        StringBuffer sBuf = new StringBuffer();
+        sBuf.append(getSize(downSize));
+        sBuf.append("/");
+        sBuf.append(getSize(allSize));
+        sBuf.append(" ");
+        sBuf.append(getPercentSize(downSize, allSize));
+        return sBuf.toString();
+    }
 
+    /**
+     * 获取大小
+     * @param size
+     * @return
+     */
+    public static String getSize(long size) {
+        if (size >= 0 && size < SIZE_BT) {
+            return (double) (Math.round(size * 10) / 10.0) + "B";
+        } else if (size >= SIZE_BT && size < SIZE_KB) {
+            return (double) (Math.round((size / SIZE_BT) * 10) / 10.0) + "KB";
+        } else if (size >= SIZE_KB && size < SIZE_MB) {
+            return (double) (Math.round((size / SIZE_KB) * 10) / 10.0) + "MB";
+        }
+        return "";
+    }
+    /**
+     * 获取到当前的下载百分比
+     * @param downSize   下载大小
+     * @param allSize    总共大小
+     * @return
+     */
+    public static String getPercentSize(long downSize, long allSize) {
+        String percent = (allSize == 0 ? "0.0" : new DecimalFormat("0.0")
+                .format((double) downSize / (double) allSize * 100));
+        return "(" + percent + "%)";
+    }
     @Override
     public IBinder onBind(Intent intent) {
         return mBinder;
@@ -338,6 +402,30 @@ public class FotaUpdateService extends Service {
     }
 
     private void startDownload() {
+
+
+        updateNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        updateNotification = new Notification();
+        //通知图标
+        updateNotification.icon = R.drawable.ic_launcher;
+        //通知信息描述
+        updateNotification.tickerText = "正在下载 " + getApplicationContext().getResources().getString(R.string.app_name);
+        updateNotification.when = System.currentTimeMillis();
+        updateIntent = new Intent(this, MainTvActivity.class);
+        updatePendingIntent = PendingIntent.getActivity(this, 0, updateIntent,
+                0);
+        updateNotification.contentIntent = updatePendingIntent;
+        updateNotification.contentIntent.cancel();
+        updateNotification.contentView = new RemoteViews(getPackageName(),
+                //这个布局很简单，就是一个图片和两个textview，分别是正在下载和下载进度
+                R.layout.download_notification);
+        updateNotification.contentView.setTextViewText(
+                R.id.download_notice_name_tv, getApplicationContext().getResources().getString(R.string.app_name) + " 正在下载");
+        updateNotification.contentView.setTextViewText(
+                R.id.download_notice_speed_tv, "0MB (0%)");
+        updateNotificationManager.notify(0, updateNotification);
+
+
         File savDir;
         if (Environment.MEDIA_MOUNTED.equals(Environment
                 .getExternalStorageState())) {
@@ -393,13 +481,32 @@ public class FotaUpdateService extends Service {
     Consumer<FileDownLoadInfo> onNext = new Consumer<FileDownLoadInfo>() {
         @Override
         public void accept(FileDownLoadInfo info) throws Exception {
-
+            updateNotification.contentView
+                    .setTextViewText(
+                            R.id.download_notice_speed_tv,
+                            getMsgSpeed(info.getDownloadedsize(),info.getTotalSize()));
+            updateNotificationManager.notify(0,
+                    updateNotification);
         }
     };
     Consumer<Throwable> onError = new Consumer<Throwable>() {
         @Override
         public void accept(Throwable o) throws Exception {
             Toast.makeText(getApplicationContext(), R.string.error, Toast.LENGTH_LONG).show();
+
+            Intent installIntent = new Intent(UpdateAction);
+
+            updatePendingIntent = PendingIntent.getActivity(
+                    FotaUpdateService.this, 0, installIntent, 0);
+            updateNotification.contentIntent = updatePendingIntent;
+            updateNotification.contentView.setTextViewText(
+            R.id.download_notice_speed_tv,
+                    getString(R.string.update_notice_error));
+            updateNotification.tickerText = getApplicationContext().getResources().getString(R.string.app_name) + getString(R.string.update_notice_error);
+            updateNotification.when = System.currentTimeMillis();
+            updateNotification.defaults = Notification.DEFAULT_SOUND;
+            updateNotification.flags |= Notification.FLAG_AUTO_CANCEL;
+            updateNotificationManager.notify(0, updateNotification);
 
         }
     };
@@ -415,7 +522,21 @@ public class FotaUpdateService extends Service {
             installIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             installIntent.setDataAndType(uri,
                     "application/vnd.android.package-archive");
-            startActivity(installIntent);
+
+
+            updatePendingIntent = PendingIntent.getActivity(
+                    FotaUpdateService.this, 0, installIntent, 0);
+            updateNotification.contentIntent = updatePendingIntent;
+            updateNotification.contentView.setTextViewText(
+                    R.id.download_notice_speed_tv,
+                    getString(R.string.update_notice_finish));
+            updateNotification.tickerText = getApplicationContext().getResources().getString(R.string.app_name) + "下载完成";
+            updateNotification.when = System.currentTimeMillis();
+            updateNotification.defaults = Notification.DEFAULT_SOUND;
+            updateNotification.flags |= Notification.FLAG_AUTO_CANCEL;
+            updateNotificationManager.notify(0, updateNotification);
+            FotaUpdateService.this.startActivity(installIntent);
+            stopSelf();
         }
     };
     private FileDownLoadInfo mFileInfo = new FileDownLoadInfo();
