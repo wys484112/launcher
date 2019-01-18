@@ -43,7 +43,7 @@ import java.util.List;
 
 public class MainAllAppsFragment extends BrowseFragment implements LoaderManager.LoaderCallbacks<List<AppInfo>> {
     private static final String TAG = "MainTvActivity";
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     private ArrayObjectAdapter mRowsAdapter;
 
