@@ -322,8 +322,9 @@ public class FotaUpdateService extends Service {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // 直接退出应用
-                //ManagerActivity.getInstance().finishActivity();
-//                System.exit(0);
+                Intent i=new Intent("action.exit");
+                sendBroadcast(i);
+                dialog.dismiss();
             }
         }).setCancelable(false);
 
@@ -331,7 +332,7 @@ public class FotaUpdateService extends Service {
         dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
         dialog.show();
         //不显示退出按键
-        ((AlertDialog) dialog).getButton(DialogInterface.BUTTON_NEGATIVE).setVisibility(View.GONE);
+//        ((AlertDialog) dialog).getButton(DialogInterface.BUTTON_NEGATIVE).setVisibility(View.GONE);
 
 
     }

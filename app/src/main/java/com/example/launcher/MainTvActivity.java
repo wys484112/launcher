@@ -18,12 +18,14 @@ import android.app.Activity;
 import android.content.ComponentName;
 import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.widget.Toast;
 
 import com.example.launcher.util.ServiceUtils;
@@ -33,7 +35,7 @@ import java.util.List;
 /*
  * MainActivity class that loads {@link MainFragment}.
  */
-public class MainTvActivity extends Activity {
+public class MainTvActivity extends BaseActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     //写一个List集合，把每个页面，也就是Fragment,存进去
@@ -64,9 +66,35 @@ public class MainTvActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-//        super.onBackPressed();
+        super.onBackPressed();
     }
 
+    private boolean mIsExit;
+    @Override
+    /**
+     * 双击返回键退出
+     */
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (mIsExit) {
+                this.finish();
+
+            } else {
+                Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
+                mIsExit = true;
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mIsExit = false;
+                    }
+                }, 2000);
+            }
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
 
 
     private ServiceUtils.ServiceToken mToken;
