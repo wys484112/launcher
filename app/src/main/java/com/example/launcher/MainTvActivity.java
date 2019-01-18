@@ -78,7 +78,7 @@ public class MainTvActivity extends Activity {
 
             if (mService != null) {
                 try {
-                    mService.startPostData();
+                    mService.startVersionUpdate(false);
                 } catch (RemoteException ex) {
                 }
             }

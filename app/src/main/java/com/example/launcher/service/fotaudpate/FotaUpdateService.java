@@ -103,47 +103,7 @@ public class FotaUpdateService extends Service {
 
 
         compositeDisposable = new CompositeDisposable();
-        if (true) {
-            compositeDisposable.add(Observable.create(new ObservableOnSubscribe<String>() {
-                @Override
-                public void subscribe(final ObservableEmitter<String> emitter) throws Exception {  //
-                    JsonUtil.getInstance(getApplicationContext()).getJsonData("http://172.16.1.78/update.json", new JsonUtil.DataCallBack() {
-                                @Override
-                                public void requestFailure(Exception e) {
-                                }
 
-                                @Override
-                                public void requestSuccess(String result) {
-                                    emitter.onNext(result);
-//                                emitter.onNext(result);
-
-                                    emitter.onComplete();
-                                }
-                            }
-                    );
-                }
-            }).subscribeOn(Schedulers.io()) //指定ObservableEmitter 发生的线程
-                    .observeOn(AndroidSchedulers.mainThread()) //指定回调comsumer发生的线程
-                    .subscribe(new Consumer<String>() {
-                        @Override
-                        public void accept(String result) throws Exception {
-                            Log.e("mmmm", "accept getJsonData  ==" + result);
-                            JSONObject object = new JSONObject(result);
-                            model.setAppname(object.getString("appname"));
-                            model.setLastForce(object.getString("lastForce"));
-                            model.setServerFlag(object.getString("serverFlag"));
-                            model.setServerVersion(object.getString("serverVersion"));
-                            model.setUpdateurl(object.getString("updateurl"));
-                            model.setUpgradeinfo(object.getString("upgradeinfo"));
-                            getUpdateInformation(model);
-                            Log.e("mmmm", "getExit getExit  ==true");
-                            checkVersion(getApplicationContext(), false);
-                        }
-
-                    }));
-        }else{
-
-        }
     }
 
 
@@ -289,6 +249,7 @@ public class FotaUpdateService extends Service {
             // 需要进行更新
             //更新
             clearUpateFile(context,UpdateInformation.updateurl);
+            DownloadThreadRecordClear(UpdateInformation.updateurl);
             update(context);
         } else {
             if (isShowDialog) {
@@ -296,6 +257,8 @@ public class FotaUpdateService extends Service {
                 noNewVersion(context);
             }
             clearUpateFile(context,UpdateInformation.updateurl);
+            DownloadThreadRecordClear(UpdateInformation.updateurl);
+
         }
     }
 
@@ -382,11 +345,7 @@ public class FotaUpdateService extends Service {
             savDir = getApplicationContext().getFilesDir();
         }
         Log.e("mmmm", "savedir==" + savDir.getAbsolutePath());
-        if(isDownlLoadFileComplete(UpdateInformation.updateurl)){
-
-        }else{
-            download(UpdateInformation.updateurl, savDir);
-        }
+        download(UpdateInformation.updateurl, savDir);
     }
 
     /**
@@ -513,6 +472,52 @@ public class FotaUpdateService extends Service {
             Log.d(TAG, "startPostData");
     }
 
+
+    private void startVersionUpdate(final boolean isShowDialog) {
+        if (DBG)
+            Log.d(TAG, "startVersionUpdate");
+
+        if (!isDownLoading()) {
+            compositeDisposable.add(Observable.create(new ObservableOnSubscribe<String>() {
+                @Override
+                public void subscribe(final ObservableEmitter<String> emitter) throws Exception {  //
+                    JsonUtil.getInstance(getApplicationContext()).getJsonData("http://172.16.1.78/update.json", new JsonUtil.DataCallBack() {
+                                @Override
+                                public void requestFailure(Exception e) {
+                                }
+
+                                @Override
+                                public void requestSuccess(String result) {
+                                    emitter.onNext(result);
+
+                                    emitter.onComplete();
+                                }
+                            }
+                    );
+                }
+            }).subscribeOn(Schedulers.io()) //指定ObservableEmitter 发生的线程
+                    .observeOn(AndroidSchedulers.mainThread()) //指定回调comsumer发生的线程
+                    .subscribe(new Consumer<String>() {
+                        @Override
+                        public void accept(String result) throws Exception {
+                            Log.e("mmmm", "accept getJsonData  ==" + result);
+                            JSONObject object = new JSONObject(result);
+                            model.setAppname(object.getString("appname"));
+                            model.setLastForce(object.getString("lastForce"));
+                            model.setServerFlag(object.getString("serverFlag"));
+                            model.setServerVersion(object.getString("serverVersion"));
+                            model.setUpdateurl(object.getString("updateurl"));
+                            model.setUpgradeinfo(object.getString("upgradeinfo"));
+                            getUpdateInformation(model);
+                            Log.e("mmmm", "getExit getExit  ==true");
+                            checkVersion(getApplicationContext(), isShowDialog);
+                        }
+
+                    }));
+        }
+    }
+
+
     private void stopPostData() {
 
     }
@@ -536,6 +541,10 @@ public class FotaUpdateService extends Service {
             mService.get().startPostData();
         }
 
+        @Override
+        public void startVersionUpdate( boolean isShowDialog) throws RemoteException {
+            mService.get().startVersionUpdate(isShowDialog);
+        }
         @Override
         public void stopPostData() throws RemoteException {
             mService.get().stopPostData();

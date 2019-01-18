@@ -12,5 +12,6 @@ interface IFotaUpdateService {
             double aDouble, String aString);
     void startPostData();
     void stopPostData();
+    void startVersionUpdate(boolean isShowDialog);
 
 }
