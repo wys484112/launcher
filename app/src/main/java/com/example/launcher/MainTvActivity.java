@@ -54,6 +54,15 @@ public class MainTvActivity extends Activity {
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mToken!=null){
+            ServiceUtils.unbindFromService(mToken);
+        }
+
+    }
+
+    @Override
     public void onBackPressed() {
 //        super.onBackPressed();
     }

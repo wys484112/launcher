@@ -73,6 +73,10 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ *
+ *
+ * */
 public class FotaUpdateService extends Service {
 
     private static final String TAG = "FotaUpdateService";
@@ -96,28 +100,6 @@ public class FotaUpdateService extends Service {
         super.onCreate();
         if (DBG)
             Log.d(TAG, "onCreate");
-    }
-
-
-    @Override
-    public IBinder onBind(Intent intent) {
-        return mBinder;
-    }
-
-    @Override
-    public boolean onUnbind(Intent intent) {
-        return super.onUnbind(intent);
-    }
-
-    @Override
-    public void onRebind(Intent intent) {
-        super.onRebind(intent);
-    }
-
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        if (DBG)
-            Log.d(TAG, "onStartCommand");
 
 
         compositeDisposable = new CompositeDisposable();
@@ -162,6 +144,29 @@ public class FotaUpdateService extends Service {
         }else{
 
         }
+    }
+
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        return mBinder;
+    }
+
+    @Override
+    public boolean onUnbind(Intent intent) {
+        return super.onUnbind(intent);
+    }
+
+    @Override
+    public void onRebind(Intent intent) {
+        super.onRebind(intent);
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        if (DBG)
+            Log.d(TAG, "onStartCommand");
+
         return START_STICKY;
     }
 
@@ -171,6 +176,9 @@ public class FotaUpdateService extends Service {
         if (compositeDisposable != null) {
             compositeDisposable.dispose();
         }
+        DownloadThreadExit();
+        DownloadThreadRecordClear(UpdateInformation.updateurl);
+        clearUpateFile(getApplicationContext(),UpdateInformation.updateurl);
     }
 
     private  boolean isDownlLoadFileComplete(String downloadUrl){
@@ -280,13 +288,14 @@ public class FotaUpdateService extends Service {
         if (UpdateInformation.localVersion < UpdateInformation.serverVersion) {
             // 需要进行更新
             //更新
+            clearUpateFile(context,UpdateInformation.updateurl);
             update(context);
         } else {
             if (isShowDialog) {
                 //没有最新版本，不用升级
                 noNewVersion(context);
             }
-            clearUpateFile(context);
+            clearUpateFile(context,UpdateInformation.updateurl);
         }
     }
 
@@ -410,18 +419,9 @@ public class FotaUpdateService extends Service {
      *
      * @param context
      */
-    private void clearUpateFile(final Context context) {
-        File updateDir;
-        File updateFile;
-        if (Environment.MEDIA_MOUNTED.equals(Environment
-                .getExternalStorageState())) {
-            updateDir = new File(Environment.getExternalStorageDirectory(),
-                    UpdateInformation.downloadDir);
-        } else {
-            updateDir = context.getFilesDir();
-        }
-        updateFile = new File(updateDir.getPath(), context.getResources()
-                .getString(R.string.app_name) + ".apk");
+    private void clearUpateFile(final Context context,String updateurl) {
+        File updateFile=getDownLoadFile(updateurl);
+
         if (updateFile.exists()) {
             Log.d("update", "升级包存在，删除升级包");
             updateFile.delete();
