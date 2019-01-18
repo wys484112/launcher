@@ -33,7 +33,6 @@ public class MainTvActivity extends Activity {
     private ViewPager viewPager;
     //写一个List集合，把每个页面，也就是Fragment,存进去
     private List<Fragment> list;
-    private MainTableLayoutTvActivity.MyAdapter adapter;
     private String[] titles = {"页面1", "页面2", "页面3"};
     @Override
     public void onCreate(Bundle savedInstanceState) {

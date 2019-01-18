@@ -1,1 +1,1 @@
-include ':app', ':activeandroid'
+include ':app'
