@@ -255,7 +255,7 @@ public class AppLoader extends AsyncTaskLoader<List<AppInfo>> {
 }
 
 class InstalledAppsObserver extends BroadcastReceiver {
-    private static final String TAG = "ADP_InstalledAppsObserver";
+    private static final String TAG = "ADP_InstalledApp";
     private static final boolean DEBUG = true;
 
     private AppLoader mLoader;
@@ -288,7 +288,7 @@ class InstalledAppsObserver extends BroadcastReceiver {
 }
 
 class SystemLocaleObserver extends BroadcastReceiver {
-    private static final String TAG = "ADP_SystemLocaleObserver";
+    private static final String TAG = "ADP_SystemLocal";
     private static final boolean DEBUG = true;
 
     private AppLoader mLoader;
