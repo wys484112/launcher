@@ -39,7 +39,7 @@ import java.util.List;
  */
 public class MainTvActivity extends Activity implements BootCompleteObserver.MFragmentCallbacks{
     private static final String TAG = "MainTvActivity";
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
     private BootCompleteObserver mBootcompleteObserver;
     private TextView  mLoading;
     private Context context;
