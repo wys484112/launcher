@@ -43,7 +43,7 @@ import java.util.List;
 
 public class MainAllAppsFragment extends BrowseFragment implements LoaderManager.LoaderCallbacks<List<AppInfo>> {
     private static final String TAG = "MainTvActivity";
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
 
     private ArrayObjectAdapter mRowsAdapter;
 
@@ -96,25 +96,25 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
 
             ArrayObjectAdapter mlistRowAdapter = new ArrayObjectAdapter(mgridPresenter);
             int start = (i) * NUM_COLS;
-            if (DEBUG)
-                Log.d(TAG, "i==" + i);
+//            if (DEBUG)
+//                Log.d(TAG, "i==" + i);
 
             if ((i + 1) == rows) {
-                if (DEBUG)
-                    Log.d(TAG, "add111==");
+//                if (DEBUG)
+//                    Log.d(TAG, "add111==");
 
                 for (int j = start; j < size; j++) {
-                    if (DEBUG)
-                        Log.d(TAG, "add111==");
+//                    if (DEBUG)
+//                        Log.d(TAG, "add111==");
 
                     mlistRowAdapter.add(appInfos.get(j));
                 }
             } else {
-                if (DEBUG)
-                    Log.d(TAG, "add22==");
+//                if (DEBUG)
+//                    Log.d(TAG, "add22==");
                 for (int j = 0; j < NUM_COLS; j++) {
-                    if (DEBUG)
-                        Log.d(TAG, "add22==");
+//                    if (DEBUG)
+//                        Log.d(TAG, "add22==");
                     mlistRowAdapter.add(appInfos.get(start + j));
                 }
             }
@@ -154,9 +154,9 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
             Log.d(TAG, "onCreate==");
 
         if (savedInstanceState == null) {
-            getLoaderManager().restartLoader(0, null, this);
+            getLoaderManager().initLoader(0, null, this);
         } else {
-            getLoaderManager().restartLoader(0, null, this);
+            getLoaderManager().initLoader(0, null, this);
         }
     }
 
@@ -165,6 +165,39 @@ public class MainAllAppsFragment extends BrowseFragment implements LoaderManager
         if (DEBUG)
             Log.i(TAG, "onActivityCreated");
         super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (DEBUG)
+            Log.d(TAG, "onStart==");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (DEBUG)
+            Log.d(TAG, "onPause==");
+
+//        getLoaderManager().restartLoader(0, null, this);
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (DEBUG)
+            Log.d(TAG, "onResume==");
+
+
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (DEBUG)
+            Log.d(TAG, "onStop==");
     }
 
     @Override

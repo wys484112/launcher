@@ -18,6 +18,9 @@
 
     <string name="cfc_title">DDW 社区</string>
 
+    <string name="loading">正在加载应用...</string>
+
+
     <string name="pkg_Settings">com.android.tv.settings</string>
     <string name="pkg_Filemanager">com.xiaobaifile.tv</string>
     <string name="pkg_Browser">播放器</string>
@@ -27,7 +30,7 @@
     <string name="cls_Filemanager">com.xiaobaifile.tv.view.StartupActivity</string>
     <string name="cls_Browser">播放器</string>
     <string name="cls_Mediaplayer">播放器</string>
-    <string name="title_activity_main_tv">Leanback MainTvActivity Title</string>
+    <string name="title_activity_main_tv">MainTvActivity</string>
     <string name="browse_title"><![CDATA[Videos by Your Company]]></string>
     <string name="related_movies">Related Videos</string>
     <string name="grid_view">Grid View</string>

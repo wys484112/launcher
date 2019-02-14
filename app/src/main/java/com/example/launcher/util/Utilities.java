@@ -36,11 +36,13 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.PaintDrawable;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 /**
@@ -341,5 +343,24 @@ public final class Utilities {
                     ". Make sure to create a MAIN intent-filter for the corresponding activity " +
                     "or use the exported attribute for this activity.", e);
         }
+    }
+
+
+    public static boolean isBootCompleted() {
+        return "1".equals(getSystemProperty("sys.boot_completed", "1"));
+    }
+
+    public static String getSystemProperty(String property, String defaultValue) {
+        try {
+            Class clazz = Class.forName("android.os.SystemProperties");
+            Method getter = clazz.getDeclaredMethod("get", String.class);
+            String value = (String) getter.invoke(null, property);
+            if (!TextUtils.isEmpty(value)) {
+                return value;
+            }
+        } catch (Exception e) {
+            Log.d(TAG, "Unable to read system properties");
+        }
+        return defaultValue;
     }
 }

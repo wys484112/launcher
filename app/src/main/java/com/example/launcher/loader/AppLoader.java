@@ -28,7 +28,7 @@ public class AppLoader extends AsyncTaskLoader<List<AppInfo>> {
     private static final boolean DEBUG = true;
 
     private final PackageManager mPm;
-
+    private final int MINAPKSNUM = 3;
     // We hold a reference to the Loader's data here.
     private List<AppInfo> mApps;
     private IconCache mIconCache;
@@ -156,7 +156,7 @@ public class AppLoader extends AsyncTaskLoader<List<AppInfo>> {
             // the current data is null), we force a new load.
             if (DEBUG) Log.i(TAG, "+++ A content change has been detected... so force load! +++");
             forceLoad();
-        } else if (mApps == null) {
+        } else if ((mApps == null)||(mApps!=null&&mApps.size()<=MINAPKSNUM)) {
             // If the current data is null... then we should make it non-null! :)
             if (DEBUG) Log.i(TAG, "+++ The current data is data is null... so force load! +++");
             forceLoad();
